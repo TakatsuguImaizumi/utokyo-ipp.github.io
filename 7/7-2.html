@@ -408,8 +408,25 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="モデル学習の基礎">
 <h2>モデル学習の基礎<a class="headerlink" href="#モデル学習の基礎" title="Permalink to this headline">¶</a></h2>
-<p>scikit-learnでは、以下の手順でデータからモデルの学習を行います。 - 使用するモデルのクラスの選択 - モデルのハイパーパラメータの選択とインスタンス化 - データの準備 - 教師あり学習では、特徴量データとラベルデータを準備 - 教師あり学習では、特徴量・ラベルデータをモデル学習用の訓練データとモデル評価用のテストデータに分ける - 教師なし学習では、特徴量データを準備 - モデルをデータに適合（<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッド） - モデルの評価 - 教師あり学習では、<code class="docutils literal notranslate"><span class="pre">predict()</span></code>
-メソッドを用いてテストデータの特徴量データからラベルデータを予測しその精度を評価を行う - 教師なし学習では、<code class="docutils literal notranslate"><span class="pre">transform()</span></code> または <code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いて特徴量データのクラスタリングや次元削減などを行う</p>
+<p>scikit-learnでは、以下の手順でデータからモデルの学習を行います。</p>
+<ul class="simple">
+<li><p>使用するモデルのクラスの選択</p></li>
+<li><p>モデルのハイパーパラメータの選択とインスタンス化</p></li>
+<li><p>データの準備</p>
+<ul>
+<li><p>教師あり学習では、特徴量データとラベルデータを準備</p></li>
+<li><p>教師あり学習では、特徴量・ラベルデータをモデル学習用の訓練データとモデル評価用のテストデータに分ける</p></li>
+<li><p>教師なし学習では、特徴量データを準備</p></li>
+</ul>
+</li>
+<li><p>モデルをデータに適合（<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッド）</p></li>
+<li><p>モデルの評価</p>
+<ul>
+<li><p>教師あり学習では、<code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いてテストデータの特徴量データからラベルデータを予測しその精度を評価を行う</p></li>
+<li><p>教師なし学習では、<code class="docutils literal notranslate"><span class="pre">transform()</span></code> または <code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いて特徴量データのクラスタリングや次元削減などを行う</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="教師あり学習・分類の例">
 <h2>教師あり学習・分類の例<a class="headerlink" href="#教師あり学習・分類の例" title="Permalink to this headline">¶</a></h2>
@@ -867,7 +884,7 @@ div.rendered_html tbody tr:hover {
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Masami Hagiya et al. .
+      &copy;2020, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

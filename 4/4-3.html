@@ -345,12 +345,24 @@ div.rendered_html tbody tr:hover {
 <h2>相対パスと絶対パス<a class="headerlink" href="#相対パスと絶対パス" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">text/novel.txt</span></code> という表現では、カレントディレクトリから<code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> までのパスを表しています。 ここで、Jupyter Notebook では、カレントディレクトリはノートブックの場所になるので、 どの場所に置かれたノートブックを開いているかによってカレントディレクトリが変わり、 それに応じて、同じファイルでもパスが変わります。</p>
 <p>このようなパスの表現を<strong>相対パス</strong>と呼びます。</p>
-<p>一方、 * Windowsの場合: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門\novel1.txt</span></code> * macOSの場合: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門/novel1.txt</span></code></p>
+<p>一方、</p>
+<ul class="simple">
+<li><p>Windowsの場合: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門\novel1.txt</span></code></p></li>
+<li><p>macOSの場合: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門/novel1.txt</span></code></p></li>
+</ul>
 <p>のように、ルートからのパスを記した場合、 カレントディレクトリの場所に関わらず、常に同じファイルを指すことができます。</p>
 <p>このようなパスの表現を<strong>絶対パス</strong>と呼びます。</p>
 <p>ところで、カレントディレクトリより下にあるファイルは、 そこまでに入るディレクトリ名を（Windowsであっても）<code class="docutils literal notranslate"><span class="pre">/</span></code> で区切って書けばよいですが、 その下にないファイルを指すにはどうしたらよいでしょうか？</p>
-<p>たとえば下の図のようにカレントディレクトリが * Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門</span></code> * macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門</span></code></p>
-<p>のとき、 * Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\メディアプログラミング入門\imagelist.csv</span></code> * macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Douments/メディアプログラミング入門/imagelist.csv</span></code></p>
+<p>たとえば下の図のようにカレントディレクトリが</p>
+<ul class="simple">
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門</span></code></p></li>
+<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門</span></code></p></li>
+</ul>
+<p>のとき、</p>
+<ul class="simple">
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\メディアプログラミング入門\imagelist.csv</span></code></p></li>
+<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Douments/メディアプログラミング入門/imagelist.csv</span></code></p></li>
+</ul>
 <p>を開きたい場合はどうしたらよいでしょう？</p>
 <p><img alt="Jupyter Notebook tree" src="../_images/jupyterTreeIllust2.png" /></p>
 <p>実は、1つ上のディレクトリを <code class="docutils literal notranslate"><span class="pre">..</span></code>（ピリオド2つ）で表現することができます。 上の例だと、</p>
@@ -478,7 +490,7 @@ div.rendered_html tbody tr:hover {
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Masami Hagiya et al. .
+      &copy;2020, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

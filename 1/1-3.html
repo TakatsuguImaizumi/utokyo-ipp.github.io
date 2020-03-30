@@ -385,7 +385,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="様々な条件">
 <h2>様々な条件<a class="headerlink" href="#様々な条件" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">if</span></code> の右などに来る条件として様々なものを書くことができます。これらの条件には <strong>``&gt;``</strong> や <strong>``&lt;``</strong> などの<strong>比較演算子</strong>が含まれています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> の右などに来る条件として様々なものを書くことができます。これらの条件には <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> や <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> などの<strong>比較演算子</strong>が含まれています。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>         <span class="c1"># x は y より小さい</span>
 <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span>        <span class="c1"># x は y 以下</span>
 <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>         <span class="c1"># x は y より大きい</span>
@@ -395,7 +395,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <p>特に等しいかどうかの比較には <code class="docutils literal notranslate"><span class="pre">==</span></code> という演算子が使われることに注意してください。 <code class="docutils literal notranslate"><span class="pre">=</span></code> は代入の演算子です。</p>
-<p><strong>``&lt;=``</strong> は小さいか等しいか、<strong>``&gt;=``</strong> は大きいか等しいかを表します。 <code class="docutils literal notranslate"><span class="pre">!=</span></code> は等しくないことを表します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> は小さいか等しいか、<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> は大きいか等しいかを表します。 <code class="docutils literal notranslate"><span class="pre">!=</span></code> は等しくないことを表します。</p>
 <p>さらに、このような基本的な条件を、 <code class="docutils literal notranslate"><span class="pre">and</span></code> と <code class="docutils literal notranslate"><span class="pre">or</span></code> を用いて組み合わせることができます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>   <span class="c1"># i は 0 以上で、かつ、j は 0 より大きい</span>
 <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>     <span class="c1"># i は 0 より小さいか、または、j は 0 より大きい</span>
@@ -746,7 +746,12 @@ NG
 <div class="section" id="▲条件として使われる他の値">
 <h2>▲条件として使われる他の値<a class="headerlink" href="#▲条件として使われる他の値" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">True</span></code> と <code class="docutils literal notranslate"><span class="pre">False</span></code> の他に、他の種類のデータも、条件としても用いることができます。</p>
-<p>たとえば: - 数のうち、0 や 0.0 は偽、その他は真とみなされます。 - 文字列では、空文字列 <code class="docutils literal notranslate"><span class="pre">''</span></code> のみ偽、その他は真とみなされます。（文字列については2-1を参照。） - 組み込み定数 <code class="docutils literal notranslate"><span class="pre">None</span></code> は偽とみなされます。（<code class="docutils literal notranslate"><span class="pre">None</span></code> については上記参照。）</p>
+<p>たとえば:</p>
+<ul class="simple">
+<li><p>数のうち、0 や 0.0 は偽、その他は真とみなされます。</p></li>
+<li><p>文字列では、空文字列 <code class="docutils literal notranslate"><span class="pre">''</span></code> のみ偽、その他は真とみなされます。（文字列については2-1を参照。）</p></li>
+<li><p>組み込み定数 <code class="docutils literal notranslate"><span class="pre">None</span></code> は偽とみなされます。（<code class="docutils literal notranslate"><span class="pre">None</span></code> については上記参照。）</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -970,7 +975,7 @@ OK
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Masami Hagiya et al. .
+      &copy;2020, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

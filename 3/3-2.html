@@ -434,7 +434,7 @@ a
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f11bf0a8b50&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fdb8cae9b50&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -906,7 +906,7 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f1188d6a040&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fdb567b19a0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -919,7 +919,12 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 <div class="section" id="id8">
 <h2>練習<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<p>次のような関数 <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> を作成してください。 - <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> はリスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> を引数とします。 - <code class="docutils literal notranslate"><span class="pre">list1</span></code> の各要素はリストであり、そのリストの要素は数です。 - <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> は、<code class="docutils literal notranslate"><span class="pre">list1</span></code> の各要素であるリストの総和を求め、それらの総和を足し合せて返します。</p>
+<p>次のような関数 <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> を作成してください。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> はリスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> を引数とします。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list1</span></code> の各要素はリストであり、そのリストの要素は数です。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> は、<code class="docutils literal notranslate"><span class="pre">list1</span></code> の各要素であるリストの総和を求め、それらの総和を足し合せて返します。</p></li>
+</ul>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -1053,7 +1058,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-101.55626615393517
+111.20931434200716
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1071,7 +1076,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-99.29577091047935
+100.12666361999136
 </pre></div></div>
 </div>
 <p>10000個の場合は相当に時間がかかることがわかります。 これは、<code class="docutils literal notranslate"><span class="pre">variance</span></code>のfor文の中で<code class="docutils literal notranslate"><span class="pre">average</span></code>を呼んでいるためです。 見かけ上は一重ループなのですが、<code class="docutils literal notranslate"><span class="pre">average</span></code>の中にもループがあるため、 二重ループと同じ時間がかかります。 したがって、10000個の場合は、100個の場合に比べて10000倍時間がかかります。</p>
@@ -1105,7 +1110,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-101.55626615393517
+111.20931434200716
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1123,7 +1128,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-99.29577091047935
+100.12666361999136
 </pre></div></div>
 </div>
 <p>10000個の場合でも一瞬で実行が終わったことでしょう。 この場合、一重のループを2回実行しているだけだからです。</p>
@@ -2166,7 +2171,7 @@ Yeah! 9
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Masami Hagiya et al. .
+      &copy;2020, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
