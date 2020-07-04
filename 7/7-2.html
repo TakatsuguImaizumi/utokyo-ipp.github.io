@@ -453,9 +453,6 @@ div.rendered_html tbody tr:hover {
 <span class="c1"># ロジスティック回帰モデル：最適化にはL-BFGS法、多クラス分類をサポート</span>
 <span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>  <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 
-<span class="c1"># ***scikit-leranのバージョンが0.19以前の環境ではこちらを実行してください***</span>
-<span class="c1"># model=LogisticRegression()</span>
-
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> <span class="c1"># モデルを訓練データに適合</span>
 <span class="n">y_predicted</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="c1"># テストデータでラベルを予測</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">)</span> <span class="c1"># 予測精度（accuracy）の評価</span>

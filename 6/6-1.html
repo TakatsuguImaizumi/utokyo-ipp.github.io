@@ -451,7 +451,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="id5">
 <h2>練習<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>数のリストが与えらえたとき、リストの要素の分散を求める関数 <code class="docutils literal notranslate"><span class="pre">var</span></code> を 内容表記と関数 <code class="docutils literal notranslate"><span class="pre">sum</span></code> を用いて定義してください。 以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">var</span></code> を作成してください。</p>
+<p>数のリストが与えらえたとき、リストの要素の分散を求める関数 <code class="docutils literal notranslate"><span class="pre">var</span></code> を 内包表記と関数 <code class="docutils literal notranslate"><span class="pre">sum</span></code> を用いて定義してください。 以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">var</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -629,7 +629,7 @@ False
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
+<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
 <span class="n">length</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
 </pre></div>
@@ -640,7 +640,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[3, 4, 8, 7]
+[3, 3, 8, 7]
 </pre></div></div>
 </div>
 <p>この場合、<code class="docutils literal notranslate"><span class="pre">length</span></code> として要素が <code class="docutils literal notranslate"><span class="pre">None</span></code> の場合を除いた<code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">3,</span> <span class="pre">8,</span> <span class="pre">7]</span></code> が得られます。</p>
@@ -653,7 +653,7 @@ False
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
+<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
 <span class="n">length_set</span> <span class="o">=</span> <span class="p">{</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length_set</span><span class="p">)</span>
 </pre></div>
@@ -664,7 +664,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{8, 3, 4, 7}
+{8, 3, 7}
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">length_set</span></code> として <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">7,</span> <span class="pre">8}</span></code> が得られます。 セット型なので、リストと異なり重複する要素は除かれます。</p>
@@ -677,7 +677,7 @@ False
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
+<span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">]</span>
 <span class="n">length_dic</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length_dic</span><span class="p">)</span>
 </pre></div>
@@ -688,7 +688,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;cat&#39;: 3, &#39;dog&#34;&#39;: 4, &#39;elephant&#39;: 8, &#39;giraffe&#39;: 7}
+{&#39;cat&#39;: 3, &#39;dog&#39;: 3, &#39;elephant&#39;: 8, &#39;giraffe&#39;: 7}
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">length_dic</span></code> として <code class="docutils literal notranslate"><span class="pre">{'cat':</span> <span class="pre">3,</span> <span class="pre">'dog':</span> <span class="pre">3,</span> <span class="pre">'elephant':</span> <span class="pre">8,</span> <span class="pre">'giraffe':</span> <span class="pre">7}</span></code> が得られます。</p>
@@ -708,7 +708,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{3: &#39;cat&#39;, 4: &#39;dog&#34;&#39;, 8: &#39;elephant&#39;, 7: &#39;giraffe&#39;}
+{3: &#39;dog&#39;, 8: &#39;elephant&#39;, 7: &#39;giraffe&#39;}
 </pre></div></div>
 </div>
 </div>

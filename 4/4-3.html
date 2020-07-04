@@ -278,12 +278,12 @@ div.rendered_html tbody tr:hover {
 <p>木構造のデータ形式について説明します。 この内容はPython言語に限らず、WindowsやMac、Linuxなどの一般的なOSにおいて共通する概念です。</p>
 <p>みなさん、Windowsではエクスプローラ、MacではFinderを使ってファイルを階層的に保存していますよね。</p>
 <p>下の例では、Windowsで <code class="docutils literal notranslate"><span class="pre">ドキュメント</span></code>（<code class="docutils literal notranslate"><span class="pre">Documents</span></code>) という名前のフォルダの中に <code class="docutils literal notranslate"><span class="pre">Python入門</span></code> というフォルダを作り、 その下にこの教材を置いた時の、エクスプローラの様子を表しています。</p>
-<p><img alt="エクスプローラ" src="../_images/Explore.png" /></p>
+<p><img alt="fig/Explore.png" src="../_images/Explore.png" /></p>
 <p>これは Jupyter Notebook では以下のように見えます。</p>
-<p><img alt="Jupyter Notebook" src="../_images/jupyterTree.png" /></p>
+<p><img alt="fig/jupyterTree.png" src="../_images/jupyterTree.png" /></p>
 <p>このようなデータ形式は以下のような図で表すこともできます。 まるで木を逆さにしたような形に見えますね。 ですからこのようなデータの形式を「木構造」と呼びます。</p>
 <p>また、一番根っこにあたるデータを「ルート（根）」、先端にあたるデータを「リーフ（葉）」、その間にあるデータを「ノード（節）」と呼びます。</p>
-<p><img alt="Jupyter Notebook tree" src="../_images/jupyterTreeIllust2.png" /></p>
+<p><img alt="fig/jupyterTreeIllust.png" src="../_images/jupyterTreeIllust.png" /></p>
 <p>データの保存においては、ファイルはリーフ（葉）に相当し、フォルダはノード（節）に相当します。 ルートはハードディスクやUSBメモリなど記録媒体自体に対応することが多いです。 ハードディスクに入っているファイルと、USBメモリに入っているファイルは、それぞれ違う木に属するデータということです。</p>
 <div class="section" id="カレントディレクトリ">
 <h2>カレントディレクトリ<a class="headerlink" href="#カレントディレクトリ" title="Permalink to this headline">¶</a></h2>
@@ -364,7 +364,7 @@ div.rendered_html tbody tr:hover {
 <li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Douments/メディアプログラミング入門/imagelist.csv</span></code></p></li>
 </ul>
 <p>を開きたい場合はどうしたらよいでしょう？</p>
-<p><img alt="Jupyter Notebook tree" src="../_images/jupyterTreeIllust2.png" /></p>
+<p><img alt="fig/jupyterTreeIllust2.png" src="../_images/jupyterTreeIllust2.png" /></p>
 <p>実は、1つ上のディレクトリを <code class="docutils literal notranslate"><span class="pre">..</span></code>（ピリオド2つ）で表現することができます。 上の例だと、</p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../メディアプログラミング入門/imagelist.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -381,10 +381,10 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="木構造によるデータ表現">
 <h2>木構造によるデータ表現<a class="headerlink" href="#木構造によるデータ表現" title="Permalink to this headline">¶</a></h2>
 <p>木構造はファイルやディレクトリの保存形式だけでなく、データの表現として幅広く利用されます。 たとえば家系図も木構造による表現です。「家系図」は英語で &quot;family tree&quot; ですよね。</p>
-<p><img alt="Family tree" src="../_images/FamilyTree.png" /></p>
+<p><img alt="fig/FamilyTree.png" src="../_images/FamilyTree.png" /></p>
 <p>このような構造を持つデータでは、まるで家系図のように、 上位下位関係にあるデータ同士を「親子 (parent/child)」と呼んだり、 同位関係にあるものを「兄妹 (sibling)」と呼んだりします。 「祖先 (ancestor)」や「子孫 (desendant)」という表現も使われます。</p>
 <p>データのこのような表現は、実際に親子関係にあるかは関係ありません。 たとえば下の図は四肢動物の系統樹です。</p>
-<p><img alt="tree" src="../_images/PhylogeneticTree.png" /></p>
+<p><img alt="fig/PhylogeneticTree.png" src="../_images/PhylogeneticTree.png" /></p>
 <p>データ構造的には、「有羊膜類」と「哺乳類」は親子関係にあるというわけです。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

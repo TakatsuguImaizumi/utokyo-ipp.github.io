@@ -282,7 +282,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>正規表現</strong> (regular expression) を扱う場合、<code class="docutils literal notranslate"><span class="pre">re</span></code> というモジュールをインポートする必要があります。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -296,8 +296,8 @@ div.rendered_html tbody tr:hover {
 <p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は文字列 <code class="docutils literal notranslate"><span class="pre">abcde</span></code> （の部分文字列 <code class="docutils literal notranslate"><span class="pre">abc</span></code>）にマッチします。</p>
 <p>正規表現に文字列がマッチしているかどうかを調べることのできる関数に <code class="docutils literal notranslate"><span class="pre">match</span></code> があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> は、指定した <code class="docutils literal notranslate"><span class="pre">正規表現A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code>（の先頭部分）にマッチするかどうか調べます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -308,10 +308,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+None
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> では、マッチが成立している場合、<strong>matchオブジェクト</strong>と呼ばれる特殊なデータを返します。マッチが成立しない場合、 <code class="docutils literal notranslate"><span class="pre">None</span></code> を返します。</p>
 <p>つまり、マッチする部分文字列を含む場合、返値は <code class="docutils literal notranslate"><span class="pre">None</span></code> ではないので、if文などの条件で真とみなされます。 したがって以下のようにして条件分岐することができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -326,11 +335,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+正規表現abcが文字列abcdeにマッチする
+正規表現abcが文字列ababcにマッチしない
+</pre></div></div>
+</div>
 <p>さて、上で紹介したmatchオブジェクトには、マッチした文字列の情報が格納されています。上のセルの1つ目の実行結果をprintしたものを見てください。</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;_sre.SRE_Match</span> <span class="pre">object;</span> <span class="pre">span=(0,</span> <span class="pre">3),</span> <span class="pre">match='abc'&gt;</span></code>と表示されていると思います。このオブジェクト内の <code class="docutils literal notranslate"><span class="pre">match</span></code> という値は、マッチした文字列を、 <code class="docutils literal notranslate"><span class="pre">span</span></code> という値はマッチしたパターンが存在する、文字列のインデックスの範囲を表します。</p>
 <p>正規表現では大文字と小文字は区別されます。たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は文字列 <code class="docutils literal notranslate"><span class="pre">ABCdef</span></code> にはマッチしません。勿論、正規表現 <code class="docutils literal notranslate"><span class="pre">ABC</span></code> も文字列 <code class="docutils literal notranslate"><span class="pre">abcdef</span></code> にはマッチしません。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -341,9 +359,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+None
+</pre></div></div>
+</div>
 <p>そこで <code class="docutils literal notranslate"><span class="pre">match</span></code> の3番目の引数として <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">re.I</span></code> を指定すると、大文字と小文字を区別せずにマッチするかどうかを調べることができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -364,9 +391,23 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 3), match=&#39;ABC&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;ABC&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;ABC&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;ABC&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;aBc&#39;&gt;
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> は文字列の先頭がマッチするかどうか調べますので、次のような場合、matchオブジェクトを返さずに <code class="docutils literal notranslate"><span class="pre">None</span></code> が返されます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -377,10 +418,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+None
+</pre></div></div>
+</div>
 <p>文字列の先頭しか調べられないのでは、いかにも不便です。</p>
 <p>そこで、関数 <strong>``search``</strong> は、指定した <code class="docutils literal notranslate"><span class="pre">正規表現A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> に（文字列の先頭以外でも）マッチするかどうか調べることができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -393,9 +443,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(2, 5), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(3, 6), match=&#39;def&#39;&gt;
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">search</span></code> の場合も3番目の引数として <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>、 もしくは <code class="docutils literal notranslate"><span class="pre">re.I</span></code> を指定することで、大文字と小文字を区別せずにマッチするかどうかを調べることができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -414,9 +474,22 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+None
+&lt;re.Match object; span=(0, 3), match=&#39;ABC&#39;&gt;
+&lt;re.Match object; span=(3, 6), match=&#39;def&#39;&gt;
+&lt;re.Match object; span=(6, 9), match=&#39;NOT&#39;&gt;
+&lt;re.Match object; span=(6, 9), match=&#39;not&#39;&gt;
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> 関数と同様に、 <code class="docutils literal notranslate"><span class="pre">search</span></code> 関数においても、if文を使った条件分岐が可能であることは覚えておいてください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -431,9 +504,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+正規表現notが文字列It is NOT me.にマッチしない
+正規表現notが文字列It is NOT me.にマッチする
+</pre></div></div>
+</div>
 <p>文字列の先頭からのマッチを調べたいときには、正規表現の先頭にキャレット (<code class="docutils literal notranslate"><span class="pre">^</span></code>) をつけてください。また、文字列の最後からマッチさせたいときは、正規表現の最後にドル記号 (<code class="docutils literal notranslate"><span class="pre">$</span></code>) をつけてください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -466,7 +548,7 @@ None
 <p>というのも、ここまで見てきた1つの正規表現によって、1つの文字列を表していたからです。しかし、最初に言った通り、正規表現は文字列の「パターン」を表します。すなわち、1つの正規表現で複数の文字列を表すことが可能なのです。</p>
 <p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">ab</span></code> と正規表現 <code class="docutils literal notranslate"><span class="pre">de</span></code> という2つの正規表現を <code class="docutils literal notranslate"><span class="pre">|</span></code> という記号で繋げた <code class="docutils literal notranslate"><span class="pre">ab|de</span></code> も正規表現を表します。この正規表現では、<code class="docutils literal notranslate"><span class="pre">ab</span></code> と <code class="docutils literal notranslate"><span class="pre">de</span></code> という2つの文字列を表しており、これらのいずれかを含む文字列にマッチします。この <code class="docutils literal notranslate"><span class="pre">|</span></code> の記号（演算）を<strong>和</strong>、もしくは<strong>選択</strong>といいます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -510,8 +592,8 @@ None
 <p>上記の3番目の例に注意してください。正規表現 <code class="docutils literal notranslate"><span class="pre">ab</span> <span class="pre">|</span> <span class="pre">de</span></code> では <code class="docutils literal notranslate"><span class="pre">ab</span></code> が <code class="docutils literal notranslate"><span class="pre">de</span></code> よりも先に記述されていますが、マッチする文字列は文字列上で先に出てきた方（<code class="docutils literal notranslate"><span class="pre">ab</span></code> ではなく、<code class="docutils literal notranslate"><span class="pre">de</span></code>）であることに注意してください。</p>
 <p>細かい話ですが、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は、正規表現 <code class="docutils literal notranslate"><span class="pre">a</span></code> と正規表現 <code class="docutils literal notranslate"><span class="pre">b</span></code> と正規表現 <code class="docutils literal notranslate"><span class="pre">c</span></code> という3つの正規表現を繋げて構成された正規表現であり、このように正規表現を繋げて新しい正規表現を作る演算を<strong>連接</strong>といいます。</p>
 <p>また、<code class="docutils literal notranslate"><span class="pre">a*</span></code> も正規表現です。この正規表現では、0 個以上の a からなる文字列を表しています。この <code class="docutils literal notranslate"><span class="pre">*</span></code> の演算を<strong>閉包</strong>といいます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -526,10 +608,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 1), match=&#39;a&#39;&gt;
+&lt;re.Match object; span=(0, 2), match=&#39;aa&#39;&gt;
+&lt;re.Match object; span=(0, 0), match=&#39;&#39;&gt;
+&lt;re.Match object; span=(0, 5), match=&#39;boooo&#39;&gt;
+</pre></div></div>
+</div>
 <p>上記の3番目の例において（<code class="docutils literal notranslate"><span class="pre">a</span></code> という文字が含まれていないにも関わらず） <code class="docutils literal notranslate"><span class="pre">None</span></code> が返らずに、マッチしているのを不思議に思いませんでしたか？　しかし、<code class="docutils literal notranslate"><span class="pre">a*</span></code> は「0個以上」の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列を表すことができることに注意してください。その結果として、<code class="docutils literal notranslate"><span class="pre">cde</span></code> という文字列も「0個」の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列（このような長さ0の文字列を<strong>空列</strong>、もしくは<strong>空文字列</strong>といいます）を含むので <code class="docutils literal notranslate"><span class="pre">cde</span></code> という文字列の先頭部分（の空列）にマッチしているのです。</p>
 <p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abb*</span></code> は、 <code class="docutils literal notranslate"><span class="pre">ab</span></code>,<code class="docutils literal notranslate"><span class="pre">abb</span></code>,<code class="docutils literal notranslate"><span class="pre">abbb</span></code>,… という文字列にマッチします。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -547,9 +640,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 2), match=&#39;ab&#39;&gt;
+&lt;re.Match object; span=(1, 4), match=&#39;abb&#39;&gt;
+None
+&lt;re.Match object; span=(4, 13), match=&#39;hellooooo&#39;&gt;
+None
+</pre></div></div>
+</div>
 <p>これまでに紹介した連接、和、閉包という3つの演算を組み合わせることで様々な正規表現を記述することができますが、これらの演算には結合の強さが存在します。たとえば、先に見た <code class="docutils literal notranslate"><span class="pre">ab</span> <span class="pre">|</span> <span class="pre">cd</span></code> という正規表現は、 <code class="docutils literal notranslate"><span class="pre">ab</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">cd</span></code> という文字列にマッチします（<code class="docutils literal notranslate"><span class="pre">(ab)|(cd)</span></code> と同じ意味です）。つまり、連接の方が和よりも強く結合しているのです。そこで、丸括弧を使って <code class="docutils literal notranslate"><span class="pre">a(b|c)d</span></code> とすると、この正規表現は、<code class="docutils literal notranslate"><span class="pre">abd</span> <span class="pre">|</span> <span class="pre">acd</span></code> と同じ意味になります。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -585,8 +690,8 @@ None
 </pre></div></div>
 </div>
 <p>演算の結合の強さは、「和 &lt; 連接 &lt; 閉包」という順序になっています。これは数学の、「和（＋）&lt; 積(×) &lt; べき」と同じですので、直感的にも分かり易いと思います。これまでに紹介した連接、和、閉包という3つの演算と結合の順序を明記する丸括弧 <code class="docutils literal notranslate"><span class="pre">()</span></code> とを組み合わせることで様々な正規表現を記述することができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -607,9 +712,23 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(3, 6), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(2, 3), match=&#39;a&#39;&gt;
+&lt;re.Match object; span=(5, 13), match=&#39;category&#39;&gt;
+&lt;re.Match object; span=(18, 21), match=&#39;car&#39;&gt;
+&lt;re.Match object; span=(9, 15), match=&#39;cattle&#39;&gt;
+&lt;re.Match object; span=(9, 12), match=&#39;cat&#39;&gt;
+None
+</pre></div></div>
+</div>
 <p>Pythonでは正規表現は文字列によって表していることに注意してください。たとえば、<code class="docutils literal notranslate"><span class="pre">match</span></code> 関数の第一引数を文字列の変数で置き換えられるということです。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -621,9 +740,18 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+</pre></div></div>
+</div>
 <p>このことを覚えておくと複雑な正規表現を書くときに、少しずつ分解して記述することができて便利です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -638,6 +766,16 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 6), match=&#39;It was&#39;&gt;
+(I|i)t(&#39;s| is| was)
+&lt;re.Match object; span=(0, 6), match=&#39;It was&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
@@ -647,8 +785,8 @@ None
 <li><p><code class="docutils literal notranslate"><span class="pre">mm</span></code> は、<code class="docutils literal notranslate"><span class="pre">00</span></code>, <code class="docutils literal notranslate"><span class="pre">01</span></code>, …, <code class="docutils literal notranslate"><span class="pre">12</span></code> のいずれかの文字列</p></li>
 </ol>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -658,9 +796,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-18-1a32806d32e9&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -671,13 +821,29 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-19-2e84418df86e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;mon1521vb&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;00an23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;13302&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;02&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_monthstr&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id4">
 <h2>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -687,9 +853,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-20-4144afe1298b&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -698,6 +876,21 @@ None
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-21-578e52450be5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="id5">
@@ -709,8 +902,8 @@ None
 <li><p>後半の2文字 <code class="docutils literal notranslate"><span class="pre">mm</span></code> は、 <code class="docutils literal notranslate"><span class="pre">00</span></code>, <code class="docutils literal notranslate"><span class="pre">01</span></code>, …, <code class="docutils literal notranslate"><span class="pre">59</span></code> のいずれかの文字列</p></li>
 </ol>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -720,9 +913,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-22-49048bc2cff9&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -733,6 +938,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-23-b20693e52e53&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?1023&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?11:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11:23&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;12:3xx1;23ah23:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_timestr&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id6">
 <h2>練習<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
@@ -742,8 +963,8 @@ None
 <li><p><code class="docutils literal notranslate"><span class="pre">aaa</span></code>, <code class="docutils literal notranslate"><span class="pre">bbb</span></code>, <code class="docutils literal notranslate"><span class="pre">ccc</span></code>, <code class="docutils literal notranslate"><span class="pre">ddd</span></code> はいずれも、 <code class="docutils literal notranslate"><span class="pre">000</span></code>, <code class="docutils literal notranslate"><span class="pre">001</span></code>, …, <code class="docutils literal notranslate"><span class="pre">254</span></code>, <code class="docutils literal notranslate"><span class="pre">255</span></code> のいずれかの文字列</p></li>
 </ol>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -753,9 +974,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-24-37c7b1e3c96b&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -765,6 +998,22 @@ None
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;IP?=255:255:255&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-25-a5d78279eda5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP=255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;notIP=2x5:a5b:2c:255:14:444&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=25:25:55:155&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=255:255:255&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_ipv4str&#39; is not defined
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="id7">
@@ -778,8 +1027,8 @@ None
 <li><p><code class="docutils literal notranslate"><span class="pre">dd</span></code> は、<code class="docutils literal notranslate"><span class="pre">mm</span></code> が <code class="docutils literal notranslate"><span class="pre">02</span></code> ならば、<code class="docutils literal notranslate"><span class="pre">01</span></code>, <code class="docutils literal notranslate"><span class="pre">02</span></code>, …, <code class="docutils literal notranslate"><span class="pre">29</span></code> のいずれかの文字列</p></li>
 </ol>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,9 +1038,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-26-27e73dd1e9b1&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -802,6 +1063,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-27-d292ac577c53&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;year11/31month11/30day15hour/27minute/sec&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11/30&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;11/31&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;x02f/2d5ax&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_monthdaystr&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="正規表現の応用1">
 <h2>正規表現の応用1<a class="headerlink" href="#正規表現の応用1" title="Permalink to this headline">¶</a></h2>
@@ -809,8 +1086,8 @@ None
 <div class="section" id="文字クラス">
 <h3><strong>文字クラス</strong><a class="headerlink" href="#文字クラス" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">[abc]</span></code> は <code class="docutils literal notranslate"><span class="pre">a|b|c</span></code> と同じ意味の正規表現です（<strong>文字クラス</strong>といいます）。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -824,9 +1101,19 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(3, 4), match=&#39;a&#39;&gt;
+&lt;re.Match object; span=(2, 3), match=&#39;3&#39;&gt;
+&lt;re.Match object; span=(3, 6), match=&#39;has&#39;&gt;
+</pre></div></div>
+</div>
 <p>勿論、これまでの和や閉包と組み合わせて用いることができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -841,9 +1128,20 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(2, 4), match=&#39;fa&#39;&gt;
+&lt;re.Match object; span=(3, 7), match=&#39;4567&#39;&gt;
+&lt;re.Match object; span=(5, 9), match=&#39;6789&#39;&gt;
+&lt;re.Match object; span=(20, 29), match=&#39;they have&#39;&gt;
+</pre></div></div>
+</div>
 <p>ただし、文字クラスの中で連接、和、閉包は無効化されます。たとえば、<code class="docutils literal notranslate"><span class="pre">[a*]</span></code> という正規表現は、<code class="docutils literal notranslate"><span class="pre">a</span></code> もしくは、<code class="docutils literal notranslate"><span class="pre">*</span></code> にマッチします。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -880,8 +1178,8 @@ None
 </div>
 <p>文字クラスでは一文字分の連続する和演算を表すことができますが、長さ2以上の文字列を表すことはできません。すなわち、<code class="docutils literal notranslate"><span class="pre">ab</span> <span class="pre">|</span> <span class="pre">cd</span></code> という正規表現を（1つの）文字クラスで表すことはできません。</p>
 <p>また、 <code class="docutils literal notranslate"><span class="pre">[abcdefg]</span></code> や <code class="docutils literal notranslate"><span class="pre">[gcdbeaf]</span></code> などは <code class="docutils literal notranslate"><span class="pre">[a-g]</span></code>、<code class="docutils literal notranslate"><span class="pre">[1234567]</span></code> や <code class="docutils literal notranslate"><span class="pre">[4271635]</span></code> などは <code class="docutils literal notranslate"><span class="pre">[1-7]</span></code> などとハイフン (<code class="docutils literal notranslate"><span class="pre">-</span></code>) を用いることで簡潔に表すことができます。たとえば、全てのアルファベットと数字を表す場合は、<code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9]</span></code> で表されます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -894,12 +1192,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(3, 4), match=&#39;a&#39;&gt;
+&lt;re.Match object; span=(2, 4), match=&#39;34&#39;&gt;
+&lt;re.Match object; span=(6, 13), match=&#39;:d4e5f:&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="否定文字クラス">
 <h3><strong>否定文字クラス</strong><a class="headerlink" href="#否定文字クラス" title="Permalink to this headline">¶</a></h3>
 <p>文字クラスで用いた括弧 (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) の先頭に、キャレット (<code class="docutils literal notranslate"><span class="pre">^</span></code>) をつけると（すなわち、<code class="docutils literal notranslate"><span class="pre">[^]</span></code> とすると）、キャレットの後ろに指定した文字以外の文字とマッチする正規表現を作成できます。たとえば、<code class="docutils literal notranslate"><span class="pre">[^abc]</span></code> は <code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">b</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code> 以外の1文字とマッチする正規表現です。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -926,8 +1234,8 @@ None
 </pre></div></div>
 </div>
 <p>キャレットを先頭以外につけた場合は、単なる文字クラスになります。すなわち、キャレットにマッチするかどうかが判定されます。たとえば、<code class="docutils literal notranslate"><span class="pre">[d^ef]</span></code> は、<code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>. <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> のいずれかにマッチします。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -937,6 +1245,15 @@ None
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 1), match=&#39;d&#39;&gt;
+&lt;re.Match object; span=(1, 2), match=&#39;^&#39;&gt;
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -948,8 +1265,8 @@ None
 <p><code class="docutils literal notranslate"><span class="pre">sub</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、指定した <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> で置き換えることができます。</p>
 <p>具体的には次のようにすると、</p>
 <p><code class="docutils literal notranslate"><span class="pre">R</span></code> とマッチする <code class="docutils literal notranslate"><span class="pre">A</span></code> 中の全ての文字列を <code class="docutils literal notranslate"><span class="pre">B</span></code> と置き換えることができます。置き換えられた結果の文字列（新たに作られて）が返り値となります。（もちろん、もとの文字列 <code class="docutils literal notranslate"><span class="pre">A</span></code> は変化しません。）</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -962,13 +1279,23 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0x-5x5x-x828x
+He has three pets a cat a dog and a giraffe doesn&#39;t he
+accountname@test.ecc.u-tokyo.ac.jp
+</pre></div></div>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ \t\n][ \t\n]*&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>とすると、文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の空白文字の並びがスペース1個に置き換わります。</p>
 <p>ここで、<code class="docutils literal notranslate"><span class="pre">r'[</span> <span class="pre">\t\n][</span> <span class="pre">\t\n]*'</span></code> という正規表現は、空白かタブか改行の1回以上の繰り返しのパターンを表します。つまり、<code class="docutils literal notranslate"><span class="pre">aa*</span></code> という形をした「1回以上の <code class="docutils literal notranslate"><span class="pre">a</span></code> という文字列とマッチする正規表現」は <code class="docutils literal notranslate"><span class="pre">a+</span></code> という <code class="docutils literal notranslate"><span class="pre">+</span></code> を使った正規表現で置き換えることが可能です。この <code class="docutils literal notranslate"><span class="pre">+</span></code> は後で正式に紹介します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -976,15 +1303,33 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello, World! How are you?&#39;
+</pre></div></div>
+</div>
 <p>以下では、HTMLやXMLのタグを消しています（空文字列に置き換えています）。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;[^&gt;]*&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;body&gt;</span><span class="se">\n</span><span class="s1">Click &lt;a href=&quot;a.href&quot;&gt;this&lt;/a&gt;</span><span class="se">\n</span><span class="s1">&lt;/body&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;\nClick this\n\n&#39;
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">r'&lt;[^&gt;]*&gt;'</span></code> という正規表現は、<code class="docutils literal notranslate"><span class="pre">&lt;</span></code> の後に <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> 以外の文字の繰り返しがあって最後に <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> が来るというパターンを表します。</p>
 </div>
@@ -994,8 +1339,8 @@ None
 <p>具体的には次のように用います。</p>
 <p>以下が典型例です。</p>
 <p><code class="docutils literal notranslate"><span class="pre">[^a-zA-Z][^a-zA-Z]*</span></code> という正規表現は、英文字以外の文字が1回以上繰り返されている、というパターンを表します。 この正規表現を Python の式の中で用いるときは、<code class="docutils literal notranslate"><span class="pre">r'[^a-zA-Z][^a-zA-Z]*'</span></code> という構文を用います。 先頭の <code class="docutils literal notranslate"><span class="pre">r</span></code> については、以下の説明を参照してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1006,13 +1351,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;He&#39;, &#39;has&#39;, &#39;three&#39;, &#39;pets&#39;, &#39;a&#39;, &#39;cat&#39;, &#39;a&#39;, &#39;dog&#39;, &#39;and&#39;, &#39;a&#39;, &#39;giraffe&#39;, &#34;doesn&#39;t&#34;, &#39;he&#39;]
+[&#39;Hello&#39;, &#39;World&#39;, &#39;How&#39;, &#39;are&#39;, &#39;you&#39;, &#39;&#39;]
+</pre></div></div>
+</div>
 <p>この例のように、返されたリストに空文字列が含まれる場合がありますので、注意してください。</p>
 </div>
 <div class="section" id="r-を付ける理由">
 <h3><code class="docutils literal notranslate"><span class="pre">r</span></code> を付ける理由<a class="headerlink" href="#r-を付ける理由" title="Permalink to this headline">¶</a></h3>
 <p>さて、以上のような正規表現は、<code class="docutils literal notranslate"><span class="pre">'hello*'</span></code> のようにPythonの文字列として <code class="docutils literal notranslate"><span class="pre">re.split</span></code> や <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> などの関数に与えればよいのですが、 以下のように文字列の前に <code class="docutils literal notranslate"><span class="pre">r</span></code> を付けることが推奨されます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1020,9 +1374,18 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;hello*&#39;
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">r'hello*'</span></code> の場合は <code class="docutils literal notranslate"><span class="pre">r</span></code> を付けても付けなくても同じなのですが、 以下のように <code class="docutils literal notranslate"><span class="pre">r</span></code> を付けるとエスケープすべき文字がエスケープシーケンスになった文字列が得られます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1030,16 +1393,34 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;[ \\t\\n]+&#39;
+</pre></div></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">\t</span></code> が <code class="docutils literal notranslate"><span class="pre">\\t</span></code> に変わったことでしょう。<code class="docutils literal notranslate"><span class="pre">\\</span></code> はバックスラッシュを表すエスケープシーケンスです。 <code class="docutils literal notranslate"><span class="pre">\t</span></code> はタブという文字を表しますが、<code class="docutils literal notranslate"><span class="pre">\\t</span></code> はバックススラッシュと <code class="docutils literal notranslate"><span class="pre">t</span></code> という2文字から成る文字列です。 この場合、正規表現を解釈する段階でバックスラッシュが処理されます。</p>
 <p>特に <code class="docutils literal notranslate"><span class="pre">\</span></code> という文字そのものを正規表現に含めたいときは <code class="docutils literal notranslate"><span class="pre">\\</span></code> と書いた上で <code class="docutils literal notranslate"><span class="pre">r</span></code> を付けてください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t t/&#39;</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;\\\\t t/&#39;
+</pre></div></div>
 </div>
 <p>この場合、文字列の中に <code class="docutils literal notranslate"><span class="pre">\</span></code> が2個含まれており、正規表現を解釈する段階で正しく処理されます。すなわち、<code class="docutils literal notranslate"><span class="pre">\</span></code> という文字そのものを表します。</p>
 </div>
@@ -1048,8 +1429,8 @@ None
 <h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences</span></code> を作成してください。 ただし、重複する単語を削除してはいけませんが、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1059,9 +1440,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-41-b70aefd4c3ef&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1073,13 +1466,30 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-42-24963a0722b0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">289</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;in&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">288</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id13">
 <h2>練習<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences2</span></code> を作成してください。 ただし、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1089,9 +1499,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-43-e4d056de09d5&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1103,14 +1525,31 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-44-1be5eff39300&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences2<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">149</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;proclaim&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">148</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences2&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="正規表現の応用2">
 <h2>正規表現の応用2<a class="headerlink" href="#正規表現の応用2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id=".-（ドット）">
 <h3><code class="docutils literal notranslate"><span class="pre">.</span></code> （ドット）<a class="headerlink" href="#.-（ドット）" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">.</span></code> （ドット） は あらゆる文字とマッチする正規表現です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1123,9 +1562,19 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 1), match=&#39;H&#39;&gt;
+&lt;re.Match object; span=(2, 9), match=&#39;3456789&#39;&gt;
+&lt;re.Match object; span=(3, 6), match=&#39;has&#39;&gt;
+</pre></div></div>
+</div>
 <p>ただし、文字クラスの中ではドットを用いても、あらゆる文字とはマッチしません。あくまで、ピリオドとマッチします。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1146,8 +1595,8 @@ None
 </pre></div></div>
 </div>
 <p>繰り返しになりますが、今まで扱ってきた演算子などもそのような例に該当します。文字クラスの中では多くの文字が1つの文字として扱われます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1160,12 +1609,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 1), match=&#39;*&#39;&gt;
+&lt;re.Match object; span=(1, 2), match=&#39;|&#39;&gt;
+&lt;re.Match object; span=(3, 4), match=&#39;)&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="?">
 <h3><code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#?" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">a?</span></code> は、<code class="docutils literal notranslate"><span class="pre">a</span></code> を0個、もしくは1個含む文字列とマッチします。すなわち、<code class="docutils literal notranslate"><span class="pre">a(bc)?</span></code> は <code class="docutils literal notranslate"><span class="pre">a|abc</span></code> と同じ意味の正規表現です。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1189,8 +1648,8 @@ None
 <div class="section" id="+">
 <h3><code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#+" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">a+</span></code> は1個以上の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列とマッチする正規表現です。すなわち、<code class="docutils literal notranslate"><span class="pre">a+</span></code> は <code class="docutils literal notranslate"><span class="pre">aa*</span></code> と同じ意味の正規表現です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1211,13 +1670,27 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 5), match=&#39;boooo&#39;&gt;
+None
+&lt;re.Match object; span=(0, 1), match=&#39;a&#39;&gt;
+&lt;re.Match object; span=(0, 2), match=&#39;aa&#39;&gt;
+None
+&lt;re.Match object; span=(3, 8), match=&#39;12345&#39;&gt;
+&lt;re.Match object; span=(0, 3), match=&#39;abc&#39;&gt;
+</pre></div></div>
+</div>
 <p>上記の例を <code class="docutils literal notranslate"><span class="pre">*</span></code> を使う形に書き換えてみてください。</p>
 </div>
 <div class="section" id="{x,-y}">
 <h3><code class="docutils literal notranslate"><span class="pre">{x,</span> <span class="pre">y}</span></code><a class="headerlink" href="#{x,-y}" title="Permalink to this headline">¶</a></h3>
 <p>正規表現 <code class="docutils literal notranslate"><span class="pre">R</span></code> に対して、<code class="docutils literal notranslate"><span class="pre">R{x,</span> <span class="pre">y}</span></code> は <code class="docutils literal notranslate"><span class="pre">R</span></code> を <code class="docutils literal notranslate"><span class="pre">x</span></code> 回以上かつ <code class="docutils literal notranslate"><span class="pre">y</span></code> 回以下繰り返す文字列とマッチする正規表現です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1234,6 +1707,18 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 6), match=&#39;booooo&#39;&gt;
+None
+&lt;re.Match object; span=(3, 5), match=&#39;aa&#39;&gt;
+&lt;re.Match object; span=(0, 5), match=&#39;1,298&#39;&gt;
+None
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="メタ文字">
@@ -1242,8 +1727,8 @@ None
 <div class="section" id="\t">
 <h3><code class="docutils literal notranslate"><span class="pre">\t</span></code><a class="headerlink" href="#\t" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">\t</span></code> は タブを表します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1252,12 +1737,20 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(2, 4), match=&#39;b\t&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\s">
 <h3><code class="docutils literal notranslate"><span class="pre">\s</span></code><a class="headerlink" href="#\s" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">\s</span></code> は<strong>空白文字</strong>（スペース、タブ、改行など）を表します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1270,12 +1763,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(2, 4), match=&#39;b\t&#39;&gt;
+&lt;re.Match object; span=(0, 4), match=&#39;a\t\u3000 &#39;&gt;
+&lt;re.Match object; span=(4, 7), match=&#39;b\t\u3000&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\S">
 <h3><code class="docutils literal notranslate"><span class="pre">\S</span></code><a class="headerlink" href="#\S" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">\S</span></code> は <code class="docutils literal notranslate"><span class="pre">\s</span></code> 以外の全ての文字を表します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1285,12 +1788,20 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(4, 6), match=&#39;bc&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\w">
 <h3><code class="docutils literal notranslate"><span class="pre">\w</span></code><a class="headerlink" href="#\w" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9_]</span></code> と同じ意味です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1301,12 +1812,20 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 2), match=&#39;ab&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\W">
 <h3><code class="docutils literal notranslate"><span class="pre">\W</span></code><a class="headerlink" href="#\W" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">\w</span></code> 以外の全ての文字を表します。すなわち、<code class="docutils literal notranslate"><span class="pre">[^a-zA-Z0-9_]</span></code> と同じ意味です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1317,12 +1836,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(6, 9), match=&#39;g  &#39;&gt;
+&lt;re.Match object; span=(2, 8), match=&#39; defg &#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\d">
 <h3><code class="docutils literal notranslate"><span class="pre">\d</span></code><a class="headerlink" href="#\d" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">[0-9]</span></code> と同じ意味です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1337,12 +1865,23 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 8), match=&#39;153-8902&#39;&gt;
+&lt;re.Match object; span=(0, 8), match=&#39;153-8902&#39;&gt;
+&lt;re.Match object; span=(0, 12), match=&#39;03-5454-6828&#39;&gt;
+&lt;re.Match object; span=(0, 12), match=&#39;03-5454-6828&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="\D">
 <h3><code class="docutils literal notranslate"><span class="pre">\D</span></code><a class="headerlink" href="#\D" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">\d</span></code> 以外の全ての文字を表します。すなわち、<code class="docutils literal notranslate"><span class="pre">[^0-9]</span></code> と同じ意味です。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1352,13 +1891,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;re.Match object; span=(0, 7), match=&#39;He has &#39;&gt;
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="id22">
 <h2>練習<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
 <p>文字列から数字列を切り出して、それを整数とみなして足し合せた結果を整数として返す関数 <code class="docutils literal notranslate"><span class="pre">sumnumbers</span></code> を定義してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1368,9 +1915,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-58-2eb053df1419&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1378,13 +1937,26 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-59-59e10eb64761&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>sumnumbers<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39; 2  33 45, 67.9&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">156</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;sumnumbers&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id23">
 <h2>練習<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code>、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1394,9 +1966,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-60-4144afe1298b&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1406,13 +1990,28 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-61-578e52450be5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id24">
 <h2>練習<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が「日本の郵便番号」を表す文字列になっている場合は、 <code class="docutils literal notranslate"><span class="pre">True</span></code> を返し、そうでない場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_postalcode</span></code> を作成してください。 ただし、「日本の郵便番号」は <code class="docutils literal notranslate"><span class="pre">abc-defg</span></code> という形になっており、<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> はそれぞれ <code class="docutils literal notranslate"><span class="pre">0</span></code> から <code class="docutils literal notranslate"><span class="pre">9</span></code> までの値になっています。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1422,9 +2021,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-62-824b53a3f099&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1436,13 +2047,30 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-63-07617d20e3bc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-8654&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;119-110&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc-defg&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;〒153-0041&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-86547&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_postalcode&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id25">
 <h2>練習<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が「本郷の内線番号」を表す文字列になっている場合は、 <code class="docutils literal notranslate"><span class="pre">True</span></code> を返し、そうでない場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_extension</span></code> を作成してください。 ただし、「本郷の内線番号」は <code class="docutils literal notranslate"><span class="pre">2abcd</span></code> という形になっており、<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code> はそれぞれ <code class="docutils literal notranslate"><span class="pre">0</span></code> から <code class="docutils literal notranslate"><span class="pre">9</span></code> までの値になっています。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1452,9 +2080,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-64-58b9fba638b9&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1465,12 +2105,28 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-65-1a10a713dbe3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;24115&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;46858&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;☎46666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;467890&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_extension&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="正規表現のエスケープシーケンス">
 <h2>正規表現のエスケープシーケンス<a class="headerlink" href="#正規表現のエスケープシーケンス" title="Permalink to this headline">¶</a></h2>
 <p>丸括弧 <code class="docutils literal notranslate"><span class="pre">()</span></code> や演算子 (<code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>) など正規表現の中で特殊な役割を果たす記号のマッチを行いたい場合、文字列のエスケープシーケンスのように <code class="docutils literal notranslate"><span class="pre">\</span></code> を前につけてやる必要があります。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1493,6 +2149,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+&lt;re.Match object; span=(0, 10), match=&#39;0354546666&#39;&gt;
+&lt;re.Match object; span=(0, 12), match=&#39;03(5454)6666&#39;&gt;
+None
+&lt;re.Match object; span=(0, 8), match=&#39;33345=17&#39;&gt;
+&lt;re.Match object; span=(0, 8), match=&#39;3*4+5=17&#39;&gt;
+&lt;re.Match object; span=(0, 0), match=&#39;&#39;&gt;
+&lt;re.Match object; span=(0, 8), match=&#39;|ω・`）チラ &#39;&gt;
+</pre></div></div>
+</div>
 <p>特殊な意味を持つ記号は次の14個です。</p>
 <p><code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">^</span> <span class="pre">$</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">?</span> <span class="pre">{</span> <span class="pre">}</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">\</span> <span class="pre">|</span> <span class="pre">(</span> <span class="pre">)</span></code></p>
 <p>これらの特殊記号が含まれる場合（かつ意図したマッチの結果が得られない場合）には、エスケープシーケンスを使う（エスケープする）べき（可能性がある）ことも考慮に入れておいてください。</p>
@@ -1504,8 +2175,8 @@ None
 <h3><code class="docutils literal notranslate"><span class="pre">findall</span></code><a class="headerlink" href="#findall" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">findall</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、リストに格納して返します。</p>
 <p>具体的には次のように実行します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1517,14 +2188,23 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;, &#39;had&#39;]
+[&#39;Peter&#39;, &#39;Piper&#39;, &#39;picked&#39;, &#39;peck&#39;, &#39;pickled&#39;, &#39;peppers&#39;]
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="finditer">
 <h3><code class="docutils literal notranslate"><span class="pre">finditer</span></code><a class="headerlink" href="#finditer" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">finditer</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての matchオブジェクトを、特殊なリスト（のようなもの）に格納して返します。</p>
 <p>具体的には次のように実行します。</p>
 <p>返り値は特殊なリスト（のようなもの）であり、for文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後ろに置いて使ってください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1540,13 +2220,39 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1:正規表現 had の結果：
+&lt;re.Match object; span=(17, 20), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(21, 24), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(25, 28), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(29, 32), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(33, 36), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(37, 40), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(41, 44), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(45, 48), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(49, 52), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(53, 56), match=&#39;had&#39;&gt;
+&lt;re.Match object; span=(57, 60), match=&#39;had&#39;&gt;
+2:正規表現 p[^ .]* の結果：
+&lt;re.Match object; span=(0, 5), match=&#39;Peter&#39;&gt;
+&lt;re.Match object; span=(6, 11), match=&#39;Piper&#39;&gt;
+&lt;re.Match object; span=(12, 18), match=&#39;picked&#39;&gt;
+&lt;re.Match object; span=(21, 25), match=&#39;peck&#39;&gt;
+&lt;re.Match object; span=(29, 36), match=&#39;pickled&#39;&gt;
+&lt;re.Match object; span=(37, 44), match=&#39;peppers&#39;&gt;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="group">
 <h3><code class="docutils literal notranslate"><span class="pre">group</span></code><a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">group</span></code> は、正規表現にマッチした文字列を（部分的に）取り出すための、matchオブジェクトのメソッドです。正規表現内に丸括弧を用いると、括弧内の正規表現とマッチした文字列を取得できるようになっています。なお、<code class="docutils literal notranslate"><span class="pre">group</span></code> によるこの操作を、括弧内の文字列を<strong>キャプチャ</strong>するといいます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">i</span></code> 番目のキャプチャした値を取得するには次のようにします。<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span></code> の場合は、マッチした文字列全体を取得できます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1563,9 +2269,20 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+マッチした文字列= 03-5454-6666  キャプチャした文字列= 6666
+マッチした文字列= accountname@test.ecc.u-tokyo.ac.jp  キャプチャした文字列= accountname
+マッチした文字列= accountname@test.u-tokyo.ac.jp  キャプチャした文字列= accountname
+マッチした文字列= href=&#34;http://www.u-tokyo.ac.jp&#34;  キャプチャした文字列= http://www.u-tokyo.ac.jp
+</pre></div></div>
+</div>
 <p>マッチに失敗した場合は、matchオブジェクトが返らずに <code class="docutils literal notranslate"><span class="pre">None</span></code> が返るので、それを確かめずに <code class="docutils literal notranslate"><span class="pre">group</span></code> を使おうとするとエラーが出ますので注意してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1574,9 +2291,23 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-70-92d13e1aa636&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> match1 <span class="ansi-blue-fg">=</span> re<span class="ansi-blue-fg">.</span>search<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;03-5454-666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg">#マッチしない文字列</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;マッチした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39; キャプチャした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;group&#39;
+</pre></div></div>
+</div>
 <p>たとえば、if文でエラーを回避します。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1588,14 +2319,22 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+マッチしていません
+</pre></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="id28">
 <h2>練習<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>,<code class="docutils literal notranslate"><span class="pre">C</span></code>,<code class="docutils literal notranslate"><span class="pre">G</span></code>,<code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1605,9 +2344,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-72-4144afe1298b&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1617,6 +2368,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-73-578e52450be5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="id29">
 <h2>練習<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
@@ -1624,8 +2390,8 @@ None
 <p>B1S.xmlに含まれるwタグで囲まれる英単語をキー <code class="docutils literal notranslate"><span class="pre">key</span></code> に、その wタグの属性posの値を <code class="docutils literal notranslate"><span class="pre">key</span></code> の値とする辞書を返す関数 <code class="docutils literal notranslate"><span class="pre">get_pos</span></code> を作成してください。ただし、一般にwタグは、次のような形式で記述されます。</p>
 <p>たとえば、以下のような具合です。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1635,9 +2401,21 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-74-c3ee74e88c39&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1646,11 +2424,25 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-75-ec3d414c3b66&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;They &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;PRON&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;know &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;VERB&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;get_pos&#39; is not defined
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="練習の解答">
 <h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1664,7 +2456,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1682,7 +2474,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1705,7 +2497,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1737,7 +2529,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1753,7 +2545,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1775,7 +2567,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1799,7 +2591,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1825,7 +2617,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1853,7 +2645,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1881,7 +2673,7 @@ None
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
