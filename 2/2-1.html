@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/2/2-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -359,7 +357,7 @@ str
 str
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code> は組み込み関数としても用いられます。 組み込み関数<code class="docutils literal notranslate"><span class="pre">str</span></code> を使えば、任意のデータを文字列に変換できます。 一般に、データ型は、そのデータ型への変換を行う関数として用いられることが多いです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> は組み込み関数としても用いられます。 組み込み関数 <code class="docutils literal notranslate"><span class="pre">str</span></code> を使えば、任意のデータを文字列に変換できます。 一般に、データ型は、そのデータ型への変換を行う関数として用いられることが多いです。</p>
 <p>1-1で学んだ数値を文字列に変換したい場合、次のように行います。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -481,7 +479,7 @@ str
 &#39;l&#39;
 </pre></div></div>
 </div>
-<p>この括弧内の数値のことを<strong>インデックス</strong>と呼びます。インデックスは <code class="docutils literal notranslate"><span class="pre">0</span></code> から始まるので、 ある文字列の <code class="docutils literal notranslate"><span class="pre">x</span></code> 番目の要素を得るには、インデックスとして<code class="docutils literal notranslate"><span class="pre">x-1</span></code>を指定する必要があります。</p>
+<p>この括弧内の数値のことを<strong>インデックス</strong>と呼びます。インデックスは <code class="docutils literal notranslate"><span class="pre">0</span></code> から始まるので、 ある文字列の <code class="docutils literal notranslate"><span class="pre">x</span></code> 番目の要素を得るには、インデックスとして <code class="docutils literal notranslate"><span class="pre">x-1</span></code> を指定する必要があります。</p>
 <p>こうして取得した文字は、Pythonでは長さが 1 の文字列として扱われます。 （プログラミング言語によっては、文字列ではなく別の型のデータとして扱われるものもありますので注意してください。）</p>
 <p>文字列に対して、インデックスを指定してその要素を変更することはできません。（次のセルはエラーとなります） Pythonのデータは、大きく、変更可能なものと変更不可能なものに分類できますが、 文字列は変更不可能なデータです。 したがって、文字列を加工する場合は、新たに別の文字列を作成します。</p>
 <div class="nbinput docutils container">
@@ -746,6 +744,9 @@ str
 <div class="section" id="空文字列">
 <h2>空文字列<a class="headerlink" href="#空文字列" title="Permalink to this headline">¶</a></h2>
 <p>シングルクォート（もしくはダブルクォート）で、何も囲まない場合、長さ 0 の文字列（<strong>空文字列</strong>（くうもじれつ）もしくは、<strong>空列</strong>（くうれつ））となります。 具体的には、下記のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blank</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
 <p>空文字列は、次のように、たとえば文字列中からある部分文字列を取り除くのに使用します。 （<code class="docutils literal notranslate"><span class="pre">replace</span></code> は後で説明します。）</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -766,7 +767,7 @@ str
 &#39;2980円&#39;
 </pre></div></div>
 </div>
-<p>文字列のスライスにおいて、指定したインデックスの範囲に文字列が存在しない場合、 たとえば、最初に指定したインデックス <code class="docutils literal notranslate"><span class="pre">x</span></code> に対して、 2番目のインデックスの値に <code class="docutils literal notranslate"><span class="pre">x</span></code> 以下のインデックスの値を指定するとどうなるでしょうか？ （ただし、二つのインデックスは同じ符号を持つとし、スライスの3番目の値は用いないとします。） このような場合、結果は次のように空文字列となります（エラーが出たり、結果が<code class="docutils literal notranslate"><span class="pre">None</span></code>にはならないことに注意してください）。</p>
+<p>文字列のスライスにおいて、指定したインデックスの範囲に文字列が存在しない場合、 たとえば、最初に指定したインデックス <code class="docutils literal notranslate"><span class="pre">x</span></code> に対して、 2番目のインデックスの値に <code class="docutils literal notranslate"><span class="pre">x</span></code> 以下のインデックスの値を指定するとどうなるでしょうか？ （ただし、二つのインデックスは同じ符号を持つとし、スライスの3番目の値は用いないとします。） このような場合、結果は次のように空文字列となります（エラーが出たり、結果が <code class="docutils literal notranslate"><span class="pre">None</span></code> にはならないことに注意してください）。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -794,8 +795,11 @@ str
 </div>
 <div class="section" id="文字列の検索">
 <h2>文字列の検索<a class="headerlink" href="#文字列の検索" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">文字列A</span></code>が<code class="docutils literal notranslate"><span class="pre">文字列B</span></code>を含むかどうかを調べるには、<code class="docutils literal notranslate"><span class="pre">in</span></code> 演算子を使います。 具体的には、次のように使用します。</p>
-<p>調べたい<code class="docutils literal notranslate"><span class="pre">文字列B</span></code>が含まれていれば <code class="docutils literal notranslate"><span class="pre">True</span></code> が、そうでなければ <code class="docutils literal notranslate"><span class="pre">False</span></code> が返ります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">文字列A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> を含むかどうかを調べるには、<code class="docutils literal notranslate"><span class="pre">in</span></code> 演算子を使います。 具体的には、次のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列B</span> <span class="ow">in</span> <span class="n">文字列A</span>
+</pre></div>
+</div>
+<p>調べたい <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> が含まれていれば <code class="docutils literal notranslate"><span class="pre">True</span></code> が、そうでなければ <code class="docutils literal notranslate"><span class="pre">False</span></code> が返ります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -1028,11 +1032,38 @@ Time is \
 </div>
 <p>なお、プログラムの一部を無効に（コメントアウト）したいとき、 3連のクォートで囲んで文字列にしてしまうことがあります。</p>
 </div>
+<div class="section" id="バックスラッシュの表示と入力">
+<h2>バックスラッシュの表示と入力<a class="headerlink" href="#バックスラッシュの表示と入力" title="Permalink to this headline">¶</a></h2>
+<p>エスケープシーケンスの先頭にある文字は、バックスラッシュ <code class="docutils literal notranslate"><span class="pre">\</span></code>（Unicode <code class="docutils literal notranslate"><span class="pre">U+005C</span></code>）です。 これはPythonに限った話ではないですが、バックスラッシュは環境（正確にはフォント）によって見え方が異なります。 Windows上のフォントでは、円記号 <code class="docutils literal notranslate"><span class="pre">¥</span></code> として見えることが多いです。 macOS上のフォントでは、そのままバックスラッシュとして見えることが多いです。</p>
+<p>JIS配列キーボードでは、バックスラッシュキーがないことがあります。 Windows上では、円記号 <code class="docutils literal notranslate"><span class="pre">¥</span></code> キーでバックスラッシュが入力できます。 macOS上では、<code class="docutils literal notranslate"><span class="pre">Alt</span></code> + <code class="docutils literal notranslate"><span class="pre">¥</span></code> キーでバックスラッシュが入力できます。 ただし、IME設定によっても入力方法は変わるので注意してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 改行文字（バックスラッシュ + n）</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;¥n&#39;</span><span class="p">)</span> <span class="c1"># 改行文字でない（円記号 + n）</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;⧵n&#39;</span><span class="p">)</span> <span class="c1"># 改行文字でない（Unicode U+29F5 のバックスラッシュ演算子 + n）</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+
+¥n
+⧵n
+</pre></div></div>
+</div>
+</div>
 <div class="section" id="文字列の連結">
 <h2>文字列の連結<a class="headerlink" href="#文字列の連結" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code> 演算子を用いれば文字列同士を<strong>連結</strong>できます。 この演算では新しい文字列が作られ、元の文字列は変化しません。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1044,7 +1075,7 @@ Time is \
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1054,7 +1085,7 @@ Time is \
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子で文字列の繰り返し回数を指定できます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1064,7 +1095,7 @@ Time is \
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1077,12 +1108,20 @@ Time is \
 <h2>文字列とメソッド<a class="headerlink" href="#文字列とメソッド" title="Permalink to this headline">¶</a></h2>
 <p>文字列に対する操作を行うため、様々な<strong>メソッド</strong>（関数のようなもの）が用意されています。</p>
 <p>メソッドは必要に応じて <code class="docutils literal notranslate"><span class="pre">(...)</span></code> 内に引数を与え、以下のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列</span><span class="o">.</span><span class="n">メソッド名</span><span class="p">(</span><span class="n">式</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="c1"># あるいは</span>
+<span class="n">文字列変数</span><span class="o">.</span><span class="n">メソッド名</span><span class="p">(</span><span class="n">式</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>文字列には以下のようなメソッドが用意されています。</p>
 <div class="section" id="置換">
 <h3><strong>置換</strong><a class="headerlink" href="#置換" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">replace</span></code> メソッドは、指定した<code class="docutils literal notranslate"><span class="pre">部分文字列A</span></code> を、別に指定した<code class="docutils literal notranslate"><span class="pre">文字列B</span></code> で置き換えた文字列を作成します。 この操作では、元の文字列は変化しません。具体的には、次のように使用します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">replace</span></code> メソッドは、指定した <code class="docutils literal notranslate"><span class="pre">部分文字列A</span></code> を、別に指定した <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> で置き換えた文字列を作成します。 この操作では、元の文字列は変化しません。具体的には、次のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">部分文字列A</span><span class="p">,</span> <span class="n">文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1092,7 +1131,7 @@ Time is \
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1101,7 +1140,7 @@ Time is \
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1110,7 +1149,7 @@ Time is \
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1124,7 +1163,7 @@ Time is \
 <p>英語の文章からなる文字列 <code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> 中に含まれる全ての句読点（<code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">,</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>）を削除した文字列を返す関数 <code class="docutils literal notranslate"><span class="pre">remove_punctuations</span></code> を作成してください。 （練習の解答はこの Jupyter Notebook の一番最後にあります。）</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">remove_punctuations(str_engsentences)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1135,7 +1174,7 @@ Time is \
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1152,12 +1191,12 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>練習<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>練習<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>ATGCの4種類の文字から成る文字列 <code class="docutils literal notranslate"><span class="pre">str_atgc</span></code> が引数として与えられたとき、文字列 <code class="docutils literal notranslate"><span class="pre">str_pair</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">atgc_bppair</span></code> を作成してください。ただし、<code class="docutils literal notranslate"><span class="pre">str_pair</span></code> は、<code class="docutils literal notranslate"><span class="pre">str_atgc</span></code> 中の各文字列に対して、 <code class="docutils literal notranslate"><span class="pre">A</span></code> を <code class="docutils literal notranslate"><span class="pre">T</span></code> に、<code class="docutils literal notranslate"><span class="pre">T</span></code> を <code class="docutils literal notranslate"><span class="pre">A</span></code> に、<code class="docutils literal notranslate"><span class="pre">G</span></code> を <code class="docutils literal notranslate"><span class="pre">C</span></code> に、<code class="docutils literal notranslate"><span class="pre">C</span></code> を <code class="docutils literal notranslate"><span class="pre">G</span></code> に置き換えたものです。</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">atgc_bppair(str_atgc)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1168,7 +1207,7 @@ False
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1187,10 +1226,13 @@ False
 </div>
 <div class="section" id="分割">
 <h3><strong>分割</strong><a class="headerlink" href="#分割" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">split</span></code> メソッドは、指定した<code class="docutils literal notranslate"><span class="pre">区切り文字列B</span></code>で、<code class="docutils literal notranslate"><span class="pre">文字列A</span></code>を分割して、リストと呼ばれるデータに格納します。具体的には、次のように使用します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">split</span></code> メソッドは、指定した <code class="docutils literal notranslate"><span class="pre">区切り文字列B</span></code> で、<code class="docutils literal notranslate"><span class="pre">文字列A</span></code> を分割して、リストと呼ばれるデータに格納します。具体的には、次のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列A</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">区切り文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>リストについては 2-2 で扱います。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1200,7 +1242,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1211,10 +1253,13 @@ False
 </div>
 <div class="section" id="検索">
 <h3><strong>検索</strong><a class="headerlink" href="#検索" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">index</span></code> メソッドにより、指定した<code class="docutils literal notranslate"><span class="pre">部分文字列B</span></code>が<code class="docutils literal notranslate"><span class="pre">文字列A</span></code>のどこに存在するか調べることができます。具体的には、次のように使用します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">index</span></code> メソッドにより、指定した <code class="docutils literal notranslate"><span class="pre">部分文字列B</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> のどこに存在するか調べることができます。具体的には、次のように使用します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列A</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">部分文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>ただし、指定した部分文字列が文字列に複数回含まれる場合、最初のインデックスが返されます。また、指定した部分文字列が文字列に含まれない場合は、エラーとなります。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1224,7 +1269,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1233,7 +1278,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1242,7 +1287,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1252,7 +1297,7 @@ False
 </div>
 <p>以下はエラーとなります。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1267,7 +1312,7 @@ False
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-46-f7e472192833&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-47-f7e472192833&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>word1<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">ValueError</span>: substring not found
@@ -1276,7 +1321,7 @@ False
 <p><code class="docutils literal notranslate"><span class="pre">find</span></code> メソッドも <code class="docutils literal notranslate"><span class="pre">index</span></code> と同様に部分文字列を検索し、最初に出現するインデックスを返します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">index</span></code> との違いは、部分文字列が含まれない場合エラーとはならず <code class="docutils literal notranslate"><span class="pre">-1</span></code> が返されることです。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1286,7 +1331,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1295,12 +1340,12 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="id13">
-<h3>練習<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>練習<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>コロン (<code class="docutils literal notranslate"><span class="pre">:</span></code>) を1つだけ含む文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として与えると、コロンの左右に存在する文字列を入れ替えた文字列を返す関数 <code class="docutils literal notranslate"><span class="pre">swap_colon(str1)</span></code> を作成してください。</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">swap_colon(str1)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1311,7 +1356,7 @@ False
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1330,9 +1375,12 @@ False
 </div>
 <div class="section" id="数え上げ">
 <h3><strong>数え上げ</strong><a class="headerlink" href="#数え上げ" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">count</span></code> メソッドにより、指定した<code class="docutils literal notranslate"><span class="pre">部分文字列B</span></code>が<code class="docutils literal notranslate"><span class="pre">文字列A</span></code>にいくつ存在するか調べることができます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">count</span></code> メソッドにより、指定した <code class="docutils literal notranslate"><span class="pre">部分文字列B</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> にいくつ存在するか調べることができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">文字列A</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">部分文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1342,7 +1390,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1351,7 +1399,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1360,7 +1408,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1369,12 +1417,12 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>練習<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>練習<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>ATGCの4種類の文字から成る文字列 <code class="docutils literal notranslate"><span class="pre">str_atgc</span></code> と塩基名（<code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> のいずれか）を指定する文字列 <code class="docutils literal notranslate"><span class="pre">str_bpname</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">str_atgc</span></code> 中に含まれる塩基 <code class="docutils literal notranslate"><span class="pre">str_bpname</span></code> の数を返す関数 <code class="docutils literal notranslate"><span class="pre">atgc_count</span></code> を作成してください。</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">atgc_count(str_atgc,</span> <span class="pre">str_bpname)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1385,7 +1433,7 @@ False
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1407,7 +1455,7 @@ False
 <p><code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span></code> メソッドを用いると、文字列の中の英文字を小文字に変換したり、大文字に変換したりすることができます。</p>
 <p>これらの操作では、元の文字列は変化しません。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1417,7 +1465,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1426,7 +1474,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1435,7 +1483,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1444,7 +1492,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1454,7 +1502,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1463,7 +1511,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1472,7 +1520,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1481,7 +1529,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1490,7 +1538,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1499,7 +1547,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1508,7 +1556,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1522,7 +1570,7 @@ False
 <h2><strong>文字列の比較演算</strong><a class="headerlink" href="#文字列の比較演算" title="Permalink to this headline">¶</a></h2>
 <p>比較演算子、<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> などを用いて、2つの文字列を比較することもできます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1541,7 +1589,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1561,7 +1609,7 @@ True
 </div>
 <p>文字列の大小の比較は、いわゆる辞書式による比較で、文字列の最初の文字から順に比較して大小を決めます。 片方がもう片方を拡張したものであれば、拡張した方を大きいとします。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1584,12 +1632,12 @@ True
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="id18">
-<h2>練習<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id19">
+<h2>練習<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
 <p>英語の文字列 <code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> が引数として与えられたとき、それが全て小文字である場合、<code class="docutils literal notranslate"><span class="pre">True</span></code> を返し、そうでない場合、 <code class="docutils literal notranslate"><span class="pre">False</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_lower</span></code> を作成してください。</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">check_lower(str_engsentences)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1600,7 +1648,7 @@ True
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1623,7 +1671,7 @@ False
 <h2>初心者によくある誤解 — <strong>変数</strong>と<strong>文字列</strong>の混乱<a class="headerlink" href="#初心者によくある誤解-----変数と文字列の混乱" title="Permalink to this headline">¶</a></h2>
 <p>初心者によくある誤解として、変数と文字列を混乱する例が見られます。たとえば、文字列を引数に取る次のような関数 <code class="docutils literal notranslate"><span class="pre">func</span></code> を考えます（ <code class="docutils literal notranslate"><span class="pre">func</span></code> は引数として与えられた文字列を大文字にして返す関数です）。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1634,7 +1682,7 @@ False
 </div>
 <p>ここで変数 <code class="docutils literal notranslate"><span class="pre">str2</span></code> を引数として <code class="docutils literal notranslate"><span class="pre">func</span></code> を呼ぶと、<code class="docutils literal notranslate"><span class="pre">str2</span></code> に格納されている文字列が大文字になって返ってきます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1644,7 +1692,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1654,7 +1702,7 @@ False
 </div>
 <p>次のように <code class="docutils literal notranslate"><span class="pre">func</span></code> を呼ぶと上とは結果が異なります。次の例では変数 <code class="docutils literal notranslate"><span class="pre">str2</span></code> （に格納されている文字列 <code class="docutils literal notranslate"><span class="pre">abc</span></code>）ではなく、文字列 <code class="docutils literal notranslate"><span class="pre">'str2'</span></code> を引数として <code class="docutils literal notranslate"><span class="pre">func</span></code> を呼び出しています。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1664,7 +1712,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1673,12 +1721,12 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="id20">
-<h2>練習<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h2>練習<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
 <p>コンマ (<code class="docutils literal notranslate"><span class="pre">,</span></code>) を含む英語の文章からなる文字列 <code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> 中の一番最初のコンマより後の文章のみかならなる文字列 <code class="docutils literal notranslate"><span class="pre">str_res</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">remove_clause</span></code> を作成してください。ただし、 <code class="docutils literal notranslate"><span class="pre">str_res</span></code> の先頭は大文字のアルファベットとしてください。</p>
 <p>次のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">remove_clause(str_engsentences)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1689,7 +1737,7 @@ False
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1709,7 +1757,7 @@ False
 <div class="section" id="練習の解答">
 <h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1726,7 +1774,7 @@ False
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1742,7 +1790,7 @@ False
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1759,7 +1807,7 @@ False
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1770,7 +1818,7 @@ False
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1784,7 +1832,7 @@ False
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1816,7 +1864,7 @@ False
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -1829,8 +1877,7 @@ False
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -1841,12 +1888,13 @@ False
 <li class="toctree-l2"><a class="reference internal" href="#空文字列">空文字列</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#文字列の検索">文字列の検索</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#▲エスケープシーケンス">▲エスケープシーケンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#バックスラッシュの表示と入力">バックスラッシュの表示と入力</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#文字列の連結">文字列の連結</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#文字列とメソッド">文字列とメソッド</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#文字列の比較演算"><strong>文字列の比較演算</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">練習</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#初心者によくある誤解-----変数と文字列の混乱">初心者によくある誤解 — <strong>変数</strong>と<strong>文字列</strong>の混乱</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">練習</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
 </ul>
 </li>
@@ -1866,6 +1914,7 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -1874,13 +1923,13 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../1/1-4.html" title="previous chapter">1-4. デバッグ</a></li>
       <li>Next: <a href="2-2.html" title="next chapter">2-2. リスト (list)</a></li>
   </ul></li>

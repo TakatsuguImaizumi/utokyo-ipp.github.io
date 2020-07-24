@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/4/4-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -298,39 +296,13 @@ div.rendered_html tbody tr:hover {
 <p>たとえば、<code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> というファイルが、ノートブックの1段上のディレクトリ（このディレクトリが入っているディレクトリ）にあるならば、<code class="docutils literal notranslate"><span class="pre">'../novel.txt'</span></code> と指定します。 ノートブックの1段上のディレクトリに置かれている <code class="docutils literal notranslate"><span class="pre">data</span></code> というディレクトリにあるならば、<code class="docutils literal notranslate"><span class="pre">'../data/novel.txt'</span></code> となります （4-3にもう少し詳しい解説があります）。</p>
 <p><code class="docutils literal notranslate"><span class="pre">'r'</span></code> はファイルをどのモードで開くかを指しており、<code class="docutils literal notranslate"><span class="pre">'r'</span></code>は<strong>読み込みモード</strong>を意味します。 このモードで開いたファイルに書き込みすることはできません。</p>
 <p>モードには次のような種類があります。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 83%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>記号</p></th>
-<th class="head"><p>モード</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>r</p></td>
-<td><p>読み込み</p></td>
-</tr>
-<tr class="row-odd"><td><p>w</p></td>
-<td><p>書き込み</p></td>
-</tr>
-<tr class="row-even"><td><p>a</p></td>
-<td><p>追記</p></td>
-</tr>
-<tr class="row-odd"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>読み書き両方を指定したい場合に使用</p></td>
-</tr>
-</tbody>
-</table>
+<p>記号| モード</p>
+<p>r | 読み込み w | 書き込み a | 追記 + | 読み書き両方を指定したい場合に使用</p>
 <p>書き込みについては後でも説明します。</p>
 </div>
 <div class="section" id="ファイルのクローズ">
 <h2>ファイルのクローズ<a class="headerlink" href="#ファイルのクローズ" title="Permalink to this headline">¶</a></h2>
-<p>ファイルオブジェクトを使い終わったら、原則として、<code class="docutils literal notranslate"><span class="pre">close()</span></code>メソッドを呼び出して、<strong>クローズ</strong>する（閉じる）必要があります。</p>
+<p>ファイルオブジェクトを使い終わったら、原則として、<code class="docutils literal notranslate"><span class="pre">close()</span></code> メソッドを呼び出して、<strong>クローズ</strong>する（閉じる）必要があります。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -340,33 +312,98 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">close()</span></code>を呼び出さずに放置すると、そのファイルがまだ使用中だと認識されてしまいます。 これは、同じファイルを利用しようとする他のプログラムの働きを阻害します。（個室のトイレをイメージしてください。）</p>
-<p><code class="docutils literal notranslate"><span class="pre">close()</span></code>の呼出しは重要ですが、忘れがちなものでもあります。 後述するwith文を使うのが安全です。</p>
+<p><code class="docutils literal notranslate"><span class="pre">close()</span></code> を呼び出さずに放置すると、そのファイルがまだ使用中だと認識されてしまいます。 これは、同じファイルを利用しようとする他のプログラムの働きを阻害します。（個室のトイレをイメージしてください。）</p>
+<p><code class="docutils literal notranslate"><span class="pre">close()</span></code> の呼び出しは重要ですが、忘れがちなものでもあります。 後述するwith文を使うのが安全です。</p>
 </div>
-<div class="section" id="ファイル全体の読み込み">
-<h2>ファイル全体の読み込み<a class="headerlink" href="#ファイル全体の読み込み" title="Permalink to this headline">¶</a></h2>
-<p>ファイル全体を一括で読み込んで、1つの文字列を取得したいときには、<code class="docutils literal notranslate"><span class="pre">read()</span></code>メソッドを利用します。</p>
-<div class="nbinput docutils container">
+<div class="section" id="行の読み込み">
+<h2>行の読み込み<a class="headerlink" href="#行の読み込み" title="Permalink to this headline">¶</a></h2>
+<p>ファイルオブジェクトには、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドを適用することができます。 ファイルから新たに1行を読んで文字列として返します。 この「1行」というのは、正確には、ファイルの先頭もしくは改行文字の次の文字から、ファイルの終わりもしくは改行文字までの文字列です。 1行は必ずしも改行文字で終わらないという点に注意して下さい。</p>
+<p>ファイルの終わりに来たとき、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> は <code class="docutils literal notranslate"><span class="pre">''</span></code> という空文字列を返します。</p>
+<p>以下のようにして <code class="docutils literal notranslate"><span class="pre">readline()</span></code> を使ってファイルを行単位で読んでみましょう。</p>
+<p>ファイルを読み終わると空文字列が返ることを確認してください。</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n&#39;
+&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -374,28 +411,28 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">readline()</span></code> メソッドの呼び出しは、ファイルオブジェクトを消費します。 改めて読み出したいときには、再度オープンして新しいオブジェクトを使ってください。</p>
 </div>
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
-<p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルをオープンして、 <code class="docutils literal notranslate"><span class="pre">read()</span></code> のメソッドによってファイル全体を文字列として読み込み、 その文字数を返す関数 <code class="docutils literal notranslate"><span class="pre">number_of_characters(name)</span></code> を作成してください。</p>
-<p>注意：<code class="docutils literal notranslate"><span class="pre">return</span></code> する前にファイルをクローズすることを忘れないようにしてください。</p>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルの最後の行を文字列として返す関数 <code class="docutils literal notranslate"><span class="pre">last_line(name)</span></code> を定義してください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span>  <span class="nf">number_of_characters</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span></span><span class="k">def</span> <span class="nf">last_line</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">number_of_characters</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">446</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">last_line</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -408,86 +445,40 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="行の読み込み">
-<h2>行の読み込み<a class="headerlink" href="#行の読み込み" title="Permalink to this headline">¶</a></h2>
-<p>ファイルオブジェクトには、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドを適用することができます。 ファイルから新たに1行を読んで文字列として返します。 文字列の最後に改行文字が含まれます。</p>
-<p>ファイルの終わりに来たとき、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> は <code class="docutils literal notranslate"><span class="pre">''</span></code> という空文字列を返します。</p>
-<p>以下のようにして <code class="docutils literal notranslate"><span class="pre">readline()</span></code> を使ってファイルを行単位で読んでみましょう。</p>
-<p>ファイルを読み終わると空文字列が返ることを確認してください。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="section" id="ファイル全体の読み込み">
+<h2>ファイル全体の読み込み<a class="headerlink" href="#ファイル全体の読み込み" title="Permalink to this headline">¶</a></h2>
+<p>ファイル全体を一括で読み込んで、1つの文字列を取得したいときには、<code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドを利用します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n&#39;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n&#39;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n&#39;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n&#39;
+</pre></div></div>
+</div>
+<p>一度 <code class="docutils literal notranslate"><span class="pre">read()</span></code> を呼ぶと、ファイルの終端に達するので、それ以降は空文字列を返します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -496,7 +487,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -504,27 +495,29 @@ False
 </pre></div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドは、内部的には <code class="docutils literal notranslate"><span class="pre">readline()</span></code> メソッドを呼んでいます。 したがって、<code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドも同様にファイルオブジェクトを消費します。</p>
 </div>
 <div class="section" id="id7">
 <h2>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルの最後の行を文字列として返す関数 <code class="docutils literal notranslate"><span class="pre">last_line(name)</span></code> を定義してください。</p>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルをオープンして、 <code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドによってファイル全体を文字列として読み込み、 その文字数を返す関数 <code class="docutils literal notranslate"><span class="pre">number_of_characters(name)</span></code> を作成してください。</p>
+<p>注意：<code class="docutils literal notranslate"><span class="pre">return</span></code> する前にファイルをクローズすることを忘れないようにしてください。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">last_line</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span></span><span class="k">def</span>  <span class="nf">number_of_characters</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">last_line</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">number_of_characters</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">446</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -542,7 +535,7 @@ False
 <p>プログラムでファイルを開くと、そのプログラム内でそのファイルを閉じるまでは、他のプログラムでそのファイルを編集することはできません。</p>
 <p>下のセルを実行した後で、Windowsならエクスプローラ、macOSならFinderで上のファイルを探して、削除してみてください。 「ファイルを閉じてから再実行してください。（Windowsの場合）」といったメッセージが出て、削除ができないはずです。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -552,7 +545,7 @@ False
 </div>
 <p>下のセルを実行した後だと削除できます。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -564,11 +557,15 @@ False
 <div class="section" id="ファイルに対するwith文">
 <h2>ファイルに対するwith文<a class="headerlink" href="#ファイルに対するwith文" title="Permalink to this headline">¶</a></h2>
 <p>ファイルのオブジェクトは、with文に指定することができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ファイルオブジェクト</span> <span class="k">as</span> <span class="n">変数</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">with</span></code> の次には、<code class="docutils literal notranslate"><span class="pre">open</span></code> によってファイルをオープンする式を書きます。</p>
 <p>また、<code class="docutils literal notranslate"><span class="pre">as</span></code> の次には、ファイルのオブジェクトが格納される変数を書きます。</p>
 <p>with文は処理後にファイルのクローズを自動的にやってくれますので、 ファイルに対して <code class="docutils literal notranslate"><span class="pre">close()</span></code> を呼び出す必要がありません。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -593,7 +590,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <h2>ファイルへの書き込み<a class="headerlink" href="#ファイルへの書き込み" title="Permalink to this headline">¶</a></h2>
 <p>ファイルへの書き込みは、<code class="docutils literal notranslate"><span class="pre">print</span></code> 関数を使って行えます。 <code class="docutils literal notranslate"><span class="pre">file</span></code> 引数に書き込み先のファイルオブジェクトを指定します。 <code class="docutils literal notranslate"><span class="pre">file</span></code> は3.3で説明されているキーワード引数と呼ばれる引数ですので、 以下のように <code class="docutils literal notranslate"><span class="pre">file=...</span></code> という形で指定します。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -605,9 +602,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <p>文字列の中の <code class="docutils literal notranslate"><span class="pre">\n</span></code> は改行文字を表します。<code class="docutils literal notranslate"><span class="pre">\n</span></code> は<strong>エスケープシーケンス</strong>（2-1に説明があります）の一種です。 エスケープシーケンスには、この他に、復帰文字を表す <code class="docutils literal notranslate"><span class="pre">\r</span></code> やタブを表す <code class="docutils literal notranslate"><span class="pre">\t</span></code> などがあります。</p>
 <p>ファイルの読み書きのモードとしては、<strong>書き込みモード</strong>を意味する <code class="docutils literal notranslate"><span class="pre">'w'</span></code> を指定しています。既に同じ名前のファイルが存在する場合は上書きされます（以前の内容はなくなります）。ファイルがない場合は、新たに作成されます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> を指定すると、ファイルが存在する場合、既存の内容の後に追記されます。ファイルがない場合は、新たに作成されます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">print</span></code>関数は、デフォルトで、与えられた文字列の末尾に改行文字を加えて印字します。 末尾に加える文字は、<code class="docutils literal notranslate"><span class="pre">end</span></code>引数で指定できます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">print</span></code> 関数は、デフォルトで、与えられた文字列の末尾に改行文字を加えて印字します。 末尾に加える文字は、<code class="docutils literal notranslate"><span class="pre">end</span></code> 引数で指定できます。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -616,9 +613,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </pre></div>
 </div>
 </div>
-<p>また、複数の印字対象を渡すと、デフォルトで、空白文字で区切って印字します。 この区切り文字は、<code class="docutils literal notranslate"><span class="pre">sep</span></code>引数で指定できます。</p>
+<p>また、複数の印字対象を渡すと、デフォルトで、空白文字で区切って印字します。 この区切り文字は、<code class="docutils literal notranslate"><span class="pre">sep</span></code> 引数で指定できます。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -629,7 +626,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 <p>この他にも、ファイルオブジェクトには、より原始的な書き込み用メソッドが用意されています。 <code class="docutils literal notranslate"><span class="pre">write()</span></code> メソッドは、与えられた1つの文字列を単に書き込みます。 次に示すように、<code class="docutils literal notranslate"><span class="pre">write()</span></code> メソッドと <code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドは、対で使うことが良くあります。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -638,14 +635,14 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </pre></div>
 </div>
 </div>
-<p>このコードは、<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code>を<code class="docutils literal notranslate"><span class="pre">sample.txt.bak</span></code>にコピーします。</p>
+<p>このコードは、<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> を <code class="docutils literal notranslate"><span class="pre">sample.txt.bak</span></code> にコピーします。</p>
 </div>
 <div class="section" id="id10">
 <h2>練習<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <p>2つのファイル名 <code class="docutils literal notranslate"><span class="pre">infile</span></code>, <code class="docutils literal notranslate"><span class="pre">outfile</span></code> を引数として、<code class="docutils literal notranslate"><span class="pre">infile</span></code> の半角英文字をすべて大文字にした結果を <code class="docutils literal notranslate"><span class="pre">outfile</span></code> に書き込む <code class="docutils literal notranslate"><span class="pre">file_upper(infile,</span> <span class="pre">outfile)</span></code> という関数を作成してください。</p>
 <p>なお、半角英文字の小文字を大文字に変換するには <code class="docutils literal notranslate"><span class="pre">upper()</span></code> というメソッドが使えます。 たとえば <code class="docutils literal notranslate"><span class="pre">line</span></code> という名前の変数に半角文字列が入っている場合、<code class="docutils literal notranslate"><span class="pre">line.upper()</span></code> とすれば小文字に変換した文字列を返します。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -656,7 +653,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -675,7 +672,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-23-2d3cb47ae79e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-24-2d3cb47ae79e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;hello&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;world&#39;</span><span class="ansi-blue-fg">,</span> file<span class="ansi-blue-fg">=</span>f<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> file_upper<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;print-test.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;print-test-upper.txt&#39;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;print-test-upper.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
@@ -692,7 +689,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <p>デフォルトの文字コードは、WindowsはShift_JIS、macOSやLinuxはUTF-8になっていることが多いです。 UTF-8で文字を記録されたファイルをWindowsで、ただ <code class="docutils literal notranslate"><span class="pre">open('utf-8.txt',</span> <span class="pre">'w')</span></code> のように文字コードを指定せずに開くとエラーが出ます。 同じく、Shift_JISで文字を記録されたファイルをmacOSで <code class="docutils literal notranslate"><span class="pre">open('shift_jis.txt',</span> <span class="pre">'w')</span></code> として開くとエラーが出ます。</p>
 <p>なお、この教材の冒頭で <code class="docutils literal notranslate"><span class="pre">open('sample.txt',</span> <span class="pre">'r')</span></code> と、文字コードを指定せずにファイルを開きましたがエラーは出ませんでしたね。 これは、<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> では半角英数字しか使われておらず、半角英数字に関しては、Shift_JISもUTF-8も共通のルールでエンコードされているためです。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -713,7 +710,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-24-55d9ddc4ec6f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-25-55d9ddc4ec6f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># macOSならこちらでエラー</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;shift_jis.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -734,7 +731,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <p>文字コードは、<code class="docutils literal notranslate"><span class="pre">open</span></code> のキーワード引数として <code class="docutils literal notranslate"><span class="pre">encoding='utf-8'</span></code>（文字コードにUTF-8を指定する場合）のように指定することができます。</p>
 <p>なお、日本語の文字コードには <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>, <code class="docutils literal notranslate"><span class="pre">Shift_JIS</span></code>, <code class="docutils literal notranslate"><span class="pre">EUC-JP</span></code> などがありますが、PythonではOSの種類に限らず、UTF-8という文字コードがよく使われます。本授業でもUTF-8を推奨します。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -770,7 +767,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <p>ファイルをテキストモードで開いて <code class="docutils literal notranslate"><span class="pre">read()</span></code> や <code class="docutils literal notranslate"><span class="pre">readline()</span></code> を呼び出すと、 <code class="docutils literal notranslate"><span class="pre">str</span></code> 型の文字列として読み込まれます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code> 型の文字列の末尾にある改行文字が不要な場合は、 文字列に対して <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> というメソッドを <code class="docutils literal notranslate"><span class="pre">rstrip('\n')</span></code> のようにして呼び出すことにより削除することができます。 ここで、カッコ <code class="docutils literal notranslate"><span class="pre">()</span></code> の中にはそのテキストファイルで使われている改行文字を指定します。 一般的に、Windowsでは <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>、macOSやLinuxでは <code class="docutils literal notranslate"><span class="pre">\n</span></code> です。 また、昔のmacOSで作られたテキストファイルは <code class="docutils literal notranslate"><span class="pre">\r</span></code> となっているものもあります。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -812,7 +809,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <div class="section" id="練習の解答">
 <h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -825,7 +822,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -841,7 +838,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,7 +851,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 <p>以下のように一つのwith文に複数の <code class="docutils literal notranslate"><span class="pre">open</span></code> を書くこともできます。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -884,7 +881,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -897,8 +894,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -912,9 +908,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4-1. ファイル入出力の基本</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ファイルのオープン">ファイルのオープン</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ファイルのクローズ">ファイルのクローズ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ファイル全体の読み込み">ファイル全体の読み込み</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#行の読み込み">行の読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ファイル全体の読み込み">ファイル全体の読み込み</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">練習</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#編集中のファイルの動作">編集中のファイルの動作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ファイルに対するwith文">ファイルに対するwith文</a></li>
@@ -935,6 +931,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -943,13 +940,13 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../3/3-3.html" title="previous chapter">3-3. 関数</a></li>
       <li>Next: <a href="4-2.html" title="next chapter">4-2. イテレータ</a></li>
   </ul></li>

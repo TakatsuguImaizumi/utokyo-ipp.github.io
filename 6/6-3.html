@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/6/6-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -299,6 +297,14 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>一般にクラス定義は、以下のような形をしています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">クラス名</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">実行文</span>
+    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">実行文</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
 <p>メソッド定義は関数定義と同じ形をしていますが、 クラス定義の中に入っています。 メソッド定義において、その最初の引数には慣例として <code class="docutils literal notranslate"><span class="pre">self</span></code> という名前を付けます。 この引数には、メソッドが呼び出されたオブジェクト自身が渡されます。</p>
 <p>上の例では、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドが一つ定義されています。</p>
 <p>以下のようにして、このクラスのオブジェクトを作ることができます。</p>
@@ -313,6 +319,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> を型とする新しいオブジェクトが作られて変数 <code class="docutils literal notranslate"><span class="pre">f</span></code> の値となります。</p>
 <p>一般に、オブジェクトの生成は、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">クラス名</span><span class="p">(</span><span class="n">式</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>という式で行います。このようにオブジェクトを生成する式は<strong>コンストラクタ</strong>と呼ばれます。 なお、上の例では、括弧の中に式は一つもありません。</p>
 <p>このようにして作ったオブジェクトの型を確認してください。</p>
 <div class="nbinput docutils container">
@@ -350,7 +359,7 @@ __main__.HelloForEver
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.HelloForEver at 0x7f20455943a0&gt;
+&lt;__main__.HelloForEver at 0x7f751c6b4b80&gt;
 </pre></div></div>
 </div>
 <p>このオブジェクトに対して、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドを呼び出すことができます。</p>
@@ -373,6 +382,9 @@ __main__.HelloForEver
 </pre></div></div>
 </div>
 <p>この例では、<code class="docutils literal notranslate"><span class="pre">f</span></code> という変数に入っているオブジェクトが <code class="docutils literal notranslate"><span class="pre">self</span></code> という引数に渡されて、 <code class="docutils literal notranslate"><span class="pre">readline</span></code> の本体である以下の文が実行されました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
 <p>（この例では <code class="docutils literal notranslate"><span class="pre">self</span></code> は参照されていません。）</p>
 <p>何回やっても同じです。</p>
 <div class="nbinput docutils container">
@@ -448,6 +460,13 @@ __main__.HelloForEver
 <p><code class="docutils literal notranslate"><span class="pre">self.n</span> <span class="pre">=</span> <span class="pre">n</span></code> のうち、<code class="docutils literal notranslate"><span class="pre">self.</span></code> の次の <code class="docutils literal notranslate"><span class="pre">n</span></code> は属性を表し、 右辺の <code class="docutils literal notranslate"><span class="pre">n</span></code> は、<code class="docutils literal notranslate"><span class="pre">__init__</span></code> メソッドの引数を表していますので、 混同しないようにしてください。</p>
 <p>この例では、新しく作られたオブジェクトの <code class="docutils literal notranslate"><span class="pre">n</span></code> という属性が、引数 <code class="docutils literal notranslate"><span class="pre">n</span></code> の値である <code class="docutils literal notranslate"><span class="pre">3</span></code> に設定されます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドは以下のように定義されています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
 <p>オブジェクトの属性 <code class="docutils literal notranslate"><span class="pre">n</span></code> を参照して、それが <code class="docutils literal notranslate"><span class="pre">0</span></code> ならば空文字列を返します。 そうでなければ、属性 <code class="docutils literal notranslate"><span class="pre">n</span></code> を <code class="docutils literal notranslate"><span class="pre">1</span></code> 減らしてから文字列 <code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> を返します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -642,7 +661,10 @@ True
 <p>上の例で、<code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> として関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> を呼び出すと、 <code class="docutils literal notranslate"><span class="pre">f.__iter__()</span></code> としてメソッド <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> が <code class="docutils literal notranslate"><span class="pre">f</span></code> に対して呼び出され、 その結果が <code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> の値となります。 したがって、<code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> は <code class="docutils literal notranslate"><span class="pre">f</span></code> と同じ値を返します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドも、オブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が適用されたときに呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドの値が <code class="docutils literal notranslate"><span class="pre">next</span></code> の値となります。</p>
 <p>上の例では、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> として、オブジェクト自身に対してメソッド <code class="docutils literal notranslate"><span class="pre">readline</span></code> を呼び出しています。 その値が空文字列ならば、</p>
-<p>という文を実行して、<code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> というエラーを投げます。 実は、このエラーは、for文が捕まえて繰り返しを止める効果を持ちます。 なお、<strong>``raise``</strong> は強制的にエラーを発生させる構文です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>という文を実行して、<code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> というエラーを投げます。 実は、このエラーは、for文が捕まえて繰り返しを止める効果を持ちます。 なお、<code class="docutils literal notranslate"><span class="pre">raise</span></code> は強制的にエラーを発生させる構文です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -668,12 +690,54 @@ Hello.
 </div>
 <p>4-2で説明したように、上のfor文では、 まず <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されます。 すると <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクト自身が返ります。 そして、このオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が繰り返し適用されて、 その結果が変数 <code class="docutils literal notranslate"><span class="pre">line</span></code> の値となります。 <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> のエラーが検知されると、for文が終了します。</p>
 </div>
+<div class="section" id="継承による振舞いの改変">
+<h2>継承による振舞いの改変<a class="headerlink" href="#継承による振舞いの改変" title="Permalink to this headline">¶</a></h2>
+<p>上で示された、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> の <code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドでは、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> というメソッド呼び出しがありました。 上の例の振舞いから、そのメソッド呼び出しは、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> には <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが定義されていないので、親の <code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を見に行って、そこで定義された <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが使われたように見えます。 しかし、それは正確ではありません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> では、その呼び出し場所がどこであるかに関わらず、常にオブジェクト <code class="docutils literal notranslate"><span class="pre">self</span></code> の中のメソッドを探索します。 そして、継承があるために、<code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> における <code class="docutils literal notranslate"><span class="pre">self</span></code> が、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> のインスタンスであるとも限りません。 次を見てみましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">EmptyFile</span><span class="p">(</span><span class="n">HelloFileIterator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">EmptyFile</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-22-0980c58e36e0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> f <span class="ansi-blue-fg">=</span> EmptyFile<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-18-e10e56aa4b9e&gt;</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>         line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> StopIteration
+<span class="ansi-green-intense-fg ansi-bold">      8</span>         <span class="ansi-green-fg">return</span> line
+
+<span class="ansi-red-fg">StopIteration</span>:
+</pre></div></div>
+</div>
+<p>コンストラクタに <code class="docutils literal notranslate"><span class="pre">3</span></code> を与えているので、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> と同様に <code class="docutils literal notranslate"><span class="pre">next</span></code> を3回適用できてもよさそうですが、即座に <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> が生じました。 これは、<code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> における <code class="docutils literal notranslate"><span class="pre">self</span></code> が、<code class="docutils literal notranslate"><span class="pre">EmptyFile</span></code> のインスタンスであり、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> が常に <code class="docutils literal notranslate"><span class="pre">''</span></code> を返すからです。</p>
+<p>このように、継承は、メソッドの部分的な再定義を通じて、再定義されたメソッドを呼び出しているメソッドの振舞いを、間接的に改変することを可能にします。</p>
+</div>
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> ではなくて、初期時に指定された文字列を繰り返し返すように、 新たなクラス <code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> を定義してください。</p>
 <p><code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> は <code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> を継承し、 初期化メソッドには、文字列と回数を指定します。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -686,7 +750,7 @@ Hello.
 </div>
 <p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -702,7 +766,7 @@ Hello.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-23-ebce1b2a6547&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-24-ebce1b2a6547&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> f <span class="ansi-blue-fg">=</span> StringFileIterator<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 
@@ -728,7 +792,7 @@ Hello.
 <h2>▲with文への対応<a class="headerlink" href="#▲with文への対応" title="Permalink to this headline">¶</a></h2>
 <p>ここでは詳しく説明しませんが、さらに特殊メソッドである <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> と <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> を定義すると、 <strong>with文</strong>にも対応できます。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -748,7 +812,7 @@ Hello.
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -775,7 +839,7 @@ Hello.
 <div class="section" id="練習の解答">
 <h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -811,7 +875,7 @@ Hello.
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -824,8 +888,7 @@ Hello.
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -849,6 +912,7 @@ Hello.
 <li class="toctree-l2"><a class="reference internal" href="#初期化と属性">初期化と属性</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#継承">継承</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#特殊メソッド">特殊メソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#継承による振舞いの改変">継承による振舞いの改変</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#▲with文への対応">▲with文への対応</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
@@ -856,6 +920,7 @@ Hello.
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -864,13 +929,13 @@ Hello.
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="6-2.html" title="previous chapter">6-2. 高階関数</a></li>
       <li>Next: <a href="../7/7-1.html" title="next chapter">7-1. pandasライブラリ</a></li>
   </ul></li>

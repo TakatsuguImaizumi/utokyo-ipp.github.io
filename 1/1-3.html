@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/1/1-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -300,25 +298,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>上の関数 <code class="docutils literal notranslate"><span class="pre">bmax</span></code> は、二つの引数の大きい方 （正確には小さくない方）を返します。</p>
 <p>ここで <code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐が用いられています。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>```Python</p></td>
-</tr>
-<tr class="row-even"><td><p>if a &gt; b:</p></td>
-</tr>
-<tr class="row-odd"><td><p>return a</p></td>
-</tr>
-<tr class="row-even"><td><p>else:</p></td>
-</tr>
-<tr class="row-odd"><td><p>return b</p></td>
-</tr>
-<tr class="row-even"><td><p>```</p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">a</span></code> が <code class="docutils literal notranslate"><span class="pre">b</span></code> より大きければ <code class="docutils literal notranslate"><span class="pre">a</span></code> が返され、そうでなければ、<code class="docutils literal notranslate"><span class="pre">b</span></code> が返されます。</p>
 <p>ここで、<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">a</span></code> が、<code class="docutils literal notranslate"><span class="pre">if</span></code> より右にインデントされていることに注意してください。 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">a</span></code> は、<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code> が成り立つときのみ実行されます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">else</span></code> は <code class="docutils literal notranslate"><span class="pre">if</span></code> の右の条件が成り立たない場合を示しています。 <code class="docutils literal notranslate"><span class="pre">else:</span></code> として、必ず <code class="docutils literal notranslate"><span class="pre">:</span></code> が付くことに注意してください。</p>
@@ -343,23 +328,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>関数の中で <code class="docutils literal notranslate"><span class="pre">return</span></code> と式が実行されますと、関数は即座に返りますので、 関数定義の中のその後の部分は実行されません。</p>
 <p>たとえば、上の条件分岐は以下のように書くこともできます。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>```Python</p></td>
-</tr>
-<tr class="row-even"><td><p>if a &gt; b:</p></td>
-</tr>
-<tr class="row-odd"><td><p>return a</p></td>
-</tr>
-<tr class="row-even"><td><p>return b</p></td>
-</tr>
-<tr class="row-odd"><td><p>```</p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span>
+<span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
 <p>ここでは、<code class="docutils literal notranslate"><span class="pre">if</span></code> から始まる条件分岐には <code class="docutils literal notranslate"><span class="pre">else:</span></code> の部分がありません。 条件分岐の後に <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">b</span></code> が続いています。 （<code class="docutils literal notranslate"><span class="pre">if</span></code> と <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">b</span></code> のインデントは同じです。）</p>
 <p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code> が成り立っていれば、<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">a</span></code> が実行されて a の値が返ります。 したがって、その次の <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">b</span></code> は実行されません。</p>
 <p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code> が成り立っていなければ、<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">a</span></code> は実行されません。 これで条件分岐は終わりますので、その次にある <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">b</span></code> が実行されます。</p>
@@ -386,7 +359,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="様々な条件">
 <h2>様々な条件<a class="headerlink" href="#様々な条件" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> の右などに来る条件として様々なものを書くことができます。これらの条件には <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> や <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> などの<strong>比較演算子</strong>が含まれています。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>         <span class="c1"># x は y より小さい</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>         <span class="c1"># x は y より小さい</span>
 <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span>        <span class="c1"># x は y 以下</span>
 <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>         <span class="c1"># x は y より大きい</span>
 <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span>        <span class="c1"># x は y 以上</span>
@@ -397,17 +370,17 @@ div.rendered_html tbody tr:hover {
 <p>特に等しいかどうかの比較には <code class="docutils literal notranslate"><span class="pre">==</span></code> という演算子が使われることに注意してください。 <code class="docutils literal notranslate"><span class="pre">=</span></code> は代入の演算子です。</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> は小さいか等しいか、<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> は大きいか等しいかを表します。 <code class="docutils literal notranslate"><span class="pre">!=</span></code> は等しくないことを表します。</p>
 <p>さらに、このような基本的な条件を、 <code class="docutils literal notranslate"><span class="pre">and</span></code> と <code class="docutils literal notranslate"><span class="pre">or</span></code> を用いて組み合わせることができます。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>   <span class="c1"># i は 0 以上で、かつ、j は 0 より大きい</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>   <span class="c1"># i は 0 以上で、かつ、j は 0 より大きい</span>
 <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span>     <span class="c1"># i は 0 より小さいか、または、j は 0 より大きい</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">i</span></code> が 1 または 2 または 3 である、という条件は以下のようになります。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span>
 </pre></div>
 </div>
 <p>これを <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">or</span> <span class="pre">2</span> <span class="pre">or</span> <span class="pre">3</span></code> と書くことはできませんので、注意してください。</p>
 <p>また、<code class="docutils literal notranslate"><span class="pre">not</span></code> によって条件の否定をとることもできます。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>          <span class="c1"># x は y より小さくない（x は y 以上）</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>          <span class="c1"># x は y より小さくない（x は y 以上）</span>
 </pre></div>
 </div>
 <p>比較演算子は、以下のように連続して用いることもできます。</p>
@@ -740,7 +713,13 @@ NG
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">return</span></code> の後に式を書かないことがあります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span>
+</pre></div>
+</div>
 <p>この場合、以下のように <code class="docutils literal notranslate"><span class="pre">None</span></code> が指定されているとみなされます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
 <p>このようなreturn文を実行すると、関数の実行はそこで終了して <code class="docutils literal notranslate"><span class="pre">None</span></code> が返ります。</p>
 </div>
 <div class="section" id="▲条件として使われる他の値">
@@ -797,12 +776,12 @@ OK
 <h2>▲再帰<a class="headerlink" href="#▲再帰" title="Permalink to this headline">¶</a></h2>
 <p>一般に、定義しようとするもの自身を定義の中で参照することを、 <strong>再帰</strong>と言います。 再帰による定義を再帰的定義と言います。</p>
 <p>たとえば、数列の漸化式は再帰的定義と考えられます。 実際に、<code class="docutils literal notranslate"><span class="pre">n</span></code> 番目のフィボナッチ数を <code class="docutils literal notranslate"><span class="pre">fib(n)</span></code> とおくと、 <code class="docutils literal notranslate"><span class="pre">fib(n)</span></code> は次のような漸化式を満たします。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">n</span>  <span class="n">ただし</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">n</span>  <span class="n">ただし</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">2</span>
 <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="n">ただし</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>この漸化式を用いて以下のように実際にフィボナッチ数を計算することができます。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">2</span>
@@ -885,7 +864,7 @@ OK
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -898,8 +877,7 @@ OK
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1-3. 論理・比較演算と条件分岐の基礎</a><ul>
@@ -932,6 +910,7 @@ OK
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -940,13 +919,13 @@ OK
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="1-2.html" title="previous chapter">1-2. 変数と関数の基礎</a></li>
       <li>Next: <a href="1-4.html" title="next chapter">1-4. デバッグ</a></li>
   </ul></li>

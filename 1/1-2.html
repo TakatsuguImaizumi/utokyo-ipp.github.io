@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/1/1-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -314,7 +312,7 @@ div.rendered_html tbody tr:hover {
 188.0
 </pre></div></div>
 </div>
-<p>異なる変数は、いくらでも導入できます。たとえば、以下では<code class="docutils literal notranslate"><span class="pre">w</span></code>を変数定義します。</p>
+<p>異なる変数は、いくらでも導入できます。たとえば、以下では <code class="docutils literal notranslate"><span class="pre">w</span></code> を変数定義します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -373,18 +371,16 @@ div.rendered_html tbody tr:hover {
 26.595744680851066
 </pre></div></div>
 </div>
-<p>なお、未定義の変数を式の中で用いると、次のようにエラーが生じます。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BMI</span>  <span class="c1"># 未定義の変数</span>
+<p>なお、未定義の変数（たとえば <code class="docutils literal notranslate"><span class="pre">BMI</span></code>）を式の中で用いると、次のようにエラーが生じます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b910749d4383</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">BMI</span>  <span class="c1"># 未定義の変数</span>
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;BMI&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-f775236e687b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>BMI  <span class="ansi-red-fg"># 未定義の変数</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'BMI' is not defined
-
-</pre><p>次のセルの行頭にある <code class="docutils literal notranslate"><span class="pre">#</span></code> を削除して実行してみましょう。</p>
+<p>次のセルの行頭にある <code class="docutils literal notranslate"><span class="pre">#</span></code> を削除して実行してみましょう。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -480,34 +476,14 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Python では、<strong>関数定義</strong>は、上のような形をしています。 最初の行は以下のように <code class="docutils literal notranslate"><span class="pre">def</span></code> で始まります。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>```Python</p></td>
-</tr>
-<tr class="row-even"><td><p>def 関数名(引数, …):</p></td>
-</tr>
-<tr class="row-odd"><td><p>```</p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">関数名</span><span class="p">(</span><span class="n">引数</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
 <p><strong>引数</strong>（ひきすう）とは、関数が受け取る値を指し示す変数のことです。<strong>仮引数</strong>（かりひきすう）ともいいます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">:</span></code> 以降は関数定義の本体であり、関数の処理を記述する部分として以下の構文が続きます。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>```Python</p></td>
-</tr>
-<tr class="row-even"><td><p>return 式</p></td>
-</tr>
-<tr class="row-odd"><td><p>```</p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">式</span>
+</pre></div>
+</div>
 <p>この構文は <code class="docutils literal notranslate"><span class="pre">return</span></code> で始まり、<strong>return文</strong>と呼ばれます。return文は、<code class="docutils literal notranslate"><span class="pre">return</span></code> に続く式の評価結果を、関数の呼び出し元に返して（これを<strong>返値</strong>と言います）、関数を終了するという意味を持ちます。この関数を、入力となる引数とともに呼び出すと、<code class="docutils literal notranslate"><span class="pre">return</span></code> の後の式の評価結果を返値として返します。</p>
 <p>ここで、Pythonでは、 <code class="docutils literal notranslate"><span class="pre">return</span></code> の前に空白が入ることに注意してください。 このような行頭の空白を<strong>インデント</strong>と呼びます。 Pythonでは、インデントの量によって、 構文の<strong>入れ子</strong>を制御するようになっています。このことについては、 より複雑な構文が出てきたときに説明しましょう。</p>
 <p>上記では、<code class="docutils literal notranslate"><span class="pre">def</span></code> の後に続く <code class="docutils literal notranslate"><span class="pre">bmi</span></code> が関数名です。それに続く括弧の中に書かれた <code class="docutils literal notranslate"><span class="pre">height</span></code> と <code class="docutils literal notranslate"><span class="pre">weight</span></code> は、<strong>引数</strong>です。また、<code class="docutils literal notranslate"><span class="pre">return</span></code> の後にBMIの計算式を記述しているので、関数の呼び出し元にはBMIの計算結果が返値として返ります。</p>
@@ -775,7 +751,7 @@ False
 <h2><code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
 <p>上の例で、ローカル変数は関数の返値を計算するのに使われますが、それが定義されている関数の外からは参照することができません。</p>
 <p>ローカル変数の値など、関数の実行途中の状況を確認するには、 <code class="docutils literal notranslate"><span class="pre">print</span></code> というPythonが最初から用意してくれている関数（<strong>組み込み関数</strong>）を用いることができます。この <code class="docutils literal notranslate"><span class="pre">print</span></code> を関数内から呼び出すことでローカル変数の値を確認できます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">print</span></code> は任意個の引数をとることができ、コンマ <code class="docutils literal notranslate"><span class="pre">,</span></code> の区切りには空白文字が出力されます。引数を与えずに呼び出した場合には、改行のみを出力します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">print</span></code> は任意個の引数を取ることができ、コンマ <code class="docutils literal notranslate"><span class="pre">,</span></code> の区切りには空白文字が出力されます。引数を与えずに呼び出した場合には、改行のみを出力します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -815,15 +791,21 @@ The value of s is 1.5
 </pre></div></div>
 </div>
 <p>このように <code class="docutils literal notranslate"><span class="pre">print</span></code> 関数を用いて変数の値を観察することは、プログラムの誤り（<strong>バグ</strong>）を見つけ、修正（<strong>デバッグ</strong>）する最も基本的な方法です。これは1-4でも改めて説明します。</p>
-<p>なお、以降の説明では、 <code class="docutils literal notranslate"><span class="pre">print</span></code> 関数の呼出しを単に &quot;printする&quot; とか &quot;printを挿入&quot; などと表現することにします。</p>
+<p>なお、以降の説明では、 <code class="docutils literal notranslate"><span class="pre">print</span></code> 関数の呼び出しを単に &quot;printする&quot; とか &quot;printを挿入&quot; などと表現することにします。</p>
 </div>
 <div class="section" id="print-と-return">
 <h2><code class="docutils literal notranslate"><span class="pre">print</span></code> と <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#print-と-return" title="Permalink to this headline">¶</a></h2>
 <p>関数が値を返すことを期待されている場合は、必ず <code class="docutils literal notranslate"><span class="pre">return</span></code> を使ってください。</p>
 <p>関数内で値をprintしても、関数の返値として利用することはできません。</p>
 <p>たとえば <code class="docutils literal notranslate"><span class="pre">heron</span></code> を以下のように定義すると、<code class="docutils literal notranslate"><span class="pre">heron(1,1,1)</span> <span class="pre">*</span> <span class="pre">2</span></code> のような計算ができなくなります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">heron</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The value of s is&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">c</span><span class="p">)))</span>
+</pre></div>
+</div>
 <p>なお、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">c</span><span class="p">)))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">c</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>のように書いても駄目です。<code class="docutils literal notranslate"><span class="pre">print</span></code> 関数は <code class="docutils literal notranslate"><span class="pre">None</span></code> という値を返しますので、これでは関数は常に <code class="docutils literal notranslate"><span class="pre">None</span></code> という値を返してしまいます。</p>
@@ -855,7 +837,7 @@ The value of s is 1.5
 <p>関数は、</p>
 <p>　　関数 <code class="docutils literal notranslate"><span class="pre">heron</span></code> は、三角形の三辺の長さをもらって三角形の面積を返します。</p>
 <p>というように、名前だけで参照することもありますが、</p>
-<p>　　<code class="docutils literal notranslate"><span class="pre">heron(a,b,c)</span></code> は、三角形の三辺の長さ <code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">b</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code> をもらって三角形の面積を返します。</p>
+<p>　　<code class="docutils literal notranslate"><span class="pre">heron(a,b,c)</span></code> は、三角形の三辺の長さ <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> をもらって三角形の面積を返します。</p>
 <p>というように、引数を明示して参照することもあります。</p>
 <p>ときには、</p>
 <p>　　<code class="docutils literal notranslate"><span class="pre">heron()</span></code> は三角形の面積を返します。</p>
@@ -1217,7 +1199,7 @@ False
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -1230,8 +1212,7 @@ False
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1-2. 変数と関数の基礎</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#変数">変数</a></li>
@@ -1266,6 +1247,7 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -1274,13 +1256,13 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="1-1.html" title="previous chapter">1-1. 数値演算</a></li>
       <li>Next: <a href="1-3.html" title="next chapter">1-3. 論理・比較演算と条件分岐の基礎</a></li>
   </ul></li>

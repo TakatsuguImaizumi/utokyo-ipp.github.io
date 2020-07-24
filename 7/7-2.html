@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="▲セット (set)" href="../appendix/2-set.html" />
+    <link rel="next" title="1-0. Jupyter Notebook の使い方" href="../appendix/1-jupyter-notebook.html" />
     <link rel="prev" title="7-1. pandasライブラリ" href="7-1.html" />
 
    
@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/7/7-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -279,7 +277,7 @@ div.rendered_html tbody tr:hover {
 <p>参考</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/tutorial/index.html">https://scikit-learn.org/stable/tutorial/index.html</a></p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/documentation.html">https://scikit-learn.org/stable/documentation.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/getting_started.html">https://scikit-learn.org/stable/getting_started.html</a></p></li>
 </ul>
 <p>機械学習の各手法の詳細については以下を参考にしてください</p>
 <ul class="simple">
@@ -289,6 +287,7 @@ div.rendered_html tbody tr:hover {
 <li><p><a class="reference external" href="https://elf-c.he.u-tokyo.ac.jp/courses/363">https://elf-c.he.u-tokyo.ac.jp/courses/363</a> （次元削減（主成分分析））</p></li>
 </ul>
 <p><strong>scikit-learn</strong>ライブラリには分類、回帰、クラスタリング、次元削減、前処理、モデル選択などの機械学習の処理を行うためのモジュールが含まれています。以下では、scikit-learnライブラリのモジュールの基本的な使い方について説明します。</p>
+<p><strong>*以下の説明ではscikit-learnライブラリのバージョン0.22以降を想定しています。*</strong> Anaconda （Individual Edition 2020.02）では同0.22がインストールされています。colaboratoryでも同0.22以降が使用可能です。</p>
 <div class="section" id="機械学習について">
 <h2>機械学習について<a class="headerlink" href="#機械学習について" title="Permalink to this headline">¶</a></h2>
 <p><strong>機械学習</strong>では、観察されたデータをよく表すようにモデルのパラメータの調整を行います。パラメータを調整することでモデルをデータに適合させるので、「学習」と呼ばれます。学習されたモデルを使って、新たに観測されたデータに対して予測を行うことが可能になります。</p>
@@ -430,7 +429,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="教師あり学習・分類の例">
 <h2>教師あり学習・分類の例<a class="headerlink" href="#教師あり学習・分類の例" title="Permalink to this headline">¶</a></h2>
-<p>以下では、アイリスデータセットを用いて花の4つの特徴から3つの花の種類を分類する手続きを示しています。scikit-learnでは、すべてのモデルはPythonクラスとして実装されており、ここでは分類を行うモデルの一つである<strong>ロジスティック回帰</strong> (<code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>) クラスをインポートしています。<code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> はデータセットを訓練データとテストデータに分割するための関数、<code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code> はモデルの予測精度を評価するための関数です。</p>
+<p>以下では、アイリスデータセットを用いて花の4つの特徴から3つの花の種類を分類する手続きを示しています。scikit-learnでは、すべてのモデルはPythonクラスとして実装されており、ここでは分類を行うモデルの一つである<strong>ロジスティック回帰</strong> (<code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>) クラスをインポートしています。</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegressionクラス</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> はデータセットを訓練データとテストデータに分割するための関数、<code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code> はモデルの予測精度を評価するための関数です。</p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) とラベルデータ (<code class="docutils literal notranslate"><span class="pre">y_iris</span></code>) からなるデータセットを訓練データ (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>) とテストデータ (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) に分割しています。ここでは、<code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">test_size</span></code> 引数にデータセットの30%をテストデータとすることを指定しています。また、<code class="docutils literal notranslate"><span class="pre">stratify</span></code> 引数にラベルデータを指定することで、訓練データとテストデータ、それぞれでラベルの分布が同じになるようにしています。</p>
 <p>ロジスティック回帰クラスのインスタンスを作成し、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルを訓練データに適合させています。そして、<code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いてテストデータの特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>) のラベルを予測し、<code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code> 関数で実際のラベルデータ (<code class="docutils literal notranslate"><span class="pre">y_test</span></code>) と比較して予測精度の評価を行なっています。97%の精度で花の4つの特徴から3つの花の種類を分類できていることがわかります。</p>
 <div class="nbinput docutils container">
@@ -450,7 +451,8 @@ div.rendered_html tbody tr:hover {
 <span class="c1"># 訓練データとテストデータに分割</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_iris</span><span class="p">,</span> <span class="n">y_iris</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_iris</span><span class="p">)</span>
 
-<span class="c1"># ロジスティック回帰モデル：最適化にはL-BFGS法、多クラス分類をサポート</span>
+<span class="c1"># ロジスティック回帰モデル：solver引数には最適化手法、multi_classには多クラス分類の方法を指定</span>
+<span class="c1"># ここではそれぞれのデフォルト値、lbfgsとautoを指定</span>
 <span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>  <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> <span class="c1"># モデルを訓練データに適合</span>
@@ -471,7 +473,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
-<p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と<code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、から2つの花の種類、<code class="docutils literal notranslate"><span class="pre">versicolor</span></code> か <code class="docutils literal notranslate"><span class="pre">virginica</span></code>、を予測するモデルをロジスティック回帰を用いて学習し、その予測精度を評価してください。以下では <code class="docutils literal notranslate"><span class="pre">pandas</span></code> データフレームの <code class="docutils literal notranslate"><span class="pre">values</span></code> 属性を用いてNumPy配列を取得しています。</p>
+<p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、から2つの花の種類、<code class="docutils literal notranslate"><span class="pre">versicolor</span></code> か <code class="docutils literal notranslate"><span class="pre">virginica</span></code>、を予測するモデルをロジスティック回帰を用いて学習し、その予測精度を評価してください。以下では <code class="docutils literal notranslate"><span class="pre">pandas</span></code> データフレームの <code class="docutils literal notranslate"><span class="pre">values</span></code> 属性を用いてNumPy配列を取得しています。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -541,7 +543,9 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/7_7-2_16_0.png" src="../_images/7_7-2_16_0.png" />
 </div>
 </div>
-<p>次に、回帰を行うモデルの一つである<strong>線形回帰</strong> (<code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>) クラスをインポートしています。<code class="docutils literal notranslate"><span class="pre">mean_squared_error()</span></code> は平均二乗誤差によりモデルの予測精度を評価するための関数です。</p>
+<p>次に、回帰を行うモデルの一つである<strong>線形回帰</strong> (<code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>) クラスをインポートしています。</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">LinearRegressionクラス</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">mean_squared_error()</span></code> は平均二乗誤差によりモデルの予測精度を評価するための関数です。</p>
 <p>データセットを訓練データ (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>) とテストデータ (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>) に分割し、線形回帰クラスのインスタンスの <code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルを訓練データに適合させています。そして、<code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いてテストデータの <code class="docutils literal notranslate"><span class="pre">petal_length</span></code> の値から <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> の値を予測し、<code class="docutils literal notranslate"><span class="pre">mean_squared_error()</span></code> 関数で実際の <code class="docutils literal notranslate"><span class="pre">petal_widthの値</span></code> (<code class="docutils literal notranslate"><span class="pre">y_test</span></code>) と比較して予測精度の評価を行なっています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -595,6 +599,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="教師なし学習・クラスタリングの例">
 <h2>教師なし学習・クラスタリングの例<a class="headerlink" href="#教師なし学習・クラスタリングの例" title="Permalink to this headline">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_lenghとpetal_width</span></code>、を元に花のデータをクラスタリングする手続きを示しています。ここでは<strong>クラスタリング</strong>を行うモデルの一つである <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> クラスをインポートしています。</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">KMeansクラス</a></p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) を用意し、引数 <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> にハイパーパラメータとしてクラスタ数、ここでは <code class="docutils literal notranslate"><span class="pre">3</span></code>、を指定して <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> クラスのインスタンスを作成しています。そして、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルをデータに適合させ、<code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いて各データが所属するクラスタの情報 (<code class="docutils literal notranslate"><span class="pre">y_km</span></code>) を取得しています。</p>
 <p>学習された各花データのクラスタ情報を元のデータセットのデータフレームに列として追加し、クラスタごとに異なる色でデータセットを可視化しています。2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_lengh</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、に基づき、3つのクラスタが得られていることがわかります。</p>
 <div class="nbinput docutils container">
@@ -674,6 +679,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="教師なし学習・次元削減の例">
 <h2>教師なし学習・次元削減の例<a class="headerlink" href="#教師なし学習・次元削減の例" title="Permalink to this headline">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の4つの特徴量を元に花のデータを<strong>次元削減</strong>する手続きを示しています。ここでは次元削減を行うモデルの一つである <code class="docutils literal notranslate"><span class="pre">PCA</span></code> クラスをインポートしています。</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">PCAクラス</a></p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) を用意し、引数 <code class="docutils literal notranslate"><span class="pre">n_components</span></code> にハイパーパラメータとして削減後の次元数、ここでは <code class="docutils literal notranslate"><span class="pre">2</span></code>、を指定して <code class="docutils literal notranslate"><span class="pre">PCA</span></code> クラスのインスタンスを作成しています。そして、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルをデータに適合させ、<code class="docutils literal notranslate"><span class="pre">transform()</span></code> メソッドを用いて4つの特徴量を2次元に削減した特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_2d</span></code>) を取得しています。</p>
 <p>学習された各次元の値を元のデータセットのデータフレームに列として追加し、データセットを削減して得られた次元の空間において、データセットを花の種類ごとに異なる色で可視化しています。削減された次元の空間において、花の種類をグループ分けできていることがわかります。</p>
 <div class="nbinput nblast docutils container">
@@ -731,8 +737,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_iris</span><span class="p">,</span> <span class="n">y_iris</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_iris</span><span class="p">)</span>
 
 <span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>  <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
-<span class="c1"># ***scikit-leranのバージョンが0.19以前の環境ではこちらを実行してください***</span>
-<span class="c1"># model=LogisticRegression()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">y_model</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_model</span><span class="p">)</span>
@@ -788,7 +792,7 @@ div.rendered_html tbody tr:hover {
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -801,8 +805,7 @@ div.rendered_html tbody tr:hover {
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -838,6 +841,7 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l2"><a class="reference internal" href="#練習の解答例">練習の解答例</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -846,15 +850,15 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="7-1.html" title="previous chapter">7-1. pandasライブラリ</a></li>
-      <li>Next: <a href="../appendix/2-set.html" title="next chapter">▲セット (set)</a></li>
+      <li>Next: <a href="../appendix/1-jupyter-notebook.html" title="next chapter">1-0. Jupyter Notebook の使い方</a></li>
   </ul></li>
 </ul>
 </div>

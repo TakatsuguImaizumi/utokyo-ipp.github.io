@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/5/5-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -605,7 +603,7 @@ array([[0, 1, 2],
 [0 1 2 3 4 5]
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ravel()</span></code>の結果も、<code class="docutils literal notranslate"><span class="pre">reshape()</span></code>と同様に、元の配列と要素を共有します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ravel()</span></code> の結果も、<code class="docutils literal notranslate"><span class="pre">reshape()</span></code> と同様に、元の配列と要素を共有します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -643,22 +641,22 @@ array([[0, 1, 2],
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a.dtype</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>の要素型</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> の要素型</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a.shape</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>の形（各次元の長さのタプル）</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> の形（各次元の長さのタプル）</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a.ndim</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>の次元数（<code class="docutils literal notranslate"><span class="pre">len(a.shape)</span></code>と等しい）</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> の次元数（<code class="docutils literal notranslate"><span class="pre">len(a.shape)</span></code> と等しい）</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a.size</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>の要素数（<code class="docutils literal notranslate"><span class="pre">a.shape</span></code>の総乗と等しい）</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> の要素数（<code class="docutils literal notranslate"><span class="pre">a.shape</span></code> の総乗と等しい）</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a.flat</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>の1次元表現（<code class="docutils literal notranslate"><span class="pre">a.ravel()</span></code>と等しい）</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> の1次元表現（<code class="docutils literal notranslate"><span class="pre">a.ravel()</span></code> と等しい）</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a.T</span></code></p></td>
-<td><p>配列<code class="docutils literal notranslate"><span class="pre">a</span></code>を転置した配列（<code class="docutils literal notranslate"><span class="pre">a</span></code>と要素を共有）</p></td>
+<td><p>配列 <code class="docutils literal notranslate"><span class="pre">a</span></code> を転置した配列（<code class="docutils literal notranslate"><span class="pre">a</span></code> と要素を共有）</p></td>
 </tr>
 </tbody>
 </table>
@@ -692,7 +690,7 @@ array([[0, 1, 2],
 </div>
 <div class="section" id="linspace">
 <h3><code class="docutils literal notranslate"><span class="pre">linspace</span></code><a class="headerlink" href="#linspace" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">numpy.linspace()</span></code>関数は、範囲を等分割した値からなる配列を生成します。 第1引数と第2引数には、それぞれ範囲の開始値と終了値、第3引数には分割数を指定します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.linspace()</span></code> 関数は、範囲を等分割した値からなる配列を生成します。 第1引数と第2引数には、それぞれ範囲の開始値と終了値、第3引数には分割数を指定します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -758,9 +756,9 @@ array([[0, 1, 2],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0.69356971 0.92413052 0.06461219 0.19687   ]
-[[0.07445267 0.12735134 0.75893542]
- [0.75354541 0.49944074 0.84113283]]
+[0.78255916 0.80243719 0.31824242 0.62194116]
+[[0.55516845 0.84811086 0.13990239]
+ [0.62390181 0.91744929 0.67712006]]
 </pre></div></div>
 </div>
 <p>この他にも、<code class="docutils literal notranslate"><span class="pre">numpy.random.randn()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.binomial()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.poisson()</span></code> は、それぞれ、正規分布・二項分布・ポアソン分布の乱数からなる配列を生成します。</p>
@@ -769,7 +767,7 @@ array([[0, 1, 2],
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
 <p>引数に整数 <span class="math notranslate nohighlight">\(n\)</span> を取り、<span class="math notranslate nohighlight">\(i\)</span> から始まる連番の整数からなる配列を<span class="math notranslate nohighlight">\(i\)</span>番目 (<span class="math notranslate nohighlight">\(i\ge 0\)</span>) の行として持つ <span class="math notranslate nohighlight">\(n\times n\)</span> の2次元配列を返す関数 <code class="docutils literal notranslate"><span class="pre">range_square_matrix()</span></code> を、<code class="docutils literal notranslate"><span class="pre">arange()</span></code> を用いて定義してください。</p>
-<p>たとえば、<code class="docutils literal notranslate"><span class="pre">range_square_matrix(3)</span></code>は、</p>
+<p>たとえば、<code class="docutils literal notranslate"><span class="pre">range_square_matrix(3)</span></code> は、</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]]</span>
@@ -1174,7 +1172,7 @@ False
 </div>
 <div class="section" id="要素毎の演算">
 <h2>要素毎の演算<a class="headerlink" href="#要素毎の演算" title="Permalink to this headline">¶</a></h2>
-<p>配列に対する要素毎の演算は、簡潔に記述できます。 しかも、for文で記述するより、効率が良いです。 要素毎の演算を上手く使えるかどうかが、NumPyプログラミングの肝と言っても過言ではないでしょう。</p>
+<p>配列に対する要素毎の演算は、簡潔に記述できます。 しかも、for文で記述するより、効率がよいです。 要素毎の演算を上手く使えるかどうかが、NumPyプログラミングの肝と言っても過言ではないでしょう。</p>
 <div class="section" id="配列のスカラ―演算">
 <h3><strong>配列のスカラ―演算</strong><a class="headerlink" href="#配列のスカラ―演算" title="Permalink to this headline">¶</a></h3>
 <p>配列とスカラーとの算術演算を記述すると、要素毎のスカラー演算となります。 演算結果として、新しい配列が返ります。</p>
@@ -1615,7 +1613,7 @@ False
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -1628,8 +1626,7 @@ False
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -1663,6 +1660,7 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -1671,13 +1669,13 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="5-2.html" title="previous chapter">5-2. モジュールの作り方</a></li>
       <li>Next: <a href="../6/6-1.html" title="next chapter">6-1. <strong>内包表記</strong></a></li>
   </ul></li>

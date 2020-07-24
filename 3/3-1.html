@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/3/3-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -320,6 +318,9 @@ dict
 </pre></div></div>
 </div>
 <p>辞書の <code class="docutils literal notranslate"><span class="pre">キー1</span></code> に対応する値を得るには、リストにおけるインデックスと同様に、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">辞書</span><span class="p">[</span><span class="n">キー1</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>とします。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -385,7 +386,7 @@ dict
 {&#39;apple&#39;: 10, &#39;pen&#39;: 5, &#39;pinapple&#39;: 7}
 </pre></div></div>
 </div>
-<p>上のようにキーから値は取り出せますが、値からキーを直接取り出すことは出来ません。 また、リストのようにインデックスを指定して値を取得することは出来ません。</p>
+<p>上のようにキーから値は取り出せますが、値からキーを直接取り出すことはできません。 また、リストのようにインデックスを指定して値を取得することはできません。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -466,7 +467,10 @@ False
 2
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">del</span></code> 文によって、登録されているキーの要素を削除することが出来ます。具体的には、次のように削除します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">del</span></code> 文によって、登録されているキーの要素を削除することができます。具体的には、次のように削除します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">辞書</span><span class="p">[</span><span class="n">削除したいキー</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -545,7 +549,7 @@ False
 <p>辞書のメソッドを紹介しておきます。</p>
 <div class="section" id="キーを指定して値を得るメソッド">
 <h3>キーを指定して値を得るメソッド<a class="headerlink" href="#キーを指定して値を得るメソッド" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">get</span></code> メソッドは、引数として指定したキーが辞書に含まれてる場合にはその値を取得し、 指定したキーが含まれていない場合には <code class="docutils literal notranslate"><span class="pre">None</span></code> を返します。 <code class="docutils literal notranslate"><span class="pre">get</span></code> を利用することで、エラーを回避し、登録されているかどうか分からないキーを使うことができます。 先に説明したキーを括弧、<code class="docutils literal notranslate"><span class="pre">[...]</span></code>、で指定する方法では、 辞書にキーが存在しないとエラーとなりプログラムの実行が停止してしまいます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">get</span></code> メソッドは、引数として指定したキーが辞書に含まれてる場合にはその値を取得し、 指定したキーが含まれていない場合には <code class="docutils literal notranslate"><span class="pre">None</span></code> を返します。 <code class="docutils literal notranslate"><span class="pre">get</span></code> を利用することで、エラーを回避し、登録されているかどうかわからないキーを使うことができます。 先に説明したキーを括弧、<code class="docutils literal notranslate"><span class="pre">[...]</span></code>、で指定する方法では、 辞書にキーが存在しないとエラーとなりプログラムの実行が停止してしまいます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -798,10 +802,10 @@ setdefault(&#34;orange&#34;, 7)を実行後の辞書 =  {&#39;apple&#39;: 3, &#3
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="▲keys,-values,-items-の返り値">
-<h3>▲<code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> の返り値<a class="headerlink" href="#▲keys,-values,-items-の返り値" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの一連の説明では、返り値を「リストのようなもの」と表現してきました。 通常のリストとどう違うのでしょうか？</p>
-<p>次の例では、<code class="docutils literal notranslate"><span class="pre">ppap</span></code> の <code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの返り値をそれぞれ <code class="docutils literal notranslate"><span class="pre">ks</span></code>, <code class="docutils literal notranslate"><span class="pre">vs</span></code>, <code class="docutils literal notranslate"><span class="pre">itms</span></code> に代入し、 <code class="docutils literal notranslate"><span class="pre">print</span></code> でそれぞれの内容を表示させています。</p>
+<div class="section" id="▲-keys,-values,-items-の返値">
+<h3>▲ <code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> の返値<a class="headerlink" href="#▲-keys,-values,-items-の返値" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの一連の説明では、返値を「リストのようなもの」と表現してきました。 通常のリストとどう違うのでしょうか？</p>
+<p>次の例では、<code class="docutils literal notranslate"><span class="pre">ppap</span></code> の <code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの返値をそれぞれ <code class="docutils literal notranslate"><span class="pre">ks</span></code>, <code class="docutils literal notranslate"><span class="pre">vs</span></code>, <code class="docutils literal notranslate"><span class="pre">itms</span></code> に代入し、 <code class="docutils literal notranslate"><span class="pre">print</span></code> でそれぞれの内容を表示させています。</p>
 <p>次いで、<code class="docutils literal notranslate"><span class="pre">ppap</span></code> に新たな要素を加えたのちに、同じ変数の内容を表示させています。 1, 2回目の <code class="docutils literal notranslate"><span class="pre">print</span></code> で内容が異なることに注意してください。 もとの辞書が更新されると、これらの内容も動的に変わります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -839,7 +843,7 @@ setdefault(&#34;orange&#34;, 7)を実行後の辞書 =  {&#39;apple&#39;: 3, &#3
 </div>
 <div class="section" id="辞書とリスト">
 <h2>辞書とリスト<a class="headerlink" href="#辞書とリスト" title="Permalink to this headline">¶</a></h2>
-<p>冒頭で述べたように、辞書では値としてあらゆる型のデータを使用できます。 すなわち、次のように値としてリストを使用する辞書を作成可能です。 リストの要素にアクセスするには数字インデックスをさらに指定します。</p>
+<p>冒頭で述べたように、辞書では値としてあらゆる型のデータを使用できます。 すなわち、次のように値としてリストを使用する辞書を作成可能です。 リストの要素を参照するには数字インデックスをさらに指定します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -976,7 +980,7 @@ False
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -989,8 +993,7 @@ False
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -1019,6 +1022,7 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -1027,13 +1031,13 @@ False
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../2/2-3.html" title="previous chapter">2-3. <strong>条件分岐</strong></a></li>
       <li>Next: <a href="3-2.html" title="next chapter">3-2. <strong>繰り返し</strong></a></li>
   </ul></li>

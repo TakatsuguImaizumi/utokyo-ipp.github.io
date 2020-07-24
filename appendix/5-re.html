@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="索引" href="../index.html" />
+    <link rel="next" title="索引" href="../terminology_index.html" />
     <link rel="prev" title="▲Matplotlibライブラリ" href="5-matplotlib.html" />
 
    
@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/appendix/5-re.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -296,6 +294,9 @@ div.rendered_html tbody tr:hover {
 <p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は文字列 <code class="docutils literal notranslate"><span class="pre">abcde</span></code> （の部分文字列 <code class="docutils literal notranslate"><span class="pre">abc</span></code>）にマッチします。</p>
 <p>正規表現に文字列がマッチしているかどうかを調べることのできる関数に <code class="docutils literal notranslate"><span class="pre">match</span></code> があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> は、指定した <code class="docutils literal notranslate"><span class="pre">正規表現A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code>（の先頭部分）にマッチするかどうか調べます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">正規表現A</span><span class="p">,</span> <span class="n">文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -319,6 +320,10 @@ None
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> では、マッチが成立している場合、<strong>matchオブジェクト</strong>と呼ばれる特殊なデータを返します。マッチが成立しない場合、 <code class="docutils literal notranslate"><span class="pre">None</span></code> を返します。</p>
 <p>つまり、マッチする部分文字列を含む場合、返値は <code class="docutils literal notranslate"><span class="pre">None</span></code> ではないので、if文などの条件で真とみなされます。 したがって以下のようにして条件分岐することができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">正規表現</span><span class="p">,</span> <span class="n">文字列</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -345,7 +350,7 @@ None
 </pre></div></div>
 </div>
 <p>さて、上で紹介したmatchオブジェクトには、マッチした文字列の情報が格納されています。上のセルの1つ目の実行結果をprintしたものを見てください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">&lt;_sre.SRE_Match</span> <span class="pre">object;</span> <span class="pre">span=(0,</span> <span class="pre">3),</span> <span class="pre">match='abc'&gt;</span></code>と表示されていると思います。このオブジェクト内の <code class="docutils literal notranslate"><span class="pre">match</span></code> という値は、マッチした文字列を、 <code class="docutils literal notranslate"><span class="pre">span</span></code> という値はマッチしたパターンが存在する、文字列のインデックスの範囲を表します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;_sre.SRE_Match</span> <span class="pre">object;</span> <span class="pre">span=(0,</span> <span class="pre">3),</span> <span class="pre">match='abc'&gt;</span></code> と表示されていると思います。このオブジェクト内の <code class="docutils literal notranslate"><span class="pre">match</span></code> という値は、マッチした文字列を、 <code class="docutils literal notranslate"><span class="pre">span</span></code> という値はマッチしたパターンが存在する、文字列のインデックスの範囲を表します。</p>
 <p>正規表現では大文字と小文字は区別されます。たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は文字列 <code class="docutils literal notranslate"><span class="pre">ABCdef</span></code> にはマッチしません。勿論、正規表現 <code class="docutils literal notranslate"><span class="pre">ABC</span></code> も文字列 <code class="docutils literal notranslate"><span class="pre">abcdef</span></code> にはマッチしません。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -428,7 +433,10 @@ None
 </pre></div></div>
 </div>
 <p>文字列の先頭しか調べられないのでは、いかにも不便です。</p>
-<p>そこで、関数 <strong>``search``</strong> は、指定した <code class="docutils literal notranslate"><span class="pre">正規表現A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> に（文字列の先頭以外でも）マッチするかどうか調べることができます。</p>
+<p>そこで、関数 <code class="docutils literal notranslate"><span class="pre">search</span></code> は、指定した <code class="docutils literal notranslate"><span class="pre">正規表現A</span></code> が <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> に（文字列の先頭以外でも）マッチするかどうか調べることができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">正規表現A</span><span class="p">,</span> <span class="n">文字列B</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -488,6 +496,10 @@ None
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> 関数と同様に、 <code class="docutils literal notranslate"><span class="pre">search</span></code> 関数においても、if文を使った条件分岐が可能であることは覚えておいてください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">正規表現</span><span class="p">,</span> <span class="n">文字列</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -591,7 +603,7 @@ None
 </div>
 <p>上記の3番目の例に注意してください。正規表現 <code class="docutils literal notranslate"><span class="pre">ab</span> <span class="pre">|</span> <span class="pre">de</span></code> では <code class="docutils literal notranslate"><span class="pre">ab</span></code> が <code class="docutils literal notranslate"><span class="pre">de</span></code> よりも先に記述されていますが、マッチする文字列は文字列上で先に出てきた方（<code class="docutils literal notranslate"><span class="pre">ab</span></code> ではなく、<code class="docutils literal notranslate"><span class="pre">de</span></code>）であることに注意してください。</p>
 <p>細かい話ですが、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は、正規表現 <code class="docutils literal notranslate"><span class="pre">a</span></code> と正規表現 <code class="docutils literal notranslate"><span class="pre">b</span></code> と正規表現 <code class="docutils literal notranslate"><span class="pre">c</span></code> という3つの正規表現を繋げて構成された正規表現であり、このように正規表現を繋げて新しい正規表現を作る演算を<strong>連接</strong>といいます。</p>
-<p>また、<code class="docutils literal notranslate"><span class="pre">a*</span></code> も正規表現です。この正規表現では、0 個以上の a からなる文字列を表しています。この <code class="docutils literal notranslate"><span class="pre">*</span></code> の演算を<strong>閉包</strong>といいます。</p>
+<p>また、<code class="docutils literal notranslate"><span class="pre">a*</span></code> も正規表現です。この正規表現では、<strong>*0個以上*</strong>の a からなる文字列を表しています。この <code class="docutils literal notranslate"><span class="pre">*</span></code> の演算を<strong>閉包</strong>といいます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -620,7 +632,7 @@ None
 </pre></div></div>
 </div>
 <p>上記の3番目の例において（<code class="docutils literal notranslate"><span class="pre">a</span></code> という文字が含まれていないにも関わらず） <code class="docutils literal notranslate"><span class="pre">None</span></code> が返らずに、マッチしているのを不思議に思いませんでしたか？　しかし、<code class="docutils literal notranslate"><span class="pre">a*</span></code> は「0個以上」の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列を表すことができることに注意してください。その結果として、<code class="docutils literal notranslate"><span class="pre">cde</span></code> という文字列も「0個」の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列（このような長さ0の文字列を<strong>空列</strong>、もしくは<strong>空文字列</strong>といいます）を含むので <code class="docutils literal notranslate"><span class="pre">cde</span></code> という文字列の先頭部分（の空列）にマッチしているのです。</p>
-<p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abb*</span></code> は、 <code class="docutils literal notranslate"><span class="pre">ab</span></code>,<code class="docutils literal notranslate"><span class="pre">abb</span></code>,<code class="docutils literal notranslate"><span class="pre">abbb</span></code>,… という文字列にマッチします。</p>
+<p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abb*</span></code> は、 <code class="docutils literal notranslate"><span class="pre">ab</span></code>, <code class="docutils literal notranslate"><span class="pre">abb</span></code>, <code class="docutils literal notranslate"><span class="pre">abbb</span></code>, … という文字列にマッチします。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -689,7 +701,7 @@ None
 &lt;re.Match object; span=(25, 29), match=&#34;it&#39;s&#34;&gt;
 </pre></div></div>
 </div>
-<p>演算の結合の強さは、「和 &lt; 連接 &lt; 閉包」という順序になっています。これは数学の、「和（＋）&lt; 積(×) &lt; べき」と同じですので、直感的にも分かり易いと思います。これまでに紹介した連接、和、閉包という3つの演算と結合の順序を明記する丸括弧 <code class="docutils literal notranslate"><span class="pre">()</span></code> とを組み合わせることで様々な正規表現を記述することができます。</p>
+<p>演算の結合の強さは、「和 &lt; 連接 &lt; 閉包」という順序になっています。これは数学の、「和（＋）&lt; 積(×) &lt; べき」と同じですので、直感的にもわかりやすいと思います。これまでに紹介した連接、和、閉包という3つの演算と結合の順序を明記する丸括弧 <code class="docutils literal notranslate"><span class="pre">()</span></code> とを組み合わせることで様々な正規表現を記述することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1205,7 +1217,7 @@ None
 </div>
 <div class="section" id="否定文字クラス">
 <h3><strong>否定文字クラス</strong><a class="headerlink" href="#否定文字クラス" title="Permalink to this headline">¶</a></h3>
-<p>文字クラスで用いた括弧 (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) の先頭に、キャレット (<code class="docutils literal notranslate"><span class="pre">^</span></code>) をつけると（すなわち、<code class="docutils literal notranslate"><span class="pre">[^]</span></code> とすると）、キャレットの後ろに指定した文字以外の文字とマッチする正規表現を作成できます。たとえば、<code class="docutils literal notranslate"><span class="pre">[^abc]</span></code> は <code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">b</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code> 以外の1文字とマッチする正規表現です。</p>
+<p>文字クラスで用いた括弧 (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) の先頭に、キャレット (<code class="docutils literal notranslate"><span class="pre">^</span></code>) をつけると（すなわち、<code class="docutils literal notranslate"><span class="pre">[^]</span></code> とすると）、キャレットの後ろに指定した文字<strong>*以外*</strong>の文字とマッチする正規表現を作成できます。たとえば、<code class="docutils literal notranslate"><span class="pre">[^abc]</span></code> は <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> 以外の1文字とマッチする正規表現です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -1233,7 +1245,7 @@ None
 &lt;re.Match object; span=(25, 29), match=&#39;have&#39;&gt;
 </pre></div></div>
 </div>
-<p>キャレットを先頭以外につけた場合は、単なる文字クラスになります。すなわち、キャレットにマッチするかどうかが判定されます。たとえば、<code class="docutils literal notranslate"><span class="pre">[d^ef]</span></code> は、<code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>. <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> のいずれかにマッチします。</p>
+<p>キャレットを先頭以外につけた場合は、単なる文字クラスになります。すなわち、キャレットにマッチするかどうかが判定されます。たとえば、<code class="docutils literal notranslate"><span class="pre">[d^ef]</span></code> は、<code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> のいずれかにマッチします。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
@@ -1264,7 +1276,10 @@ None
 <h3><code class="docutils literal notranslate"><span class="pre">sub</span></code><a class="headerlink" href="#sub" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sub</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、指定した <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> で置き換えることができます。</p>
 <p>具体的には次のようにすると、</p>
-<p><code class="docutils literal notranslate"><span class="pre">R</span></code> とマッチする <code class="docutils literal notranslate"><span class="pre">A</span></code> 中の全ての文字列を <code class="docutils literal notranslate"><span class="pre">B</span></code> と置き換えることができます。置き換えられた結果の文字列（新たに作られて）が返り値となります。（もちろん、もとの文字列 <code class="docutils literal notranslate"><span class="pre">A</span></code> は変化しません。）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">正規表現R</span><span class="p">,</span> <span class="n">置換する文字列B</span><span class="p">,</span> <span class="n">元になる文字列A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">R</span></code> とマッチする <code class="docutils literal notranslate"><span class="pre">A</span></code> 中の全ての文字列を <code class="docutils literal notranslate"><span class="pre">B</span></code> と置き換えることができます。置き換えられた結果の文字列（新たに作られて）が返値となります。（もちろん、もとの文字列 <code class="docutils literal notranslate"><span class="pre">A</span></code> は変化しません。）</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1289,11 +1304,11 @@ He has three pets a cat a dog and a giraffe doesn&#39;t he
 accountname@test.ecc.u-tokyo.ac.jp
 </pre></div></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ \t\n][ \t\n]*&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ \t\n][ \t\n]*&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>とすると、文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の空白文字の並びがスペース1個に置き換わります。</p>
-<p>ここで、<code class="docutils literal notranslate"><span class="pre">r'[</span> <span class="pre">\t\n][</span> <span class="pre">\t\n]*'</span></code> という正規表現は、空白かタブか改行の1回以上の繰り返しのパターンを表します。つまり、<code class="docutils literal notranslate"><span class="pre">aa*</span></code> という形をした「1回以上の <code class="docutils literal notranslate"><span class="pre">a</span></code> という文字列とマッチする正規表現」は <code class="docutils literal notranslate"><span class="pre">a+</span></code> という <code class="docutils literal notranslate"><span class="pre">+</span></code> を使った正規表現で置き換えることが可能です。この <code class="docutils literal notranslate"><span class="pre">+</span></code> は後で正式に紹介します。</p>
+<p>ここで、<code class="docutils literal notranslate"><span class="pre">r'[</span> <span class="pre">\t\n][</span> <span class="pre">\t\n]*'</span></code> という正規表現は、空白かタブか改行の<strong>*1回以上*</strong>の繰り返しのパターンを表します。つまり、<code class="docutils literal notranslate"><span class="pre">aa*</span></code> という形をした「1回以上の <code class="docutils literal notranslate"><span class="pre">a</span></code> という文字列とマッチする正規表現」は <code class="docutils literal notranslate"><span class="pre">a+</span></code> という <code class="docutils literal notranslate"><span class="pre">+</span></code> を使った正規表現で置き換えることが可能です。この <code class="docutils literal notranslate"><span class="pre">+</span></code> は後で正式に紹介します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
@@ -1335,9 +1350,15 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="section" id="re.split">
 <h3><code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#re.split" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">split</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする文字列を区切り文字（デリミタ）として、<code class="docutils literal notranslate"><span class="pre">文字列A</span></code> を分割します。分割された文字列がリストに格納されて返り値となります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">split</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする文字列を区切り文字（デリミタ）として、<code class="docutils literal notranslate"><span class="pre">文字列A</span></code> を分割します。分割された文字列がリストに格納されて返値となります。</p>
 <p>具体的には次のように用います。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">正規表現R</span><span class="p">,</span> <span class="n">元になる文字列A</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>以下が典型例です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z][^a-zA-Z]*&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello, World! How are you?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">[^a-zA-Z][^a-zA-Z]*</span></code> という正規表現は、英文字以外の文字が1回以上繰り返されている、というパターンを表します。 この正規表現を Python の式の中で用いるときは、<code class="docutils literal notranslate"><span class="pre">r'[^a-zA-Z][^a-zA-Z]*'</span></code> という構文を用います。 先頭の <code class="docutils literal notranslate"><span class="pre">r</span></code> については、以下の説明を参照してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -1427,7 +1448,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="section" id="id12">
 <h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
-<p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences</span></code> を作成してください。 ただし、重複する単語を削除してはいけませんが、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
+<p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences</span></code> を作成してください。 ただし、<strong>*重複する単語を削除してはいけません*</strong>が、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
@@ -1647,7 +1668,7 @@ None
 </div>
 <div class="section" id="+">
 <h3><code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#+" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">a+</span></code> は1個以上の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列とマッチする正規表現です。すなわち、<code class="docutils literal notranslate"><span class="pre">a+</span></code> は <code class="docutils literal notranslate"><span class="pre">aa*</span></code> と同じ意味の正規表現です。</p>
+<p><code class="docutils literal notranslate"><span class="pre">a+</span></code> は<strong>*1個以上*</strong>の <code class="docutils literal notranslate"><span class="pre">a</span></code> からなる文字列とマッチする正規表現です。すなわち、<code class="docutils literal notranslate"><span class="pre">a+</span></code> は <code class="docutils literal notranslate"><span class="pre">aa*</span></code> と同じ意味の正規表現です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
@@ -2175,6 +2196,9 @@ None
 <h3><code class="docutils literal notranslate"><span class="pre">findall</span></code><a class="headerlink" href="#findall" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">findall</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、リストに格納して返します。</p>
 <p>具体的には次のように実行します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">正規表現R</span><span class="p">,</span> <span class="n">文字列A</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
@@ -2202,7 +2226,10 @@ None
 <h3><code class="docutils literal notranslate"><span class="pre">finditer</span></code><a class="headerlink" href="#finditer" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">finditer</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての matchオブジェクトを、特殊なリスト（のようなもの）に格納して返します。</p>
 <p>具体的には次のように実行します。</p>
-<p>返り値は特殊なリスト（のようなもの）であり、for文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後ろに置いて使ってください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">正規表現R</span><span class="p">,</span> <span class="n">文字列A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>返値は特殊なリスト（のようなもの）であり、for文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後ろに置いて使ってください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
@@ -2249,8 +2276,11 @@ None
 </div>
 <div class="section" id="group">
 <h3><code class="docutils literal notranslate"><span class="pre">group</span></code><a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">group</span></code> は、正規表現にマッチした文字列を（部分的に）取り出すための、matchオブジェクトのメソッドです。正規表現内に丸括弧を用いると、括弧内の正規表現とマッチした文字列を取得できるようになっています。なお、<code class="docutils literal notranslate"><span class="pre">group</span></code> によるこの操作を、括弧内の文字列を<strong>キャプチャ</strong>するといいます。</p>
+<p>matchオブジェクトのメソッド <code class="docutils literal notranslate"><span class="pre">group</span></code> は、正規表現にマッチした文字列を（部分的に）取り出します。正規表現内に丸括弧を用いると、括弧内の正規表現とマッチした文字列を取得できるようになっています。なお、<code class="docutils literal notranslate"><span class="pre">group</span></code> によるこの操作を、括弧内の文字列を<strong>キャプチャ</strong>するといいます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">i</span></code> 番目のキャプチャした値を取得するには次のようにします。<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span></code> の場合は、マッチした文字列全体を取得できます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matchオブジェクト</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
@@ -2331,7 +2361,7 @@ None
 </div>
 <div class="section" id="id28">
 <h2>練習<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
-<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>,<code class="docutils literal notranslate"><span class="pre">C</span></code>,<code class="docutils literal notranslate"><span class="pre">G</span></code>,<code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
@@ -2388,7 +2418,13 @@ None
 <h2>練習<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
 <p>xmlファイル B1S.xml は <a class="reference external" href="http://www.natcorp.ox.ac.uk">http://www.natcorp.ox.ac.uk</a> から入手できるイギリス英語のコーパスのファイルです。</p>
 <p>B1S.xmlに含まれるwタグで囲まれる英単語をキー <code class="docutils literal notranslate"><span class="pre">key</span></code> に、その wタグの属性posの値を <code class="docutils literal notranslate"><span class="pre">key</span></code> の値とする辞書を返す関数 <code class="docutils literal notranslate"><span class="pre">get_pos</span></code> を作成してください。ただし、一般にwタグは、次のような形式で記述されます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;w pos=&quot;PRON&quot; （ &gt; 記号以外の何らかの文字列）&gt;（英単語） &lt;/w&gt;
+</pre></div>
+</div>
 <p>たとえば、以下のような具合です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">w</span> <span class="n">pos</span><span class="o">=</span><span class="s2">&quot;VERB&quot;</span> <span class="n">hw</span><span class="o">=</span><span class="s2">&quot;have&quot;</span> <span class="n">c5</span><span class="o">=</span><span class="s2">&quot;VHI&quot;</span><span class="o">&gt;</span><span class="n">have</span> <span class="o">&lt;/</span><span class="n">w</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
@@ -2449,7 +2485,7 @@ None
 <span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_monthstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_month</span> <span class="o">=</span> <span class="s1">&#39;((0(1|2|3|4|5|6|7|8|9))|10|11|12)&#39;</span> <span class="c1">#</span>
-    <span class="c1">#reg_month = &#39;01|02|03|04|05|06|07|08|09|10|11|12&#39; # としても良い</span>
+    <span class="c1">#reg_month = &#39;01|02|03|04|05|06|07|08|09|10|11|12&#39; # としてもよい</span>
     <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">reg_month</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span> <span class="c1"># 文字列を「含む」なので、（matchではなく）searchを使う</span>
     <span class="k">return</span> <span class="n">match1</span>
 </pre></div>
@@ -2505,8 +2541,8 @@ None
 <span class="k">def</span> <span class="nf">check_monthdaystr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_month_31</span> <span class="o">=</span> <span class="s1">&#39;(01|03|05|07|08|10|12)&#39;</span> <span class="c1">#ddが01から31になるmm</span>
     <span class="n">reg_month_30</span> <span class="o">=</span> <span class="s1">&#39;(04|06|09|11)&#39;</span> <span class="c1">#ddが01から30になるmm</span>
-    <span class="n">reg_1to9</span> <span class="o">=</span> <span class="s1">&#39;(1|2|3|4|5|6|7|8|9)&#39;</span> <span class="c1"># [1-9]でも良い</span>
-    <span class="n">reg_0to9</span> <span class="o">=</span> <span class="s1">&#39;(0|1|2|3|4|5|6|7|8|9)&#39;</span> <span class="c1"># [0-9]でも良い</span>
+    <span class="n">reg_1to9</span> <span class="o">=</span> <span class="s1">&#39;(1|2|3|4|5|6|7|8|9)&#39;</span> <span class="c1"># [1-9]でもよい</span>
+    <span class="n">reg_0to9</span> <span class="o">=</span> <span class="s1">&#39;(0|1|2|3|4|5|6|7|8|9)&#39;</span> <span class="c1"># [0-9]でもよい</span>
     <span class="n">reg_day_01to09</span> <span class="o">=</span> <span class="s1">&#39;(0&#39;</span> <span class="o">+</span> <span class="n">reg_1to9</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> <span class="c1"># ddが01から09になる場合</span>
     <span class="n">reg_day_10to19</span> <span class="o">=</span> <span class="s1">&#39;(1&#39;</span> <span class="o">+</span> <span class="n">reg_0to9</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> <span class="c1"># ddが10から19になる場合</span>
     <span class="n">reg_day_20to29</span> <span class="o">=</span> <span class="s1">&#39;(2&#39;</span> <span class="o">+</span> <span class="n">reg_0to9</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> <span class="c1"># ddが21から29になる場合</span>
@@ -2556,7 +2592,7 @@ None
         <span class="n">file_str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#ファイルの中身を文字列に格納</span>
     <span class="n">str_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z][^a-zA-Z]*&#39;</span><span class="p">,</span> <span class="n">file_str</span><span class="p">)</span> <span class="c1"># 文字列を単語に区切る</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">str_list</span><span class="p">:</span> <span class="c1">#`re.split(r&#39;[^a-zA-Z][^a-zA-Z]*&#39;, f.read())` は、ファイル全体の文字列を単語に区切ります。</span>
-    <span class="c1">#for word in re.split(r&#39;[^a-zA-Z][^a-zA-Z]*&#39;, f.read()): # と一行にまとめても良い</span>
+    <span class="c1">#for word in re.split(r&#39;[^a-zA-Z][^a-zA-Z]*&#39;, f.read()): # と一行にまとめてもよい</span>
         <span class="k">if</span> <span class="n">word</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="c1">#空文字列を除く</span>
             <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#単語（文字列）の中の大文字を小文字に変換します</span>
             <span class="n">word_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c1">#リストに追加</span>
@@ -2580,7 +2616,7 @@ None
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">str_list</span><span class="p">:</span> <span class="c1">#`re.split(r&#39;[^a-zA-Z][^a-zA-Z]*&#39;, f.read())` は、ファイル全体の文字列を単語に区切ります。</span>
         <span class="k">if</span> <span class="n">word</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="c1">#空文字列を除く</span>
             <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#単語（文字列）の中の大文字を小文字に変換します</span>
-            <span class="n">word_dict</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anthing good&#39;</span> <span class="c1">#wordという単語があったことを辞書に記録する（wordに対応する値は何でも良い）</span>
+            <span class="n">word_dict</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anthing good&#39;</span> <span class="c1">#wordという単語があったことを辞書に記録する（wordに対応する値は何でもよい）</span>
             <span class="c1">#word_dict[word.lower()] = &#39;anthing good&#39;でも大丈夫</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 結果を格納するリスト</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_dict</span><span class="p">:</span>
@@ -2704,7 +2740,7 @@ None
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -2717,8 +2753,7 @@ None
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -2740,6 +2775,7 @@ None
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -2771,15 +2807,15 @@ None
 <li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="5-matplotlib.html" title="previous chapter">▲Matplotlibライブラリ</a></li>
-      <li>Next: <a href="../index.html" title="next chapter">索引</a></li>
+      <li>Next: <a href="../terminology_index.html" title="next chapter">索引</a></li>
   </ul></li>
 </ul>
 </div>

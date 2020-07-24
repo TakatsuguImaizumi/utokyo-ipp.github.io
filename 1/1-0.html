@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp">
   <head>
     <meta charset="utf-8" />
-    <title>1-0. Jupyter Notebook の使い方 &#8212; Pythonプログラミング入門
+    <title>1-0. Colaboratoryによるノートブックの使い方 &#8212; Pythonプログラミング入門
   documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1-1. 数値演算" href="1-1.html" />
-    <link rel="prev" title="Pythonの準備" href="../0_guidance/guidance1.html" />
+    <link rel="prev" title="Pythonプログラミング入門" href="../index.html" />
 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/1/1-0.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -273,59 +271,54 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="1-0.-Jupyter-Notebook-の使い方">
-<h1>1-0. Jupyter Notebook の使い方<a class="headerlink" href="#1-0.-Jupyter-Notebook-の使い方" title="Permalink to this headline">¶</a></h1>
-<p>Jupyter Notebook について説明します。</p>
-<p>参考</p>
+<div class="section" id="1-0.-Colaboratoryによるノートブックの使い方">
+<h1>1-0. Colaboratoryによるノートブックの使い方<a class="headerlink" href="#1-0.-Colaboratoryによるノートブックの使い方" title="Permalink to this headline">¶</a></h1>
+<p>Colaboratoryによるノートブック (Jupyter Notebook) の使い方について説明します。</p>
+<p>ブラウザにGoogleアカウント（個人でもECCSでもどちらでもよい）でログインした後に、以下のURLを開いてください。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p></li>
+</ul>
+<p>すると、以下のようにノートブックを指定することが求められますので、<code class="docutils literal notranslate"><span class="pre">アップロード</span></code> のタブを選択してください。</p>
+<p><img alt="colab1.png" src="../_images/colab1.png" /></p>
+<p>そして、アップロードすべきファイルを指定してください。</p>
+<p><img alt="colab2.png" src="../_images/colab2.png" /></p>
+<p>指定したファイルは、いったん自分の Google Drive にアップロードされてから、 Colaboratoryによって開かれます。 ブラウザでは以下のように表示されるでしょう。</p>
+<p><img alt="colab3.png" src="../_images/colab3.png" /></p>
+<p>なお、ノートブックには <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> という拡張子（エクステンション）が付いています。</p>
+<p>逆に、Google Drive 上のノートブックをパソコンにダウンロードするには、 Colaboratoryのファイルメニューで <code class="docutils literal notranslate"><span class="pre">.ipynb</span> <span class="pre">をダウンロード</span></code> を選択します。</p>
+<p><img alt="colab4.png" src="../_images/colab4.png" /></p>
+<p>最初のノートブックを開いた後に、別のノートブックを開くには、Colaboratoryのファイルメニューで <code class="docutils literal notranslate"><span class="pre">ノートブックをアップロード</span></code> を選択してください。</p>
+<p><img alt="colaboratory.png" src="../_images/colaboratory.png" /></p>
+<p>また、ノートブックを新たに作成するには、Colaboratoryのファイルメニューで <code class="docutils literal notranslate"><span class="pre">ノートブックを新規作成</span></code> を選択してください。 <code class="docutils literal notranslate"><span class="pre">Untitled0.ipynb</span></code> という名前のノートブックが作られます。 上方に表示されたタイトルをクリックすれば名前を変更することができます。</p>
+<p>ノートブックの上方のタイトルの下には、<code class="docutils literal notranslate"><span class="pre">ファイル</span></code> や <code class="docutils literal notranslate"><span class="pre">編集</span></code> などのメニュー、 その下には <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">コード</span></code> と <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">テキスト</span></code> というボタンが表示されています。</p>
+<p>Ctrl+s（Macの場合は Cmd+s）を入力することによって、 編集・操作中のノートブックを Google Drive のファイルにセーブできます。 なお、ノートブックは適当なタイミングでオートセーブされます。 ファイルメニューの右に <code class="docutils literal notranslate"><span class="pre">すべての変更を保存しました</span></code> と表示されていれば、 Ctrl+s を入力する必要はありません。</p>
+<p>以下の参考文献は、Jupyter Notebook に関する一般的な解説です。 jupyterコマンドを起動してブラウザでノートブックを使うのと、 Google Colaboratory によりノートブックを使うのでは、 インタフェースが大分異なっていることに注意してください。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jupyter.readthedocs.io/en/latest/">https://jupyter.readthedocs.io/en/latest/</a></p></li>
 </ul>
-<p>教材等の既存のノートブックは、 ディレクトリのページで選択することによって開くことができます。 ノートブックには <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> という拡張子（エクステンション）が付きます。</p>
-<p>ノートブックを新たに作成するには、ディレクトリが表示されているページで、 <code class="docutils literal notranslate"><span class="pre">New</span></code> のメニューで <code class="docutils literal notranslate"><span class="pre">Python3</span></code> を選択してください。 <code class="docutils literal notranslate"><span class="pre">Untitled</span></code>（<code class="docutils literal notranslate"><span class="pre">1</span></code> などが付くことあり）というノートブックが作られます。 タイトルをクリックして変更することができます。</p>
-<p>ノートブックの上方には、<code class="docutils literal notranslate"><span class="pre">File</span></code> や <code class="docutils literal notranslate"><span class="pre">Edit</span></code> などのメニュー、 <code class="docutils literal notranslate"><span class="pre">↓</span></code> や <code class="docutils literal notranslate"><span class="pre">↑</span></code> や <code class="docutils literal notranslate"><span class="pre">■</span></code> などのアイコンが表示されています。</p>
-<p>右上に <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> と表示されていることに注意してください。</p>
-<p>Ctrl+s（Macの場合は Cmd+s）を入力することによって、 ノートブックをファイルにセーブできます。 オートセーブもされますが、適当なタイミングでセーブしましょう。</p>
-<p>ノートブックはセルから成り立っています。</p>
+<p>以下では、Colaboratoryによるノートブックの使い方について簡単に説明します。</p>
 <div class="section" id="セル">
 <h2>セル<a class="headerlink" href="#セル" title="Permalink to this headline">¶</a></h2>
+<p>ノートブックはセルから成り立っています。</p>
 <p>主に次の二種類のセルを使います。</p>
-<ul>
-<li><p>Code： Pythonのコードが書かれたセルです。 Codeセルの横には <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[</span> <span class="pre">]:</span></code> と表示されています。 コードを実行するには、Shift+Enter（または Return）を押します。 このセルの次のセルはCodeセルです。Shift+Enterを押してみてください。</p>
-<p></li>
-<li><p>Markdown： 説明が書かれたセルです。 このセル自身はMarkdownセルです。</p></li>
+<ul class="simple">
+<li><p>Codeセル（コードセル）： Pythonのコードが書かれたセルです。 Codeセルの左端には <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> と表示されています。 Codeセルの中のコードを実行するには、 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> のところにマウスカーソルを移動してクリックします。 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> のところにマウスカーソルを移動すると、●の中に▷が表示されます。 これはプレイボタンを意味します。 プレイボタンを押すとコードが実行され、その結果がセルの下部に挿入されます。</p></li>
+<li><p>Markdownセル（テキストセル）： 説明が書かれたセルです。 このセル自身はMarkdownセルです。</p></li>
 </ul>
-<p>セルの種類はノートブックの上のメニューで変更できます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="コマンドモード">
-<h2>コマンドモード<a class="headerlink" href="#コマンドモード" title="Permalink to this headline">¶</a></h2>
-<p>セルを選択するとコマンドモードになります。 ただし、Codeセルを選択したとき、 マウスカーソルが入力フィールドに入っていると、 編集モードになってしまいます。</p>
-<p>コマンドモードでは、セルの左の線が青色になります。</p>
-<p>コマンドモードで Enter を入力すると、編集モードになります。 Markdownのセルでは、ダブルクリックでも編集モードになります。</p>
-<p>コマンドモードでは、一文字コマンドが有効なので注意してください。</p>
-<ul class="simple">
-<li><p>a: 上にセルを挿入 (above)</p></li>
-<li><p>b: 下にセルを挿入 (below)</p></li>
-<li><p>x: セルを削除（そのセルが削除されてしまいますので注意！）</p></li>
-<li><p>l: セルの行に番号を振るか振らないかをスイッチ</p></li>
-<li><p>s または Ctrl+s: ノートブックをセーブ (checkpoint)</p></li>
-<li><p>Enter: 編集モードに移行</p></li>
-<li><p>Shift+Enter: セルを実行して次のセルに</p></li>
-</ul>
-</div>
-<div class="section" id="編集モード">
-<h2>編集モード<a class="headerlink" href="#編集モード" title="Permalink to this headline">¶</a></h2>
-<p>編集モードでは文字カーソルが表示されて、セルの編集が可能です。 Ctrl の付かない文字はそのまま挿入されます。</p>
-<p>編集モードでは、セルの左の線が緑色になります。</p>
-<p>編集モードでは、以下のような編集コマンドが使えます。</p>
+<div class="section" id="セルの編集">
+<h2>セルの編集<a class="headerlink" href="#セルの編集" title="Permalink to this headline">¶</a></h2>
+<p>Codeセル上のプレイボタンでないところにマウスカーソルを移動しクリックすると、 Codeセルが選択され、文字カーソルが表示されて、セルの編集が可能になります。 Ctrlの付かない文字はそのまま挿入されます。</p>
+<p>以下のような編集コマンドが使えます。</p>
 <ul class="simple">
 <li><p>Ctrl+c: copy</p></li>
 <li><p>Ctrl+x: cut</p></li>
@@ -333,13 +326,11 @@ div.rendered_html tbody tr:hover {
 <li><p>Ctrl+z: undo</p></li>
 <li><p>…</p></li>
 </ul>
-<p>Codeセルでは、編集モードでも Shift+Enter を入力すると、 セルの中のコードが実行されて、次のセルに移動します。 Markdownセルはフォーマットされて、次のセルに移動します。 次のセルではコマンドモードになっています。</p>
-<p>Esc でコマンドモードになります。</p>
-<p>Ctrl+s でノートブックをセーブ (checkpoint)。 これはコマンドモードの場合と同じです。</p>
+<p>Codeセルが選択されているとき、Shift+Enter（もしくはShift+Return）を入力すると、 セルの中のコードが実行されて、次のセルが選択されます。</p>
 </div>
 <div class="section" id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
-<p>次のセルを編集モードにして <code class="docutils literal notranslate"><span class="pre">10/3</span></code> と入力して実行してください。</p>
+<p>次のCodeセルを選択して <code class="docutils literal notranslate"><span class="pre">10/3</span></code> と入力して実行してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -349,16 +340,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<p>Codeセルの実行が終了し、別のセルが選択されると、 セルの左端は <code class="docutils literal notranslate"><span class="pre">[2]</span></code> のようになり、<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> の中に番号が入ります。 この番号は、そのCodeセルが何番目の実行されたかを示すもので、 Codeセルが実行されるたびに1ずつ増えます。 同じセルを続けて実行すれば、この番号は1ずつ増えるでしょう。</p>
 </div>
-<div class="section" id="（注意）Shift-Enterに反応がなくなったとき">
-<h2>（注意）Shift-Enterに反応がなくなったとき<a class="headerlink" href="#（注意）Shift-Enterに反応がなくなったとき" title="Permalink to this headline">¶</a></h2>
-<p>CodeセルでShift-Enterをしても反応がないとき、 特にセルの左の部分が</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="o">*</span><span class="p">]:</span>
-</pre></div>
+<div class="section" id="セルの挿入">
+<h2>セルの挿入<a class="headerlink" href="#セルの挿入" title="Permalink to this headline">¶</a></h2>
+<p>Codeセルを新たに挿入するには、 ファイルメニューの下の <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">コード</span></code> ボタンを押します。 現在選択されているセルの下にCodeセルが挿入されます。</p>
+<p>たとえば、このMarkdownセルを選択してから、 <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">コード</span></code> ボタンを押してみてください。 このMarkdownセルを選択するには、マウスカーソルをここに持って来て クリックすればよいです。説明の全体が四角で囲まれるはずです。</p>
+<p>Markdownセルを新たに挿入するには、 ファイルメニューの下の <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">テキスト</span></code> ボタンを押します。 なお、ここではMarkdownセルの説明は行っていません。</p>
 </div>
-<p>となったままで、* が数に置き換わらないとき、 <code class="docutils literal notranslate"><span class="pre">■</span></code> のアイコンを押して、 kernel（Pythonのインタープリタ）を停止させてください。</p>
-<p>それでも反応がないときは、右回りの矢印のアイコンを押して、 kernel（Pythonのインタープリタ）を起動し直してください。</p>
-<p>たとえば、次のような例です。<code class="docutils literal notranslate"><span class="pre">■</span></code> のアイコンを押してください。</p>
+<div class="section" id="セルの実行が止まらないとき">
+<h2>セルの実行が止まらないとき<a class="headerlink" href="#セルの実行が止まらないとき" title="Permalink to this headline">¶</a></h2>
+<p>Codeセルの左端の●の中に□が表示され、 その周りをノの字が回り続けているならば、セルのコードは実行中です。 いつまでたってもコードの実行が終了しない場合は、 そのアイコンを押して、コードの実行を強制終了してください。 ●の中に□が表示されたアイコンはストップボタンを意味します。</p>
+<p>たとえば、次のような例です。 プレイボタンを押し実行中であることを確かめてから、 ストップボタンを押してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -369,15 +362,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
+<div class="section" id="セルの操作">
+<h2>セルの操作<a class="headerlink" href="#セルの操作" title="Permalink to this headline">¶</a></h2>
+<p>セルを選択するとセルの右上に色々なボタンが表示されます。 これらを押すことにより、セルの削除、セルの移動、コピーペーストなど、 セルに対する各種の操作を行うことができます。</p>
 </div>
-</div>
+<div class="section" id="ノートブックの参照">
+<h2>ノートブックの参照<a class="headerlink" href="#ノートブックの参照" title="Permalink to this headline">¶</a></h2>
+<p>Colaboratoryが使用するノードブックは Google Drive 上にあります。 右上の <code class="docutils literal notranslate"><span class="pre">共有</span></code> のボタンを押すことにより、 ノートブックの共有設定を変えることができます。 その上で、ノートブックが表示されているブラウザ上のURLを伝えることにより、 教員やTAにノートブックを見せることができます。</p>
 </div>
 </div>
 
@@ -389,7 +381,7 @@ div.rendered_html tbody tr:hover {
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -402,13 +394,14 @@ div.rendered_html tbody tr:hover {
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1-0. Jupyter Notebook の使い方</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1-0. Colaboratoryによるノートブックの使い方</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#セル">セル</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#コマンドモード">コマンドモード</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#編集モード">編集モード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#セルの編集">セルの編集</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#（注意）Shift-Enterに反応がなくなったとき">（注意）Shift-Enterに反応がなくなったとき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#セルの挿入">セルの挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#セルの実行が止まらないとき">セルの実行が止まらないとき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#セルの操作">セルの操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ノートブックの参照">ノートブックの参照</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="1-1.html">1-1. 数値演算</a></li>
@@ -432,6 +425,7 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -440,14 +434,14 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../0_guidance/guidance1.html" title="previous chapter">Pythonの準備</a></li>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Pythonプログラミング入門</a></li>
       <li>Next: <a href="1-1.html" title="next chapter">1-1. 数値演算</a></li>
   </ul></li>
 </ul>

@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/3/3-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -288,6 +286,10 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="for文による繰り返し">
 <h2>for文による繰り返し<a class="headerlink" href="#for文による繰り返し" title="Permalink to this headline">¶</a></h2>
 <p>2-2で、リストと文字列に対するfor文の繰り返しについて説明しました。 Pythonにおける<strong>for文</strong>の一般的な文法は以下のとおりです。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for 変数 in 文字列・リスト・辞書など:
+    実行文
+</pre></div>
+</div>
 <p>if文と同様、 実行文のインデントは深くなっていることに注意してください。</p>
 <p>for文では <code class="docutils literal notranslate"><span class="pre">in</span></code> 以降に与えられる、<code class="docutils literal notranslate"><span class="pre">文字列・リスト・辞書など</span></code> にわたって、 <code class="docutils literal notranslate"><span class="pre">実行文</span></code> のグループを繰り返します。 一般に繰り返しの順番は文字列・リスト・辞書などに要素が現れる順番で、 要素は <code class="docutils literal notranslate"><span class="pre">for</span></code> と <code class="docutils literal notranslate"><span class="pre">in</span></code> の間の <code class="docutils literal notranslate"><span class="pre">変数</span></code> に代入されます。</p>
 <p>リストの場合、リストの要素が最初から順番に取り出されます。以下に具体例を示します。関数 <code class="docutils literal notranslate"><span class="pre">len</span></code> は文字列の長さを返します。</p>
@@ -434,7 +436,7 @@ a
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f89e3a68b50&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7f404be17b80&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -475,8 +477,12 @@ a
 <div class="section" id="for文による繰り返しと辞書">
 <h2>for文による繰り返しと辞書<a class="headerlink" href="#for文による繰り返しと辞書" title="Permalink to this headline">¶</a></h2>
 <p>辞書の要素にわたって操作を繰り返したい場合もfor文を用います。 辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> の全てのキーを変数 <code class="docutils literal notranslate"><span class="pre">key</span></code> に代入しながら、<code class="docutils literal notranslate"><span class="pre">実行文</span></code> を繰り返すには次のように書きます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic1</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">実行文</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> の行の <code class="docutils literal notranslate"><span class="pre">in</span></code> の右辺に辞書のキー一覧を返す <code class="docutils literal notranslate"><span class="pre">keys</span></code> メソッドが使われています。</p>
-<p>次の例では、キーを1つずつ取り出し、<code class="docutils literal notranslate"><span class="pre">key</span></code> に代入した後、 <code class="docutils literal notranslate"><span class="pre">key</span></code> に対応する値にアクセスしています。</p>
+<p>次の例では、キーを1つずつ取り出し、<code class="docutils literal notranslate"><span class="pre">key</span></code> に代入した後、 <code class="docutils literal notranslate"><span class="pre">key</span></code> に対応する値を参照しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -520,7 +526,7 @@ value: 3
 value: 8
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドを使えばキーと値を一度に取り出すこともできます。 次の例では、<code class="docutils literal notranslate"><span class="pre">in</span></code> の左辺に複数の変数を指定し多重代入をおこなっています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドを使えばキーと値を一度に取り出すこともできます。 次の例では、<code class="docutils literal notranslate"><span class="pre">in</span></code> の左辺に複数の変数を指定し多重代入を行っています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -601,6 +607,10 @@ False
 <div class="section" id="range">
 <h2><code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h2>
 <p>特定の回数の繰り返し処理が必要なときは、<code class="docutils literal notranslate"><span class="pre">range</span></code> 関数を用います。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+    <span class="n">実行文</span>
+</pre></div>
+</div>
 <p>これによって実行文を <code class="docutils literal notranslate"><span class="pre">j</span></code> 回実行します。具体例を見てみましょう。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -731,7 +741,7 @@ b
 </div>
 <div class="section" id="id4">
 <h2>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>引数で与えられる2つの整数 <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> 間（<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> を含む）の整数の総和を返す関数 <code class="docutils literal notranslate"><span class="pre">sum_n</span></code> を for文を利用して作成してください。 たとえば、<code class="docutils literal notranslate"><span class="pre">sum_n(1,3)</span></code>の結果は <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">6</span></code> となります。</p>
+<p>引数で与えられる2つの整数 <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> 間（<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> を含む）の整数の総和を返す関数 <code class="docutils literal notranslate"><span class="pre">sum_n</span></code> を for文を利用して作成してください。 たとえば、<code class="docutils literal notranslate"><span class="pre">sum_n(1,3)</span></code> の結果は <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">6</span></code> となります。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">sum_n</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -906,7 +916,7 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f89ad73f9a0&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7f4015b029d0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -996,12 +1006,12 @@ False
 <div class="section" id="for文の計算量">
 <h2>for文の<strong>計算量</strong><a class="headerlink" href="#for文の計算量" title="Permalink to this headline">¶</a></h2>
 <p>たとえば、リストに対するfor文</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リスト</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リスト</span><span class="p">:</span>
     <span class="n">要素xに対する処理</span>
 </pre></div>
 </div>
 <p>では、「要素に対する処理」が要素の数だけ実行されます。 この処理の時間が一定であるとすると、要素の数を <span class="math notranslate nohighlight">\(n\)</span> としたとき、 全体の処理には <span class="math notranslate nohighlight">\(n\)</span> に比例する時間がかかります。 このことを、<strong>オーダー</strong> <span class="math notranslate nohighlight">\(n\)</span> といって、<span class="math notranslate nohighlight">\(O(n)\)</span> と書きます。 一方、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リスト</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リスト</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">同じリスト</span><span class="p">:</span>
         <span class="n">要素の組み合わせ</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="n">に対する処理</span>
 </pre></div>
@@ -1058,7 +1068,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-83.55162638866187
+95.5614868250911
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1076,11 +1086,11 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-97.62292768455815
+99.97798552577302
 </pre></div></div>
 </div>
-<p>10000個の場合は相当に時間がかかることがわかります。 これは、<code class="docutils literal notranslate"><span class="pre">variance</span></code>のfor文の中で<code class="docutils literal notranslate"><span class="pre">average</span></code>を呼んでいるためです。 見かけ上は一重ループなのですが、<code class="docutils literal notranslate"><span class="pre">average</span></code>の中にもループがあるため、 二重ループと同じ時間がかかります。 したがって、10000個の場合は、100個の場合に比べて10000倍時間がかかります。</p>
-<p>局所変数を用いて<code class="docutils literal notranslate"><span class="pre">variance</span></code>の定義を書き直してみましょう。</p>
+<p>10000個の場合は相当に時間がかかることがわかります。 これは、<code class="docutils literal notranslate"><span class="pre">variance</span></code> のfor文の中で <code class="docutils literal notranslate"><span class="pre">average</span></code> を呼んでいるためです。 見かけ上は一重ループなのですが、<code class="docutils literal notranslate"><span class="pre">average</span></code> の中にもループがあるため、 二重ループと同じ時間がかかります。 したがって、10000個の場合は、100個の場合に比べて10000倍時間がかかります。</p>
+<p>局所変数を用いて <code class="docutils literal notranslate"><span class="pre">variance</span></code> の定義を書き直してみましょう。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1110,7 +1120,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-83.55162638866187
+95.5614868250911
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1128,7 +1138,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-97.62292768455815
+99.97798552577302
 </pre></div></div>
 </div>
 <p>10000個の場合でも一瞬で実行が終わったことでしょう。 この場合、一重のループを2回実行しているだけだからです。</p>
@@ -1136,7 +1146,18 @@ False
 <div class="section" id="enumerate">
 <h2><code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h2>
 <p>for文の繰り返し処理では、要素の順序を把握したいことがあります。 これまで学んだ方法では以下のように書けます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">some_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+    <span class="c1"># 繰り返させたい処理</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
 <p>Pythonでは <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> 関数が用意されており、上のプログラムは以下のように書き換えることができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">some_list</span><span class="p">):</span>
+    <span class="c1"># 繰り返させたい処理</span>
+</pre></div>
+</div>
 <p>2つの変数 <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">val</span></code> が指定されています。 <code class="docutils literal notranslate"><span class="pre">i</span></code> には <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, … が順に代入されます。 <code class="docutils literal notranslate"><span class="pre">val</span></code> にはリストの要素が順に代入されます。</p>
 <p>たとえば、リストの要素をキー、そのインデックスを値とする辞書が欲しい場合は、以下のように書くことができます。</p>
 <div class="nbinput docutils container">
@@ -1165,8 +1186,7 @@ False
 <div class="section" id="in">
 <h2><code class="docutils literal notranslate"><span class="pre">in</span></code><a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h2>
 <p>Pythonでは <code class="docutils literal notranslate"><span class="pre">for</span></code> ループでリストを展開する <code class="docutils literal notranslate"><span class="pre">in</span></code> とは別に、 2-2 で説明したように、リスト内の要素の有無を検査する <code class="docutils literal notranslate"><span class="pre">in</span></code> 演算子と <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 演算子が定義されています。 以下のように、<code class="docutils literal notranslate"><span class="pre">if</span></code> 文の条件に <code class="docutils literal notranslate"><span class="pre">in</span></code> が出現した場合、for文とは動作が異なるので注意してください。</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
 <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
 
 <span class="k">if</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
@@ -1174,7 +1194,6 @@ False
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="while文による繰り返し">
 <h2>while文による繰り返し<a class="headerlink" href="#while文による繰り返し" title="Permalink to this headline">¶</a></h2>
 <p><strong>while文</strong>では <code class="docutils literal notranslate"><span class="pre">while</span></code> の後の条件式が <code class="docutils literal notranslate"><span class="pre">False</span></code> となるまで、実行文グループを繰り返します。</p>
@@ -1279,7 +1298,7 @@ False
 </div>
 <div class="section" id="id11">
 <h2>練習<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> と <code class="docutils literal notranslate"><span class="pre">str2</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str2</span></code> が <code class="docutils literal notranslate"><span class="pre">str1</span></code> を部分文字列として含むかどうか判定する関数 <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。 具体的には、<code class="docutils literal notranslate"><span class="pre">str2</span></code> を含む場合、 その部分文字列が開始される <code class="docutils literal notranslate"><span class="pre">str1</span></code> のインデックスを返り値として返してください。 <code class="docutils literal notranslate"><span class="pre">str2</span></code> を含まない場合、 <code class="docutils literal notranslate"><span class="pre">-1</span></code> を返してください。 ただし、<code class="docutils literal notranslate"><span class="pre">simple_match</span></code> の中で文字列のメソッドやモジュール（正規表現など）を使ってはいけません。</p>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> と <code class="docutils literal notranslate"><span class="pre">str2</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str2</span></code> が <code class="docutils literal notranslate"><span class="pre">str1</span></code> を部分文字列として含むかどうか判定する関数 <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。 具体的には、<code class="docutils literal notranslate"><span class="pre">str2</span></code> を含む場合、 その部分文字列が開始される <code class="docutils literal notranslate"><span class="pre">str1</span></code> のインデックスを返値として返してください。 <code class="docutils literal notranslate"><span class="pre">str2</span></code> を含まない場合、 <code class="docutils literal notranslate"><span class="pre">-1</span></code> を返してください。 ただし、<code class="docutils literal notranslate"><span class="pre">simple_match</span></code> の中で文字列のメソッドやモジュール（正規表現など）を使ってはいけません。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
@@ -1440,6 +1459,13 @@ x is positive
 <div class="section" id="id12">
 <h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <p>以下のプログラムでは1秒おきに <code class="docutils literal notranslate"><span class="pre">print</span></code> が永久に実行されます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Yeah!&#39;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>10回 <code class="docutils literal notranslate"><span class="pre">print</span></code> が実行された後にwhile文を終了するように書き換えてください。 実行中のセルを停止させるには、Jupyter Notebook のInterrupt（割り込み）ボタンが使えます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1797,7 +1823,7 @@ False
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">sum_lists</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">list2</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>  <span class="c1"># for j in range(len(list1)):とlist2 = list1[j]としても良い</span>
+    <span class="k">for</span> <span class="n">list2</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>  <span class="c1"># for j in range(len(list1)):とlist2 = list1[j]としてもよい</span>
         <span class="c1">#print(list2)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">)):</span>
             <span class="c1">#print(i, list2[i])</span>
@@ -1830,7 +1856,7 @@ False
 <span></span><span class="k">def</span> <span class="nf">simple_match</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">str2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>  <span class="c1">#str1とstr2が一致している限りループ（ただし、jがstr2の長さ以上にならない様にする）#この条件がないと…？</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">str1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">str2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>  <span class="c1">#str1とstr2が一致している限りループ（ただし、jがstr2の長さ以上にならないようにする）#この条件がないと…？</span>
             <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">str2</span><span class="p">):</span>  <span class="c1">#str2の最後まで一致しているとこの条件が成立</span>
             <span class="k">return</span> <span class="n">i</span>
@@ -1858,7 +1884,7 @@ False
 </div>
 <div class="section" id="練習の解説">
 <h2>練習の解説<a class="headerlink" href="#練習の解説" title="Permalink to this headline">¶</a></h2>
-<p>下のセルは、繰り返し回数として <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数を利用した解答例です。回数を理解しやすくするため <code class="docutils literal notranslate"><span class="pre">print()</span></code>関数で <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数も印字しています。</p>
+<p>下のセルは、繰り返し回数として <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数を利用した解答例です。回数を理解しやすくするため <code class="docutils literal notranslate"><span class="pre">print()</span></code> 関数で <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数も印字しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
@@ -2012,11 +2038,11 @@ Yeah! 9
 <span></span><span class="k">def</span> <span class="nf">handle_collision2</span><span class="p">(</span><span class="n">dic1</span><span class="p">,</span> <span class="n">str1</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-        <span class="k">if</span>  <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でも良い</span>
+        <span class="k">if</span>  <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でもよい</span>
             <span class="n">dic1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">str1</span>
             <span class="k">return</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span>  <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でも良い</span>
+        <span class="k">if</span>  <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でもよい</span>
             <span class="n">dic1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">str1</span>
             <span class="k">return</span>
 </pre></div>
@@ -2031,7 +2057,7 @@ Yeah! 9
     <span class="n">dic1</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 空の辞書を作成する</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
         <span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でも良い</span>
+        <span class="k">if</span> <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span><span class="c1"># == None でもよい</span>
             <span class="n">dic1</span><span class="p">[</span><span class="n">list2</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">list2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">dic1</span>
 <span class="c1">#handle_collision3([[3, &#39;Richard III&#39;], [1, &#39;Othello&#39;], [2, &#39;Tempest&#39;], [3, &#39;King John&#39;], [4, &#39;Midsummer&#39;], [1, &#39;Lear&#39;]])</span>
@@ -2058,7 +2084,7 @@ Yeah! 9
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -2071,8 +2097,7 @@ Yeah! 9
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -2128,6 +2153,7 @@ Yeah! 9
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -2136,13 +2162,13 @@ Yeah! 9
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="3-1.html" title="previous chapter">3-1. 辞書 (dictionary)</a></li>
       <li>Next: <a href="3-3.html" title="next chapter">3-3. 関数</a></li>
   </ul></li>

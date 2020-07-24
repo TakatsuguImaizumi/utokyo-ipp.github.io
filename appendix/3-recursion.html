@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/appendix/3-recursion.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -278,7 +276,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>再帰</strong>について説明します。</p>
 <p>関数の<strong>再帰呼び出し</strong>とは、定義しようとしている関数を、その定義の中で呼び出すことです。 定義の中で直接呼び出す場合に限らず、他の関数を経由して間接的に呼び出す場合も、再帰呼び出しに含まれます。 再帰呼び出しを行う関数を、<strong>再帰関数</strong>といいます。</p>
 <p>再帰関数は、<strong>分割統治</strong>アルゴリズムの記述に適しています。 分割統治とは、問題を容易に解ける小さな粒度まで分割していき、 個々の小さな問題を解いて、その部分解を合成することで問題全体を解くような方法を指します。 分割統治の考え方は、関数型プログラミングにおいてもよく用いられます。 再帰関数による分割統治の典型的な形は、次の通りです。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>def recursive_function(...):
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def recursive_function(...):
     if 問題粒度の判定:
         再帰呼び出しを含まない基本処理
     else:
@@ -491,7 +489,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-540
+547
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -509,106 +507,106 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[199,
- 229,
- 408,
- 527,
- 675,
- 824,
- 975,
- 1159,
- 1213,
- 1222,
- 1552,
- 1754,
- 1773,
- 2288,
- 2292,
- 2316,
- 2432,
- 2447,
- 2452,
- 2588,
- 2589,
- 2710,
- 2978,
- 3009,
- 3184,
- 3323,
- 3414,
- 3476,
- 3620,
- 3713,
- 3918,
- 4048,
- 4129,
- 4159,
- 4171,
- 4190,
- 4271,
- 4378,
- 4394,
- 4483,
- 4579,
- 4804,
- 4898,
- 4928,
- 4968,
- 4992,
- 5142,
- 5220,
+[2,
+ 48,
+ 145,
+ 188,
+ 200,
+ 305,
+ 367,
+ 447,
+ 546,
+ 646,
+ 860,
+ 922,
+ 1171,
+ 1258,
+ 1277,
+ 1385,
+ 1441,
+ 1486,
+ 1487,
+ 1589,
+ 1660,
+ 1736,
+ 1972,
+ 2326,
+ 2468,
+ 2479,
+ 2508,
+ 2559,
+ 2671,
+ 2704,
+ 2764,
+ 2836,
+ 3432,
+ 3464,
+ 3498,
+ 3550,
+ 3719,
+ 3724,
+ 3809,
+ 3893,
+ 3959,
+ 4137,
+ 4212,
+ 4235,
+ 4276,
+ 4377,
+ 4478,
+ 4565,
+ 4744,
+ 4775,
+ 5125,
+ 5166,
+ 5228,
+ 5244,
  5268,
- 5287,
- 5304,
- 5374,
- 5418,
- 5484,
- 5531,
- 5594,
- 5649,
- 5783,
- 5832,
- 6152,
- 6182,
+ 5380,
+ 5413,
+ 5516,
+ 5757,
+ 5764,
+ 5891,
+ 5956,
  6320,
- 6399,
- 6443,
- 6701,
- 6752,
- 6933,
- 7004,
- 7031,
- 7128,
- 7146,
- 7297,
- 7308,
- 7356,
- 7414,
- 7664,
- 7675,
- 7969,
- 7975,
- 7996,
- 8059,
- 8141,
- 8179,
- 8180,
- 8246,
- 8311,
- 8360,
- 8402,
- 8415,
- 8659,
- 8670,
- 8808,
- 9186,
- 9201,
- 9286,
- 9364,
- 9504,
- 9766,
- 9898,
- 9900]
+ 6321,
+ 6487,
+ 6552,
+ 6556,
+ 6562,
+ 6981,
+ 6986,
+ 7033,
+ 7080,
+ 7165,
+ 7464,
+ 7556,
+ 7695,
+ 7752,
+ 7754,
+ 7868,
+ 7895,
+ 7989,
+ 8231,
+ 8517,
+ 8711,
+ 8747,
+ 8821,
+ 8866,
+ 8949,
+ 8973,
+ 8975,
+ 8993,
+ 9015,
+ 9081,
+ 9098,
+ 9351,
+ 9445,
+ 9698,
+ 9717,
+ 9967,
+ 9980]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -631,7 +629,7 @@ div.rendered_html tbody tr:hover {
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -644,8 +642,7 @@ div.rendered_html tbody tr:hover {
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -667,6 +664,7 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">▲再帰</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#再帰関数の例：接頭辞リストと接尾辞リスト">再帰関数の例：接頭辞リストと接尾辞リスト</a></li>
@@ -680,13 +678,13 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="2-set.html" title="previous chapter">▲セット (set)</a></li>
       <li>Next: <a href="3-visualization.html" title="next chapter">▲簡単なデータの可視化</a></li>
   </ul></li>

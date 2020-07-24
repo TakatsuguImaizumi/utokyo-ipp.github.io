@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/appendix/5-matplotlib.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -298,6 +296,9 @@ div.rendered_html tbody tr:hover {
 <h2>線グラフ<a class="headerlink" href="#線グラフ" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数を用いて、リストの要素の数値をy軸の値として<strong>グラフ</strong>を描画します。y軸の値に対応するx軸の値は、リストの各要素のインデックスとなっています。</p>
 <p>具体的には、次のようにすることで <code class="docutils literal notranslate"><span class="pre">リストA</span></code> のインデックス <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、<code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">リストA[i])</span></code> の位置に点を打ち、各点を線でつなぎます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">リストA</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>たとえば、次のようになります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -323,6 +324,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数では、x, y の両方の軸の値を引数に渡すこともできます。</p>
 <p>具体的には、次のように <code class="docutils literal notranslate"><span class="pre">リストX</span></code> と <code class="docutils literal notranslate"><span class="pre">リストY</span></code> を引数として与えると、各 <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、 <code class="docutils literal notranslate"><span class="pre">(リストX[i],</span> <span class="pre">リストY[i])</span></code> の位置に点を打ち、各点を線でつなぎます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">リストX</span><span class="p">,</span> <span class="n">リストY</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -738,6 +742,9 @@ div.rendered_html tbody tr:hover {
 <h2>散布図<a class="headerlink" href="#散布図" title="Permalink to this headline">¶</a></h2>
 <p><strong>散布図</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> 関数を用いて描画できます。</p>
 <p>具体的には、次のように <code class="docutils literal notranslate"><span class="pre">リストX</span></code> と <code class="docutils literal notranslate"><span class="pre">リストY</span></code> （もしくは、 <code class="docutils literal notranslate"><span class="pre">配列X</span></code> と <code class="docutils literal notranslate"><span class="pre">配列Y</span></code>）を引数として与えると、各 <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、 <code class="docutils literal notranslate"><span class="pre">(リストX[i],</span> <span class="pre">リストY[i])</span></code> の位置に点を打ちます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">リストX</span><span class="p">,</span> <span class="n">リストY</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>以下では、ランダムに生成した20個の要素からなる配列 x, y の各要素の値の組を点としてプロットした散布図を表示しています。プロットする点のマーカーの色や形状は、線グラフの時と同様に、 <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">marker</span></code> 引数で指定して変更することができます。加えて、<code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> 引数で、それぞれマーカーの大きさと透明度を指定することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -761,7 +768,7 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/appendix_5-matplotlib_33_0.png" src="../_images/appendix_5-matplotlib_33_0.png" />
 </div>
 </div>
-<p>以下のように、<code class="docutils literal notranslate"><span class="pre">plot()</span></code>関数を用いても同様の散布図を表示することができます。具体的には、3番目の引数にプロットする点のマーカーの形状を指定することにより実現します。</p>
+<p>以下のように、<code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数を用いても同様の散布図を表示することができます。具体的には、3番目の引数にプロットする点のマーカーの形状を指定することにより実現します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -840,7 +847,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="棒グラフ">
 <h2>棒グラフ<a class="headerlink" href="#棒グラフ" title="Permalink to this headline">¶</a></h2>
-<p><strong>棒グラフ</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの<code class="docutils literal notranslate"><span class="pre">bar()</span></code> 関数を用いて描画できます。以下では、ランダムに生成した10個の要素からなる配列 <code class="docutils literal notranslate"><span class="pre">y</span></code> の各要素の値を縦の棒グラフで表示しています。<code class="docutils literal notranslate"><span class="pre">x</span></code> は、x軸上で棒グラフのバーの並ぶ位置を示しています。ここでは、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">arange()</span></code> 関数を用いて、<code class="docutils literal notranslate"><span class="pre">1</span></code> から <code class="docutils literal notranslate"><span class="pre">10</span></code> の範囲を <code class="docutils literal notranslate"><span class="pre">1</span></code> 刻みでx軸上のバーの並ぶ位置として配列を準備しています。</p>
+<p><strong>棒グラフ</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">bar()</span></code> 関数を用いて描画できます。以下では、ランダムに生成した10個の要素からなる配列 <code class="docutils literal notranslate"><span class="pre">y</span></code> の各要素の値を縦の棒グラフで表示しています。<code class="docutils literal notranslate"><span class="pre">x</span></code> は、x軸上で棒グラフのバーの並ぶ位置を示しています。ここでは、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">arange()</span></code> 関数を用いて、<code class="docutils literal notranslate"><span class="pre">1</span></code> から <code class="docutils literal notranslate"><span class="pre">10</span></code> の範囲を <code class="docutils literal notranslate"><span class="pre">1</span></code> 刻みでx軸上のバーの並ぶ位置として配列を準備しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -922,7 +929,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="ヒストグラム">
 <h2>ヒストグラム<a class="headerlink" href="#ヒストグラム" title="Permalink to this headline">¶</a></h2>
-<p><strong>ヒストグラム</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの<code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数を用いて描画できます。以下では、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの<code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> 関数を用いて、正規分布に基づく1000個の数値の要素からなる配列を用意し、ヒストグラムとして表示しています。<code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">bins</span></code> 引数でヒストグラムの箱（ビン）の数を指定します。</p>
+<p><strong>ヒストグラム</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数を用いて描画できます。 以下では、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> 関数を用いて、正規分布に基づく1000個の数値の要素からなる配列を用意し、ヒストグラムとして表示しています。 <code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">bins</span></code> 引数でヒストグラムの箱（ビン）の数を指定します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1321,7 +1328,7 @@ div.rendered_html tbody tr:hover {
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -1334,8 +1341,7 @@ div.rendered_html tbody tr:hover {
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -1357,6 +1363,7 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -1380,13 +1387,13 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="5-command.html" title="previous chapter">▲Pythonスクリプトとコマンドライン実行</a></li>
       <li>Next: <a href="5-re.html" title="next chapter">▲正規表現</a></li>
   </ul></li>

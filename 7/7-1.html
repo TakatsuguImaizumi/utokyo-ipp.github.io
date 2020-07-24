@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/7/7-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -282,7 +280,7 @@ div.rendered_html tbody tr:hover {
 <li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/">http://pandas.pydata.org/pandas-docs/stable/</a></p></li>
 </ul>
 <p><strong>pandas</strong>ライブラリにはデータ分析作業を支援するためのモジュールが含まれています。以下では、pandasライブラリのモジュールの基本的な使い方について説明します。</p>
-<p>pandasライブラリを使用するには、まず<code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールをインポートします。慣例として、同モジュールを <code class="docutils literal notranslate"><span class="pre">pd</span></code> と別名をつけてコードの中で使用します。データの生成に用いるため、ここでは <code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールも併せてインポートします。</p>
+<p>pandasライブラリを使用するには、まず <code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールをインポートします。慣例として、同モジュールを <code class="docutils literal notranslate"><span class="pre">pd</span></code> と別名をつけてコードの中で使用します。データの生成に用いるため、ここでは <code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールも併せてインポートします。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -329,9 +327,9 @@ div.rendered_html tbody tr:hover {
 1    1
 2    2
 dtype: int64
-0    0.991504
-1    0.900925
-2    0.754199
+0    0.960392
+1    0.718623
+2    0.403357
 dtype: float64
 0    boo
 1    foo
@@ -374,10 +372,10 @@ dtype: object
 12   6   7   8
 13   9  10  11
          c1        c2        c3
-0  0.673521  0.227853  0.364453
-1  0.559431  0.976524  0.357749
-2  0.017484  0.125299  0.698912
-3  0.228436  0.892773  0.751089
+0  0.601794  0.069521  0.238542
+1  0.558160  0.860202  0.470913
+2  0.084262  0.928245  0.924929
+3  0.723829  0.095233  0.238285
   Name Initial
 0  boo       B
 1  foo       F
@@ -388,7 +386,7 @@ dtype: object
 <div class="section" id="CSVファイルからのデータフレームの作成">
 <h2>CSVファイルからのデータフレームの作成<a class="headerlink" href="#CSVファイルからのデータフレームの作成" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数を用いて、以下のように<strong>CSVファイル</strong>を読み込んで、データフレームのオブジェクトを作成することができます。<code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">encoding</span></code> 引数にはファイルの文字コードを指定します。CSVファイル <code class="docutils literal notranslate"><span class="pre">iris.csv</span></code> には、以下のようにアヤメの種類 (species) と花弁 (petal)・がく片 (sepal) の長さ (length) と幅 (width) のデータが含まれています。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">sepal_width</span><span class="p">,</span> <span class="n">petal_length</span><span class="p">,</span> <span class="n">petal_width</span><span class="p">,</span> <span class="n">species</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">sepal_width</span><span class="p">,</span> <span class="n">petal_length</span><span class="p">,</span> <span class="n">petal_width</span><span class="p">,</span> <span class="n">species</span>
 <span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">setosa</span>
 <span class="mf">4.9</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">setosa</span>
 <span class="mf">4.7</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">setosa</span>
@@ -962,7 +960,7 @@ Name: 1, dtype: object
 </table>
 </div></div>
 </div>
-<p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">loc</span></code> 属性を用いると、抽出したい行のインデックス・ラベルや列のラベルを指定して任意の行と列を抽出することができます。複数のラベルはリストで指定します。行のインデックスは各行に割当てられた番号で、<code class="docutils literal notranslate"><span class="pre">iloc</span></code> で指定する行の位置とは必ずしも一致しないことに注意してください。</p>
+<p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">loc</span></code> 属性を用いると、抽出したい行のインデックス・ラベルや列のラベルを指定して任意の行と列を抽出することができます。複数のラベルはリストで指定します。行のインデックスは各行に割り当てられた番号で、<code class="docutils literal notranslate"><span class="pre">iloc</span></code> で指定する行の位置とは必ずしも一致しないことに注意してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -1209,7 +1207,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.961548</td>
+      <td>0.367182</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1218,7 +1216,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.381037</td>
+      <td>0.919173</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1227,7 +1225,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.058820</td>
+      <td>0.273926</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1236,7 +1234,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.486703</td>
+      <td>0.779398</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1245,7 +1243,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.376545</td>
+      <td>0.857612</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1254,7 +1252,7 @@ Name: 5, dtype: object
       <td>1.7</td>
       <td>0.4</td>
       <td>setosa</td>
-      <td>0.730661</td>
+      <td>0.589703</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1263,7 +1261,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.3</td>
       <td>setosa</td>
-      <td>0.361292</td>
+      <td>0.361117</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1272,7 +1270,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.153292</td>
+      <td>0.256774</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1281,7 +1279,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.780901</td>
+      <td>0.025756</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1290,7 +1288,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.1</td>
       <td>setosa</td>
-      <td>0.085791</td>
+      <td>0.745829</td>
     </tr>
   </tbody>
 </table>
@@ -1474,7 +1472,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.876626</td>
+      <td>0.088721</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1483,7 +1481,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.975460</td>
+      <td>0.038238</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1492,7 +1490,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.135701</td>
+      <td>0.736705</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1501,7 +1499,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.984528</td>
+      <td>0.396338</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1510,7 +1508,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.610478</td>
+      <td>0.914870</td>
     </tr>
   </tbody>
 </table>
@@ -2412,7 +2410,7 @@ Name: 5, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fc2ef6f4d60&gt;
+&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fadf9aa4130&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2659,7 +2657,7 @@ Name: 5, dtype: object
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -2672,8 +2670,7 @@ Name: 5, dtype: object
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -2711,6 +2708,7 @@ Name: 5, dtype: object
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -2719,13 +2717,13 @@ Name: 5, dtype: object
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../6/6-3.html" title="previous chapter">6-3. クラス</a></li>
       <li>Next: <a href="7-2.html" title="next chapter">7-2. scikit-learnライブラリ</a></li>
   </ul></li>

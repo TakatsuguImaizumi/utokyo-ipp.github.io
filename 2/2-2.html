@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/2/2-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -362,7 +360,7 @@ list
 [10, &#39;apple&#39;, 20, &#39;banana&#39;, 30]
 </pre></div></div>
 </div>
-<p>次のように、何も要素を格納していないリスト（<strong>空リスト</strong>）を作成できます。 空リストはプログラム実行の途中結果を記録する場合などによく使われています。 具体的な例については、後述する<code class="docutils literal notranslate"><span class="pre">append</span></code>メソッドの項を参照してください。</p>
+<p>次のように、何も要素を格納していないリスト（<strong>空リスト</strong>）を作成できます。 空リストはプログラム実行の途中結果を記録する場合などによく使われています。 具体的な例については、後述する <code class="docutils literal notranslate"><span class="pre">append</span></code> メソッドの項を参照してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -385,7 +383,7 @@ list
 <div class="section" id="リストとインデックス">
 <h2>リストとインデックス<a class="headerlink" href="#リストとインデックス" title="Permalink to this headline">¶</a></h2>
 <p>文字列の場合と同様に、インデックスを指定してリストの要素を取り出せます。 リストの <code class="docutils literal notranslate"><span class="pre">x</span></code> 番目の要素を取得するには次のような記法を用います。 インデックスは 0 から始まることに注意してください。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
@@ -715,7 +713,7 @@ False
 [0, 10, 20, 30, 40, 50, 0, 10, 20, 30, 40, 50, 0, 10, 20, 30, 40, 50]
 </pre></div></div>
 </div>
-<p>要素がすべて同じ値（例えば、<code class="docutils literal notranslate"><span class="pre">0</span></code> ）のリストを作る最も簡単な方法は、この <code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子を使う方法です。</p>
+<p>要素がすべて同じ値（たとえば、<code class="docutils literal notranslate"><span class="pre">0</span></code> ）のリストを作る最も簡単な方法は、この <code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子を使う方法です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -754,8 +752,14 @@ False
 True
 </pre></div></div>
 </div>
-<p>リストに対する <code class="docutils literal notranslate"><span class="pre">in</span></code>演算子は、論理演算<code class="docutils literal notranslate"><span class="pre">or</span></code> を簡潔に記述するのに用いることもできます。 たとえば、</p>
+<p>リストに対する <code class="docutils literal notranslate"><span class="pre">in</span></code> 演算子は、論理演算 <code class="docutils literal notranslate"><span class="pre">or</span></code> を簡潔に記述するのに用いることもできます。 たとえば、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">a1</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">a1</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+</pre></div>
+</div>
 <p>は</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]:</span>
+</pre></div>
+</div>
 <p>と同じ結果を得られます。 <code class="docutils literal notranslate"><span class="pre">or</span></code> の数が多くなる場合は、<code class="docutils literal notranslate"><span class="pre">in</span></code> を用いた方がより読みやすいプログラムを書くことができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -938,6 +942,9 @@ True
 <div class="section" id="並べ替え（sorted-組み込み関数）">
 <h3>並べ替え（<code class="docutils literal notranslate"><span class="pre">sorted</span></code> 組み込み関数）<a class="headerlink" href="#並べ替え（sorted-組み込み関数）" title="Permalink to this headline">¶</a></h3>
 <p>関数 <code class="docutils literal notranslate"><span class="pre">soted</span></code> ではリストを引数に取って、そのリスト内の要素を昇順に並べ替えた結果をリストとして返します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">リスト</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1049,8 +1056,8 @@ sorted関数の実行後の元のリスト: [30, 50, 10, 20, 40, 60]
 </div>
 <p>このように、<code class="docutils literal notranslate"><span class="pre">sort</span></code> メソッドは元のリストを変更してしまいます。 このような操作を<strong>破壊的</strong>あるいは<strong>インプレース</strong> (<strong>in-place</strong>) であるといいます。</p>
 <p>一方、<code class="docutils literal notranslate"><span class="pre">sorted</span></code> 関数は新しいリストを生成し元のリストを破壊しません、このような操作は<strong>非破壊的</strong>であるといいます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">sorted</span></code> 関数を用いた場合、その返り値（並べ替えの結果）は新しい変数に代入して使うことができます。</p>
-<p>一方、<code class="docutils literal notranslate"><span class="pre">sort</span></code>メソッドはリストを返さないためそのような使い方はできません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">sorted</span></code> 関数を用いた場合、その返値（並べ替えの結果）は新しい変数に代入して使うことができます。</p>
+<p>一方、<code class="docutils literal notranslate"><span class="pre">sort</span></code> メソッドはリストを返さないためそのような使い方はできません。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
@@ -1058,11 +1065,11 @@ sorted関数の実行後の元のリスト: [30, 50, 10, 20, 40, 60]
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
 <span class="n">numbers1</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sorted関数の返り値:&#39;</span><span class="p">,</span> <span class="n">numbers1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sorted関数の返値:&#39;</span><span class="p">,</span> <span class="n">numbers1</span><span class="p">)</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
 <span class="n">numbers2</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sortメソッドの返り値:&#39;</span><span class="p">,</span> <span class="n">numbers2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sortメソッドの返値:&#39;</span><span class="p">,</span> <span class="n">numbers2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1071,8 +1078,8 @@ sorted関数の実行後の元のリスト: [30, 50, 10, 20, 40, 60]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-sorted関数の返り値: [10, 20, 30, 40, 50, 60]
-sortメソッドの返り値: None
+sorted関数の返値: [10, 20, 30, 40, 50, 60]
+sortメソッドの返値: None
 </pre></div></div>
 </div>
 </div>
@@ -1084,6 +1091,9 @@ sortメソッドの返り値: None
 <div class="section" id="リストに要素を追加する">
 <h3>リストに要素を追加する<a class="headerlink" href="#リストに要素を追加する" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">append</span></code> メソッドはリストの最後尾に指定した要素を付け加えます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">追加する要素</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
@@ -1130,16 +1140,19 @@ sortメソッドの返り値: None
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="▲リストにリストを追加する">
-<h3>▲リストにリストを追加する<a class="headerlink" href="#▲リストにリストを追加する" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">extend</span></code> メソッドはリストの最後尾に指定したリストを付け加えます。</p>
+<div class="section" id="▲リストにリストの要素を追加する">
+<h3>▲リストにリストの要素を追加する<a class="headerlink" href="#▲リストにリストの要素を追加する" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">extend</span></code> メソッドはリストの最後尾に指定したリストの要素を付け加えます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">追加するリスト</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-<span class="n">numbers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span> <span class="c1"># ln + [200, 300, 400, 200]と同じ</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span> <span class="c1"># numbers += [200, 300, 400, 200] と同じ</span>
 <span class="n">numbers</span>
 </pre></div>
 </div>
@@ -1157,6 +1170,9 @@ sortメソッドの返り値: None
 <div class="section" id="▲リストに要素を挿入する">
 <h3>▲リストに要素を挿入する<a class="headerlink" href="#▲リストに要素を挿入する" title="Permalink to this headline">¶</a></h3>
 <p><strong>insert</strong> メソッドはリストのインデックスを指定した位置に新しい要素を挿入します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">インデックス</span><span class="p">,</span> <span class="n">新しい要素</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
@@ -1181,6 +1197,9 @@ sortメソッドの返り値: None
 <div class="section" id="▲リストから要素を削除する">
 <h3>▲リストから要素を削除する<a class="headerlink" href="#▲リストから要素を削除する" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">remove</span></code> メソッドは指定した要素をリストから削除します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">削除したい要素</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>ただし、指定した要素が複数個リストに含まれる場合、一番最初の要素が削除されます。また、指定した値がリストに含まれない場合はエラーとなります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -1247,6 +1266,9 @@ sortメソッドの返り値: None
 <div class="section" id="▲リストからインデックスで指定した要素を削除する">
 <h3>▲リストからインデックスで指定した要素を削除する<a class="headerlink" href="#▲リストからインデックスで指定した要素を削除する" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">pop</span></code> メソッドはリストから指定したインデックスを削除し、その要素を返します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">削除したい要素のインデックス</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
@@ -1268,6 +1290,9 @@ sortメソッドの返り値: None
 </pre></div></div>
 </div>
 <p>インデックスを指定しない場合、最後尾の要素を削除して返します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">リスト</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
@@ -1295,6 +1320,9 @@ sortメソッドの返り値: None
 <div class="line"><code class="docutils literal notranslate"><span class="pre">del</span></code> 文は指定するリストの要素を削除します。具体的には以下のように削除したい要素をインデックスで指定します。</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">del</span></code> も破壊的であることに注意してください。</div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">リスト</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
@@ -1316,6 +1344,9 @@ sortメソッドの返り値: None
 </pre></div></div>
 </div>
 <p>スライスを使うことも可能です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">リスト</span><span class="p">[</span><span class="n">x</span><span class="p">:</span><span class="n">y</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
@@ -1361,8 +1392,8 @@ sortメソッドの返り値: None
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="▲copy">
-<h3>▲<code class="docutils literal notranslate"><span class="pre">copy</span></code><a class="headerlink" href="#▲copy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="▲-copy">
+<h3>▲ <code class="docutils literal notranslate"><span class="pre">copy</span></code><a class="headerlink" href="#▲-copy" title="Permalink to this headline">¶</a></h3>
 <p>リストを複製します。 すなわち、<code class="docutils literal notranslate"><span class="pre">ln</span></code> の値がリストであるとき、<code class="docutils literal notranslate"><span class="pre">ln.copy()</span></code> は <code class="docutils literal notranslate"><span class="pre">ln</span></code> と同じ長さのリストを新たに作って、 <code class="docutils literal notranslate"><span class="pre">ln</span></code> の要素を新しいリストに同じ順番で格納して、その新しいリストを返します。</p>
 <p>複製されたリストに変更を加えたとしても、もとのリストは影響を受けません。</p>
 <div class="nbinput docutils container">
@@ -1622,8 +1653,7 @@ tuple
 </pre></div></div>
 </div>
 <p>上述しましたが、一度作成したタプルの要素を後から変更することはできません。 したがって以下のプログラムはエラーとなります。</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numbers3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">numbers3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1968,11 +1998,15 @@ True
 <div class="section" id="for文による繰り返しとリスト・タプル">
 <h2>for文による繰り返しとリスト・タプル<a class="headerlink" href="#for文による繰り返しとリスト・タプル" title="Permalink to this headline">¶</a></h2>
 <p>きまった操作の繰り返しはコンピュータが最も得意とする処理のひとつです。 リストのそれぞれの要素にわたって操作を繰り返したい場合は<strong>for文</strong>を用います。</p>
-<p>リスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> の要素すべてに対して、<code class="docutils literal notranslate"><span class="pre">実行文</span></code>を繰り返すには次のように書きます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">for</span></code> で始まる行の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に処理対象となるリスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> が、<code class="docutils literal notranslate"><span class="pre">in</span></code> の前に変数 <code class="docutils literal notranslate"><span class="pre">value</span></code>が書かれます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> の最初の要素、すなわち <code class="docutils literal notranslate"><span class="pre">ls[0]</span></code> が <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入され <code class="docutils literal notranslate"><span class="pre">実行文</span></code> が処理されます。 <code class="docutils literal notranslate"><span class="pre">実行文</span></code>の処理が終われば、<code class="docutils literal notranslate"><span class="pre">ls</span></code> の次の要素が <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入され、処理が繰り返されます。 このようにして、<code class="docutils literal notranslate"><span class="pre">ls</span></code> の要素に対する処理が <code class="docutils literal notranslate"><span class="pre">len(ls)</span></code> 回が繰り返されると、for文の処理が終了します。</p>
+<p>リスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> の要素すべてに対して、<code class="docutils literal notranslate"><span class="pre">実行文</span></code> を繰り返すには次のように書きます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+    <span class="n">実行文</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> で始まる行の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に処理対象となるリスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> が、<code class="docutils literal notranslate"><span class="pre">in</span></code> の前に変数 <code class="docutils literal notranslate"><span class="pre">value</span></code> が書かれます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> の最初の要素、すなわち <code class="docutils literal notranslate"><span class="pre">ls[0]</span></code> が <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入され <code class="docutils literal notranslate"><span class="pre">実行文</span></code> が処理されます。 <code class="docutils literal notranslate"><span class="pre">実行文</span></code> の処理が終われば、<code class="docutils literal notranslate"><span class="pre">ls</span></code> の次の要素が <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入され、処理が繰り返されます。 このようにして、<code class="docutils literal notranslate"><span class="pre">ls</span></code> の要素に対する処理が <code class="docutils literal notranslate"><span class="pre">len(ls)</span></code> 回が繰り返されると、for文の処理が終了します。</p>
 <p>ここでの <code class="docutils literal notranslate"><span class="pre">in</span></code> の働きは、先に説明したリスト要素の有無を検査する <code class="docutils literal notranslate"><span class="pre">in</span></code> とは異なることに、 そして、if文と同様、 <code class="docutils literal notranslate"><span class="pre">実行文</span></code> の前にはスペースが必要であることに注意してください。</p>
-<p>次に具体例を示します。 3つの要素を持つリスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> から1つずつ要素を取り出し、変数 <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入しています。 実行文では <code class="docutils literal notranslate"><span class="pre">value</span></code> を用いて取り出した要素にアクセスしています。</p>
+<p>次に具体例を示します。 3つの要素を持つリスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> から1つずつ要素を取り出し、変数 <code class="docutils literal notranslate"><span class="pre">value</span></code> に代入しています。 <code class="docutils literal notranslate"><span class="pre">実行文</span></code> では <code class="docutils literal notranslate"><span class="pre">value</span></code> を用いて取り出した要素を参照しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
@@ -2180,6 +2214,10 @@ False
 <div class="section" id="for文による繰り返しと文字列">
 <h2>for文による繰り返しと文字列<a class="headerlink" href="#for文による繰り返しと文字列" title="Permalink to this headline">¶</a></h2>
 <p>for文を使うと文字列全体にまたがる処理も可能です。 文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> をまたがって一文字ずつの繰り返し処理を行う場合は次のように書きます。 ここで、<code class="docutils literal notranslate"><span class="pre">c</span></code> には取り出された一文字（の文字列）が代入されています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">str1</span><span class="p">:</span>
+    <span class="n">実行文</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">str1</span></code> で与えられる文字列を一文字ずつ大文字で出力する処理は以下のようになります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
@@ -2299,7 +2337,7 @@ N
 </pre></div></div>
 </div>
 <p>すなわち、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="n">を含む式</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リストを返す式</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="n">を含む式</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">リストを返す式</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>という式は、&quot;リストを返す式&quot; が返したリストの各要素を <code class="docutils literal notranslate"><span class="pre">x</span></code> に代入して &quot;<code class="docutils literal notranslate"><span class="pre">x</span></code> を含む式&quot; を計算し、 その結果をリストにして返します。 もちろん、変数は <code class="docutils literal notranslate"><span class="pre">x</span></code> でなくてもよいです。</p>
@@ -2750,7 +2788,7 @@ True
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -2763,8 +2801,7 @@ True
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -2805,6 +2842,7 @@ True
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -2813,13 +2851,13 @@ True
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="2-1.html" title="previous chapter">2-1. 文字列 (string)</a></li>
       <li>Next: <a href="2-3.html" title="next chapter">2-3. <strong>条件分岐</strong></a></li>
   </ul></li>

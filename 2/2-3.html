@@ -41,11 +41,9 @@
   
 
     <div class="document">
-
 <div class="section" id="collab_link">
 <a href="https://colab.research.google.com/github/UTokyo-IPP/utpython/blob/master/2/2-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </div>
-
 
       <div class="documentwrapper">
         <div class="bodywrapper">
@@ -284,7 +282,7 @@ div.rendered_html tbody tr:hover {
 <p>ここではまず「インデント」について説明し、そのあとで条件分岐について説明します。</p>
 <div class="section" id="インデントによる構文">
 <h2>インデントによる構文<a class="headerlink" href="#インデントによる構文" title="Permalink to this headline">¶</a></h2>
-<p>条件分岐の前に、Pythonの<strong>インデント</strong>（行頭の空白、字下げ）について説明します。 Pythonのインデントは実行文をグループにまとめる機能をもちます。</p>
+<p>条件分岐の前に、Pythonの<strong>インデント</strong>（行頭の空白、字下げ）について説明します。 Pythonのインデントは実行文をグループにまとめる機能を持ちます。</p>
 <p>プログラム文はインデントレベル（深さ）の違いによって異なるグループとして扱われます。 細かく言えば、インデントレベルが進む（深くなる）とプログラム文はもとのグループの下に位置する 別のグループに属するものとして扱われます。 逆に、インデントレベルが戻る（浅くなる）までプログラム文は同じグループに属することになります。</p>
 <p>具体例として、第1回で定義した関数 <code class="docutils literal notranslate"><span class="pre">bmax()</span></code> を使って説明します:</p>
 <div class="nbinput docutils container">
@@ -319,26 +317,21 @@ Hello World
 <div class="section" id="if-...-else-による条件分岐">
 <h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐<a class="headerlink" href="#if-...-else-による条件分岐" title="Permalink to this headline">¶</a></h2>
 <p>これまで関数 <code class="docutils literal notranslate"><span class="pre">bmax</span></code> を例にとって説明しましたが、一般にif文では、 <code class="docutils literal notranslate"><span class="pre">式</span></code> が真であれば <code class="docutils literal notranslate"><span class="pre">if</span></code> 直後のグループが、偽であれば <code class="docutils literal notranslate"><span class="pre">else</span></code> 直後のグループが、それぞれ実行されます。（真であった場合、<code class="docutils literal notranslate"><span class="pre">else</span></code> 直後のグループは実行されません。）</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式:
     ここのグループは「式」が真のときにのみ実行される
 else:
     ここのグループは「式」が偽のときにのみ実行される
 </pre></div>
 </div>
-<hr class="docutils" />
 <p>また、<code class="docutils literal notranslate"><span class="pre">else</span></code> は省略することができます。省略した場合、「式」が真のときに <code class="docutils literal notranslate"><span class="pre">if</span></code> 直後のグループが実行されるのみになります。</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式:
     ここのグループは「式」が真のときにのみ実行される
 ここのグループは常に実行される
 </pre></div>
 </div>
-<hr class="docutils" />
 <p>条件が複雑になってくると、if文の中にさらにif文を記述して、条件分岐を<strong>入れ子</strong>（<strong>ネスト</strong>）にすることがあります。 この場合は、インデントはさらに深くなります。</p>
 <p>そして、下の2つのプロラムの動作は明らかに異なることに注意が必要です。</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式1:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
     ここのグループは「式1」が真のときにのみ実行される
     if 式2:
         ここのグループは「式1」「式2」が共に真のときにのみ実行される
@@ -349,8 +342,7 @@ else:
 ここのグループは常に実行される
 </pre></div>
 </div>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式1:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
     ここのグループは「式1」が真のときにのみ実行される
 ここのグループは常に実行される
 if 式2:
@@ -362,13 +354,11 @@ if 式3:
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="if-...-elif-...-else-による条件分岐">
 <h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐<a class="headerlink" href="#if-...-elif-...-else-による条件分岐" title="Permalink to this headline">¶</a></h2>
 <p>ここまでで <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> 文について紹介しましたが、複数の条件分岐を続けて書くことができる <code class="docutils literal notranslate"><span class="pre">elif</span></code> を紹介します。</p>
 <p>たとえばテストの点数から評定（優、良、可、…）を計算したい場合など、「条件1のときは処理1、条件1に該当しなくても条件2であれば処理2、更にどちらでもない場合、条件3であれば処理3、…」という処理を考えます。 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> による文のみでこの処理を行う場合、次のようなプログラムになってしまいます:</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式1:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
     「式1」が真のときにのみ実行するグループ
 else:
     if 式2:
@@ -380,10 +370,8 @@ else:
             ...
 </pre></div>
 </div>
-<hr class="docutils" />
 <p>このような場合には、以下のように <code class="docutils literal notranslate"><span class="pre">elif</span></code> を使うとより簡潔にできます:</p>
-<hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>if 式1:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
     ここのグループは「式1」が真のときにのみ実行される
 elif 式2:
     ここのグループは「式1」が偽 かつ「式2」が真のときにのみ実行される
@@ -393,7 +381,6 @@ else:
     ここのグループは「式1」「式2」「式3」がいずれも偽のときにのみ実行される
 </pre></div>
 </div>
-<hr class="docutils" />
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> では、条件は上から順に評価され、式が真の場合、 直後の実行文グループのみが実行され終了します。 その他の場合、すなわちすべての条件が <code class="docutils literal notranslate"><span class="pre">False</span></code> のときは、<code class="docutils literal notranslate"><span class="pre">else</span></code> 以降のグループが実行されます。</p>
 <p>なお、<code class="docutils literal notranslate"><span class="pre">elif</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">else</span></code> 以降を省略することも可能です。</p>
 </div>
@@ -514,7 +501,7 @@ x, y and z are different and negatives.
 </div>
 <div class="section" id="if-...-elif-...-else-における条件の評価">
 <h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> における条件の評価<a class="headerlink" href="#if-...-elif-...-else-における条件の評価" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">if</span></code> と <code class="docutils literal notranslate"><span class="pre">elif</span></code> による条件分岐では、<code class="docutils literal notranslate"><span class="pre">if</span></code> あるいは <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合、 それ以降の <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式の評価はおこなわれません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> と <code class="docutils literal notranslate"><span class="pre">elif</span></code> による条件分岐では、<code class="docutils literal notranslate"><span class="pre">if</span></code> あるいは <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合、 それ以降の <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式の評価は行われません。</p>
 <p>以下のプログラムで <code class="docutils literal notranslate"><span class="pre">x</span></code> を <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">-4</span></code> とした際に何が表示されるかを予想したのちに実行してみましょう。</p>
 <p>特に、 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-4</span></code> としたときの動作に注意してください。（<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">zero.</span></code> は表示されません。）</p>
 <div class="nbinput docutils container">
@@ -767,7 +754,7 @@ x is less than 1
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../toc.html">Pythonプログラミング入門
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門
 </a></h1>
 
 
@@ -780,8 +767,7 @@ x is less than 1
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_guidance/guidance1.html">Pythonの準備</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -817,6 +803,7 @@ x is less than 1
 <li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">1-0. Jupyter Notebook の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
@@ -825,13 +812,13 @@ x is less than 1
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology_index.html">索引</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../toc.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="2-2.html" title="previous chapter">2-2. リスト (list)</a></li>
       <li>Next: <a href="../3/3-1.html" title="next chapter">3-1. 辞書 (dictionary)</a></li>
   </ul></li>
